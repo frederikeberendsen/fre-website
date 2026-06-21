@@ -423,8 +423,10 @@
       <div class="eyebrow">Stay close</div>
       <h2>Join FRÉ's <em>world</em></h2>
       <p class="body" style="margin:0 auto;">New songs, shows and behind-the-scenes — straight to you, no algorithm in between.</p>
-      <form class="form" onsubmit="return false;">
-        <input type="email" placeholder="your@email.com" />
+      <form class="form" name="join" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="join" />
+        <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
+        <input type="email" name="email" placeholder="your@email.com" required />
         <button class="btn btn-gold" type="submit">Join</button>
       </form>
     </div>
