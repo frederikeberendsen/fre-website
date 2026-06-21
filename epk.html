@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FRÉ — EPK / Press Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --plum:#1b0f17; --plum-soft:#271620; --cream:#f3e9dc; --muted:#c9b3b8;
+      --magenta:#c0356b; --gold:#e6d6a0; --line:#3a2530; --max:880px;
+      --serif:"Playfair Display",Georgia,serif; --serif-body:"EB Garamond",Georgia,serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--plum);color:var(--cream);font-family:var(--serif-body);font-size:18px;line-height:1.65}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+    a{color:inherit}
+    header.epk{padding:40px 28px 10px;text-align:center}
+    .logo{font-family:var(--serif);font-weight:700;color:var(--magenta);font-size:clamp(48px,11vw,90px);line-height:1;letter-spacing:.03em}
+    .kicker{font-family:var(--serif);font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-size:13px;margin-top:10px}
+    .lang-switch{display:flex;gap:8px;justify-content:center;margin:22px 0 0}
+    .lang-switch button{font-family:var(--serif);font-style:italic;letter-spacing:.08em;font-size:14px;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:2px;padding:7px 16px;cursor:pointer;transition:all .2s}
+    .lang-switch button.on{background:var(--gold);color:#2a2210;border-color:var(--gold)}
+    section{padding:46px 0;border-top:1px solid var(--line)}
+    section:first-of-type{border-top:none}
+    .eyebrow{color:var(--gold);font-family:var(--serif);font-style:italic;letter-spacing:.18em;text-transform:uppercase;font-size:12px;margin-bottom:14px}
+    h2{font-family:var(--serif);font-weight:700;font-size:clamp(24px,4vw,34px);margin-bottom:18px}
+    p{max-width:640px;margin-bottom:14px}
+    .muted{color:var(--muted)}
+    em{color:var(--magenta);font-style:italic}
+    .quotes{display:grid;gap:18px;grid-template-columns:1fr 1fr;margin-top:8px}
+    .quote{background:var(--plum-soft);border:1px solid var(--line);border-radius:6px;padding:20px}
+    .quote p{font-family:var(--serif);font-style:italic;font-size:18px;margin:0}
+    .quote span{display:block;margin-top:10px;color:var(--gold);font-size:13px;font-family:var(--serif)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:8px}
+    .grid a{display:block;position:relative;border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+    .grid img{width:100%;height:150px;object-fit:cover;display:block;transition:transform .3s}
+    .grid a:hover img{transform:scale(1.05)}
+    .dl{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+    .dl a{display:inline-block;padding:11px 20px;border:1px solid var(--muted);border-radius:2px;font-family:var(--serif);font-size:14px;letter-spacing:.04em;text-decoration:none}
+    .dl a:hover{background:var(--gold);color:#2a2210;border-color:var(--gold)}
+    .rows div{padding:10px 0;border-bottom:1px solid var(--line)}
+    .rows b{color:var(--cream);font-family:var(--serif)}
+    .contact a{color:var(--gold);text-decoration:none}
+    .back{display:inline-block;margin:8px 0 0;color:var(--muted);font-family:var(--serif);font-style:italic;text-decoration:none}
+    footer{padding:36px 0 60px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+    @media(max-width:600px){.quotes{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="epk">
+    <div class="logo">FRÉ</div>
+    <div class="kicker" data-k="kicker"></div>
+    <div class="lang-switch">
+      <button data-l="nl">NL</button>
+      <button data-l="en">EN</button>
+      <button data-l="de">DE</button>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <!-- BIO -->
+    <section>
+      <div class="eyebrow" data-k="bioLabel"></div>
+      <h2 data-k="shortBioLabel"></h2>
+      <p data-k="shortBio"></p>
+      <h2 style="margin-top:30px" data-k="longBioLabel"></h2>
+      <p class="muted" data-k="longBio"></p>
+    </section>
+
+    <!-- PRESS -->
+    <section>
+      <div class="eyebrow" data-k="quotesLabel"></div>
+      <div class="quotes">
+        <div class="quote"><p data-k="q1"></p><span>— Menno Visser · Radio 2 / 3FM</span></div>
+        <div class="quote"><p data-k="q2"></p><span>— Hijlco Span · Radio 5</span></div>
+        <div class="quote"><p data-k="q3"></p><span>— Frits Spits · Radio 1</span></div>
+      </div>
+    </section>
+
+    <!-- LIVE & TEAM -->
+    <section>
+      <div class="eyebrow" data-k="liveLabel"></div>
+      <div class="rows">
+        <div><b data-k="instLabel"></b> <span data-k="inst"></span></div>
+        <div><b data-k="danceLabel"></b> Nanda van de Vorle &amp; Marc Beaugendre</div>
+        <div><b data-k="prodLabel"></b> Julian Bohn, Wannes Notenbaert, Sam Shudder</div>
+        <div><b data-k="styLabel"></b> Philine van den Hul</div>
+      </div>
+    </section>
+
+    <!-- PHOTOS -->
+    <section>
+      <div class="eyebrow" data-k="photosLabel"></div>
+      <p class="muted" data-k="photosNote"></p>
+      <div class="grid">
+        <a href="images/green-armsup-wide.jpeg" target="_blank"><img src="images/green-armsup-wide.jpeg" alt=""></a>
+        <a href="images/mesh-sunset-wide.jpeg" target="_blank"><img src="images/mesh-sunset-wide.jpeg" alt=""></a>
+        <a href="images/red-slip-warm.jpeg" target="_blank"><img src="images/red-slip-warm.jpeg" alt=""></a>
+        <a href="images/gold-crouch.jpeg" target="_blank"><img src="images/gold-crouch.jpeg" alt=""></a>
+        <a href="images/pleated-bw.jpg" target="_blank"><img src="images/pleated-bw.jpg" alt=""></a>
+        <a href="images/nmoadp-tattoo.jpg" target="_blank"><img src="images/nmoadp-tattoo.jpg" alt=""></a>
+      </div>
+    </section>
+
+    <!-- DOWNLOADS -->
+    <section>
+      <div class="eyebrow" data-k="downloadsLabel"></div>
+      <div class="dl">
+        <a href="#" data-k="riderSolo"></a>
+        <a href="#" data-k="riderDancers"></a>
+        <a href="#" data-k="conduct"></a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact">
+      <div class="eyebrow" data-k="contactLabel"></div>
+      <div class="rows">
+        <div><b data-k="mgmtLabel"></b> Christian Fictoor — iGNITE! Music · <a href="mailto:chris@ignitemusic.agency">chris@ignitemusic.agency</a></div>
+        <div><b data-k="bookLabel"></b> Lisanne Sinnema — iGNITE! Music · <a href="mailto:lisanne@ignitemusic.agency">lisanne@ignitemusic.agency</a></div>
+      </div>
+    </section>
+
+    <a class="back" href="index.html" data-k="back"></a>
+  </div>
+
+  <footer>FRÉ · <span data-k="updated"></span></footer>
+
+  <script>
+    const I = {
+      nl:{
+        kicker:"Press Kit", bioLabel:"Bio",
+        shortBioLabel:"Korte bio",
+        shortBio:"FRÉ is een opkomende kracht in de internationale popscene, op het snijvlak van pop en indie — geïnspireerd door Billie Eilish, Joni Mitchell en Bon Iver, met een eigen, onconventioneel geluid. Ze zet zich in voor gelijke rechten en een leefbare planeet.",
+        longBioLabel:"Biografie",
+        longBio:"FRÉ (Frederike Berendsen) richtte in 2021 de Nederlandse tak van Music Declares Emergency op. In 2025 werd zij benoemd tot HERO binnen de Global Cultural Narratives Circle. Ze bracht het album <em>Gemini</em> uit op duurzaam vinyl, met releaseconcert in Paradiso. Momenteel werkt zij aan haar volgende album <em>Where We Meet</em> in New York City met internationaal gerenommeerde muzikanten. Op het podium toont zij zich volledig als artiest die niet bang is om te schitteren.",
+        quotesLabel:"Pers",
+        q1:"\"Afgelopen donderdag liet ik mij verrassen door FRÉ… Het was gewoon écht heel goed!\"",
+        q2:"\"Je hebt echt een aanstekelijk enthousiasmerende EP uitgebracht, met belangrijke verhalen erin.\"",
+        q3:"\"Dit is zo'n liedje wat je wilt blijven onthouden, heel bijzonder en boeiend.\"",
+        liveLabel:"Live-setup & team",
+        instLabel:"Zang, instrumenten, live-productie, dans:", inst:"Frederike Berendsen",
+        danceLabel:"Dans & choreografie:", prodLabel:"Productie:", styLabel:"Styling / fotografie:",
+        photosLabel:"Persfoto's", photosNote:"Klik om te openen / downloaden. Foto's: Philine van den Hul.",
+        downloadsLabel:"Downloads",
+        riderSolo:"Tech & Hospitality Rider (solo)", riderDancers:"Tech & Hospitality Rider (met dansers)", conduct:"Code of Conduct",
+        contactLabel:"Contact & boeking", mgmtLabel:"Management:", bookLabel:"Booking:",
+        back:"← terug naar fremusic", updated:"EPK — laatst bijgewerkt juni 2026"
+      },
+      en:{
+        kicker:"Press Kit", bioLabel:"Bio",
+        shortBioLabel:"Short bio",
+        shortBio:"FRÉ is a new force in international pop, at the edge of pop and indie — drawing on Billie Eilish, Joni Mitchell and Bon Iver with an unconventional sound of her own. She stands for equal rights and a livable planet.",
+        longBioLabel:"Biography",
+        longBio:"FRÉ (Frederike Berendsen) founded the Dutch branch of Music Declares Emergency in 2021. In 2025 she was named a HERO within the Global Cultural Narratives Circle. She released her album <em>Gemini</em> on sustainable vinyl, with a release concert at Paradiso. She is currently recording her next album <em>Where We Meet</em> in New York City with renowned international musicians. On stage she shows herself fully as an artist who isn't afraid to shine.",
+        quotesLabel:"Press",
+        q1:"\"Pleasantly surprised by FRÉ at her release concert — it was just really good!\"",
+        q2:"\"An infectious, energizing EP, with important stories in it.\"",
+        q3:"\"One of those songs you want to remember — very special and captivating.\"",
+        liveLabel:"Live setup & team",
+        instLabel:"Voice, instruments, live production, dance:", inst:"Frederike Berendsen",
+        danceLabel:"Dance & choreography:", prodLabel:"Production:", styLabel:"Styling / photography:",
+        photosLabel:"Press photos", photosNote:"Click to open / download. Photos: Philine van den Hul.",
+        downloadsLabel:"Downloads",
+        riderSolo:"Tech & Hospitality Rider (solo)", riderDancers:"Tech & Hospitality Rider (with dancers)", conduct:"Code of Conduct",
+        contactLabel:"Contact & booking", mgmtLabel:"Management:", bookLabel:"Booking:",
+        back:"← back to fremusic", updated:"EPK — last updated June 2026"
+      },
+      de:{
+        kicker:"Pressemappe", bioLabel:"Bio",
+        shortBioLabel:"Kurzbio",
+        shortBio:"FRÉ ist eine neue Kraft im internationalen Pop, an der Schnittstelle von Pop und Indie — inspiriert von Billie Eilish, Joni Mitchell und Bon Iver, mit einem eigenen, unkonventionellen Klang. Sie setzt sich für gleiche Rechte und einen lebenswerten Planeten ein.",
+        longBioLabel:"Biografie",
+        longBio:"FRÉ (Frederike Berendsen) gründete 2021 den niederländischen Zweig von Music Declares Emergency. 2025 wurde sie als HERO im Global Cultural Narratives Circle ausgezeichnet. Ihr Album <em>Gemini</em> erschien auf nachhaltigem Vinyl, mit einem Releasekonzert im Paradiso. Derzeit nimmt sie ihr nächstes Album <em>Where We Meet</em> in New York City mit international renommierten Musikern auf. Auf der Bühne zeigt sie sich ganz als Künstlerin, die keine Angst hat zu strahlen.",
+        quotesLabel:"Presse",
+        q1:"\"Letzten Donnerstag ließ ich mich von FRÉ überraschen — es war einfach richtig gut!\"",
+        q2:"\"Eine ansteckend begeisternde EP, mit wichtigen Geschichten.\"",
+        q3:"\"Das ist so ein Lied, das man sich merken möchte — sehr besonders und fesselnd.\"",
+        liveLabel:"Live-Setup & Team",
+        instLabel:"Gesang, Instrumente, Live-Produktion, Tanz:", inst:"Frederike Berendsen",
+        danceLabel:"Tanz & Choreografie:", prodLabel:"Produktion:", styLabel:"Styling / Fotografie:",
+        photosLabel:"Pressefotos", photosNote:"Zum Öffnen / Herunterladen klicken. Fotos: Philine van den Hul.",
+        downloadsLabel:"Downloads",
+        riderSolo:"Tech & Hospitality Rider (solo)", riderDancers:"Tech & Hospitality Rider (mit Tänzern)", conduct:"Code of Conduct",
+        contactLabel:"Kontakt & Booking", mgmtLabel:"Management:", bookLabel:"Booking:",
+        back:"← zurück zu fremusic", updated:"EPK — zuletzt aktualisiert Juni 2026"
+      }
+    };
+    function setLang(l){
+      document.documentElement.lang = l;
+      document.querySelectorAll('[data-k]').forEach(function(el){ el.innerHTML = I[l][el.dataset.k] || ''; });
+      document.querySelectorAll('.lang-switch button').forEach(function(b){ b.classList.toggle('on', b.dataset.l===l); });
+      try{ localStorage.setItem('epklang', l); }catch(e){}
+    }
+    document.querySelectorAll('.lang-switch button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.l); }); });
+    var saved = 'nl'; try{ saved = localStorage.getItem('epklang') || 'nl'; }catch(e){}
+    setLang(saved);
+  </script>
+</body>
+</html>

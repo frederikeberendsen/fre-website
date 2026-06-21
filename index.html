@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FRÉ — Songs for a living future</title>
+  <meta name="description" content="FRÉ — songs for a living future. Intimate, cinematic pop about courage, connection and the climate crisis. Listen, watch live and join the world of FRÉ." />
+  <link rel="icon" href="images/butterfly.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FRÉ — Songs for a living future" />
+  <meta property="og:description" content="Intimate, cinematic pop about courage, connection and a living future." />
+  <meta property="og:image" content="images/green-armsup-wide.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #1b0f17;        /* deep aubergine background */
+      --plum-soft: #271620;
+      --cream: #f3e9dc;       /* warm off-white text */
+      --muted: #c9b3b8;       /* dusty mauve */
+      --magenta: #c0356b;     /* FRÉ logo pink */
+      --gold: #e6d6a0;        /* Gemini gold/cream */
+      --line: #3a2530;
+      --max: 900px;
+      --serif: "Playfair Display", Georgia, serif;
+      --serif-body: "EB Garamond", Georgia, serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--plum);
+      color: var(--cream);
+      font-family: var(--serif-body);
+      font-size: 19px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+    /* NAV */
+    nav {
+      display: flex; align-items: center; justify-content: center; gap: 26px;
+      padding: 26px 20px; font-family: var(--serif); font-style: italic;
+      letter-spacing: 0.14em; font-size: 15px; flex-wrap: wrap;
+    }
+    nav a { color: var(--cream); text-decoration: none; opacity: .85; }
+    nav a:hover { opacity: 1; color: var(--gold); }
+    nav .brand {
+      font-style: normal; font-weight: 700; font-size: 30px;
+      color: var(--magenta); letter-spacing: 0.04em; padding: 0 8px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 84vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 60px 28px 80px;
+      background:
+        linear-gradient(180deg, rgba(27,15,23,.30), rgba(27,15,23,.78)),
+        url('images/green-armsup-wide.jpeg') center 22%/cover no-repeat,
+        var(--plum-soft);
+      border-radius: 0 0 4px 4px;
+    }
+    .hero .logo {
+      font-family: var(--serif); font-weight: 700; color: var(--magenta);
+      font-size: clamp(72px, 18vw, 170px); line-height: 1; letter-spacing: 0.03em;
+      text-shadow: 0 2px 30px rgba(0,0,0,.35);
+    }
+    .hero .tagline {
+      font-family: var(--serif); color: var(--cream);
+      font-size: clamp(22px, 3.4vw, 34px); margin-top: 18px; letter-spacing: 0.02em;
+    }
+    .hero .subtagline {
+      font-family: var(--serif); font-style: italic; color: var(--muted);
+      font-size: clamp(15px, 2.2vw, 19px); margin-top: 14px; max-width: 560px;
+    }
+    .actions { margin-top: 38px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 13px 30px; border-radius: 2px;
+      text-decoration: none; font-family: var(--serif); font-size: 15px;
+      letter-spacing: 0.08em; transition: transform .15s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--magenta); color: #fff; }
+    .btn-gold { background: var(--gold); color: #2a2210; }
+    .btn-ghost { border: 1px solid var(--muted); color: var(--cream); }
+
+    section { padding: 78px 0; border-top: 1px solid var(--line); }
+    .eyebrow { color: var(--gold); font-family: var(--serif); font-style: italic; letter-spacing: 0.18em; text-transform: uppercase; font-size: 13px; margin-bottom: 16px; }
+    h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin-bottom: 22px; }
+    h2 em { color: var(--magenta); font-style: italic; }
+    p.lead { font-size: 22px; max-width: 640px; }
+    p.body { color: var(--muted); max-width: 640px; margin-top: 16px; }
+
+    /* LISTEN */
+    .release {
+      background: var(--plum-soft); border: 1px solid var(--line); border-radius: 6px;
+      padding: 30px; display: flex; gap: 26px; align-items: center; flex-wrap: wrap;
+    }
+    .release .art {
+      width: 150px; height: 150px; border-radius: 4px; flex: none;
+      object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,.4);
+    }
+    .portrait {
+      width: 300px; max-width: 42%; border-radius: 6px; float: right;
+      margin: 4px 0 16px 30px; box-shadow: 0 10px 36px rgba(0,0,0,.4);
+    }
+    .words-cover { width: 200px; border-radius: 4px; margin-top: 24px; box-shadow: 0 8px 30px rgba(0,0,0,.4); }
+    @media (max-width: 600px) { .portrait { float: none; width: 100%; max-width: 100%; margin: 0 0 20px; } }
+    .release .meta { flex: 1; min-width: 220px; }
+    .release h3 { font-family: var(--serif); font-size: 26px; margin-bottom: 6px; }
+
+    /* DISCOGRAPHY */
+    .disco-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 24px; margin-top: 12px; }
+    .disco .cover { width: 100%; aspect-ratio: 1/1; border-radius: 4px; object-fit: cover; box-shadow: 0 8px 26px rgba(0,0,0,.35); }
+    .disco .cover.ph { background: linear-gradient(135deg, #7a8a3e, #c0356b); display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px; color: #fff; font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.3; }
+    .disco h4 { font-family: var(--serif); font-size: 18px; margin-top: 14px; line-height: 1.25; }
+    .disco .yr { color: var(--muted); font-size: 14px; margin-top: 2px; }
+    .disco a { display: inline-block; margin-top: 8px; color: var(--gold); text-decoration: none; font-family: var(--serif); font-style: italic; font-size: 14px; letter-spacing: 0.05em; }
+    .disco a:hover { color: var(--magenta); }
+
+    /* QUOTES */
+    .quotes { display: grid; gap: 20px; grid-template-columns: 1fr 1fr; margin-top: 12px; }
+    .quote { background: var(--plum-soft); border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
+    .quote p { font-family: var(--serif); font-style: italic; font-size: 19px; }
+    .quote span { display: block; margin-top: 14px; color: var(--gold); font-size: 13px; font-style: normal; letter-spacing: 0.05em; font-family: var(--serif); }
+    .radios { margin-top: 24px; color: var(--muted); font-style: italic; letter-spacing: 0.06em; }
+
+    /* SHOWS */
+    .show { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+    .show .date { color: var(--gold); font-family: var(--serif); font-size: 20px; min-width: 90px; }
+    .show .name { flex: 1; min-width: 200px; }
+
+    /* JOIN */
+    .join { text-align: center; background: var(--plum-soft); }
+    .form { margin-top: 26px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .form input { padding: 14px 20px; border-radius: 2px; border: 1px solid var(--line); background: var(--plum); color: var(--cream); min-width: 280px; font-family: var(--serif-body); font-size: 17px; }
+
+    /* FOOTER */
+    footer { padding: 54px 0 70px; border-top: 1px solid var(--line); text-align: center; color: var(--muted); }
+    .socials { display: flex; gap: 24px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; font-family: var(--serif); font-style: italic; letter-spacing: 0.06em; }
+    .socials a { text-decoration: none; color: var(--muted); }
+    .socials a:hover { color: var(--gold); }
+    .loves { font-family: var(--serif); font-style: italic; color: var(--magenta); font-size: 20px; }
+    .work { margin-top: 18px; font-size: 15px; }
+    .work a { color: var(--muted); }
+
+    @media (max-width: 600px) { .quotes { grid-template-columns: 1fr; } nav { gap: 16px; } }
+
+    /* ✨ SPARKLES */
+    .sparkle {
+      position: fixed; pointer-events: none; z-index: 9999; line-height: 1;
+      transform: translate(-50%,-50%); will-change: transform, opacity;
+      background-image: linear-gradient(135deg, #ffffff, #cfe0f7, #6f9be0, #f2f6fc, #a9bbdd);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+      filter: drop-shadow(0 0 3px rgba(226,233,248,.85)) drop-shadow(0 0 1px rgba(255,255,255,.95));
+    }
+    @keyframes sparkle-fade {
+      0%   { opacity: 0; transform: translate(-50%,-50%) scale(0) rotate(0deg); }
+      25%  { opacity: 1; transform: translate(-50%,-50%) scale(1.15) rotate(40deg); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.2) rotate(140deg); }
+    }
+
+    /* scroll reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* delightful hovers */
+    .disco .cover { transition: transform .28s ease, box-shadow .28s ease; }
+    .disco:hover .cover { transform: translateY(-7px) scale(1.02); box-shadow: 0 18px 44px rgba(192,53,107,.40); }
+    .release .art { transition: transform .35s ease; }
+    .release:hover .art { transform: scale(1.04) rotate(-1.5deg); }
+    h2, .disco h4 { transition: color .25s ease; }
+    h2:hover { color: var(--gold); }
+    @media (hover: none) { .sparkle { display: none; } }
+
+    /* 🦋 butterfly cursor */
+    @media (hover: hover) and (pointer: fine) {
+      body { cursor: none; }
+      a, button { cursor: none; }
+      input { cursor: text; }
+    }
+    .butterfly-cursor {
+      position: fixed; top: 0; left: 0; width: 132px; height: 132px;
+      pointer-events: none; z-index: 10000; will-change: transform;
+      transform: translate(-50%, -50%);
+    }
+    .butterfly-cursor img {
+      width: 100%; height: 100%; display: block;
+      filter: drop-shadow(0 0 5px rgba(50,25,45,.55)) drop-shadow(0 0 12px rgba(230,214,160,.25));
+      animation: flap 1750ms ease-in-out infinite;
+      transform-origin: 50% 50%;
+    }
+    @keyframes flap {
+      0%, 100% { transform: scaleX(1) scaleY(1); }
+      50%      { transform: scaleX(0.40) scaleY(1.07); }
+    }
+    @media (hover: none) { .butterfly-cursor { display: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#listen">Music</a>
+    <a href="#live">Live</a>
+    <a href="#about">About</a>
+    <span class="brand">FRÉ</span>
+    <a href="#words">Words</a>
+    <a href="#speaking">Speaking</a>
+    <a href="#join">Join</a>
+    <a href="#connect">Connect</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="logo">FRÉ</div>
+    <div class="tagline">Songs for a living future</div>
+    <div class="actions">
+      <a class="btn btn-primary" href="#listen">Listen</a>
+      <a class="btn btn-gold" href="#join">Join my world</a>
+      <a class="btn btn-ghost" href="#live">Live</a>
+    </div>
+  </header>
+
+  <!-- LISTEN -->
+  <section id="listen">
+    <div class="wrap">
+      <div class="eyebrow">Out now</div>
+      <h2>Wie de Toekomst Ziet</h2>
+      <div class="release">
+        <img class="art" src="images/wdtz-artwork.jpg" alt="Wie de Toekomst Ziet — artwork" />
+        <div class="meta">
+          <h3>Wie de Toekomst Ziet</h3>
+          <p class="body">The closing song of <em>Our Future On Earth</em> — a hymn for everyone who dares to imagine a livable future.</p>
+          <div class="actions" style="margin-top:18px; justify-content:flex-start;">
+            <a class="btn btn-primary" href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Listen on all streaming services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOGRAPHY -->
+  <section id="discography">
+    <div class="wrap">
+      <div class="eyebrow">Discography</div>
+      <h2>The <em>body</em> of work</h2>
+      <p class="body" style="margin-bottom:34px;">Nine years of songwriting — from <em>Nature's Songs</em> (2017) to now.</p>
+      <div class="disco-grid">
+        <div class="disco">
+          <img class="cover" src="images/wdtz-artwork.jpg" alt="Wie de Toekomst Ziet" />
+          <h4>Wie de Toekomst Ziet</h4>
+          <div class="yr">2026 · single</div>
+          <a href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Listen</a>
+        </div>
+        <div class="disco">
+          <img class="cover" src="images/gemini-cover.jpeg" alt="Gemini" />
+          <h4>Gemini</h4>
+          <div class="yr">2025 · album</div>
+          <a href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Listen</a>
+        </div>
+        <div class="disco">
+          <img class="cover" src="images/rose-ep-cover.jpg" alt="Rose EP" />
+          <h4>Rose</h4>
+          <div class="yr">2023 · EP</div>
+          <a href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Listen</a>
+        </div>
+        <div class="disco">
+          <img class="cover" src="images/aeham-fre-live-cover.jpg" alt="Aeham Ahmad &amp; FRÉ — Live" />
+          <h4>Aeham Ahmad &amp; FRÉ — Live</h4>
+          <div class="yr">2022 · live album</div>
+          <a href="https://freband.bandcamp.com/album/aeham-ahmad-fr-live" target="_blank" rel="noopener">Listen</a>
+        </div>
+        <div class="disco">
+          <img class="cover" src="images/palace-cover.jpg" alt="Palace Made of Dreams" />
+          <h4>Palace Made of Dreams</h4>
+          <div class="yr">2021 · single</div>
+          <a href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Listen</a> · <a href="https://www.youtube.com/watch?v=hHNtWA1HNdc" target="_blank" rel="noopener">Video</a>
+        </div>
+        <div class="disco">
+          <img class="cover" src="images/seasons-cover.jpg" alt="Seasons" />
+          <h4>Seasons</h4>
+          <div class="yr">2021 · single</div>
+          <a href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Listen</a>
+        </div>
+        <div class="disco">
+          <img class="cover" src="images/we-rise-cover.jpg" alt="We Rise When We Lift Each Other Up" />
+          <h4>We Rise When We Lift Each Other Up</h4>
+          <div class="yr">2020 · album</div>
+          <a href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Listen</a>
+        </div>
+        <div class="disco">
+          <img class="cover" src="images/natures-songs-cover.jpg" alt="Nature's Songs" />
+          <h4>Nature's Songs</h4>
+          <div class="yr">2017 · album</div>
+          <a href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Listen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="eyebrow">The artist</div>
+      <img class="portrait" src="images/red-slip-warm.jpeg" alt="FRÉ" />
+      <h2>Songs as acts of <em>transformation</em></h2>
+      <p class="lead">FRÉ writes songs about courage and connection — for a generation fighting for equality and a living future.</p>
+      <p class="body">Her music has received airplay on BBC, NPO Radio 1, 3FM and Radio 5, with live performances across the Netherlands, Germany, Belgium, the UK, USA and Finland.</p>
+      <div class="quotes">
+        <div class="quote">
+          <p>"One of those songs that you want to remember — very special and captivating from start to finish."</p>
+          <span>— Fritz Spits, NPO Radio 1</span>
+        </div>
+        <div class="quote">
+          <p>"REALLY good."</p>
+          <span>— Menno Visser, 3FM / Radio 2</span>
+        </div>
+      </div>
+      <div class="radios">Heard on · BBC · NPO Radio 1 · 3FM · Radio 5</div>
+    </div>
+  </section>
+
+  <!-- LIVE -->
+  <section id="live">
+    <div class="wrap">
+      <div class="eyebrow">Live</div>
+      <h2>See FRÉ <em>live</em></h2>
+      <div class="show">
+        <div class="date">28 Jun</div>
+        <div class="name">Defqon.1 — end show feature <span style="color:var(--muted)">· Biddinghuizen, NL</span></div>
+        <a class="btn btn-ghost" href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Info</a>
+      </div>
+      <div class="show">
+        <div class="date">04 Sep</div>
+        <div class="name">Mic In The Face feat. FRÉ <span style="color:var(--muted)">· Odonien, Cologne (DE)</span></div>
+        <a class="btn btn-ghost" href="https://jobeyer.com/mitfinop" target="_blank" rel="noopener">Info</a>
+      </div>
+      <div class="show">
+        <div class="date">2026</div>
+        <div class="name">Our Future On Earth — premiere &amp; tour <span style="color:var(--muted)">· NL</span></div>
+        <a class="btn btn-ghost" href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Tickets</a>
+      </div>
+      <p class="body" style="margin-top:22px;">More dates coming soon — join the list below to hear first.</p>
+    </div>
+  </section>
+
+  <!-- WORDS -->
+  <section id="words">
+    <div class="wrap">
+      <div class="eyebrow">Words</div>
+      <h2>Lyrics &amp; <em>poetry</em></h2>
+      <p class="body">The songs behind the songs — full lyrics from <em>Gemini</em> and new poetry, in Dutch and English.</p>
+      <img class="words-cover" src="images/gemini-cover.jpeg" alt="Gemini album cover" />
+    </div>
+  </section>
+
+  <!-- SPEAKING -->
+  <section id="speaking">
+    <div class="wrap">
+      <div class="eyebrow">Speaking</div>
+      <img class="portrait" src="images/speaking-ejc.jpg" alt="FRÉ speaking" />
+      <h2>A speech &amp; a <em>song</em></h2>
+      <p class="lead">FRÉ speaks — and sings — about hope, music and the climate crisis. The signature is the combination: a personal talk that lands, followed by a live song that makes it unforgettable.</p>
+      <p class="body">Few speakers can sing it. Few musicians can speak it. FRÉ does both — and that's exactly what makes a talk stay with people. For Earth Charter's 25th anniversary she wrote a five-minute speech and then played a song; it landed deeply. She speaks, hosts and performs at festivals, conservatoires, conferences and organisations.</p>
+      <div class="quotes">
+        <div class="quote">
+          <p>"FRÉ presents a gripping personal narrative — deeply inspiring the student community with new knowledge and awareness."</p>
+          <span>— Guy Wood, Royal Conservatoire The Hague</span>
+        </div>
+        <div class="quote">
+          <p>"Her personal story brought the complex issue of biodiversity loss closer to home — with a smile and a tear."</p>
+          <span>— Cor Noltee</span>
+        </div>
+      </div>
+      <div class="radios">Spoken &amp; performed at · Earth Charter +25 · ADE Green · Eurosonic Noorderslag · European Jazz Conference · Royal Conservatoire</div>
+      <div class="actions" style="margin-top:28px; justify-content:flex-start;">
+        <a class="btn btn-primary" href="#connect">Invite FRÉ to speak</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK WITH ME -->
+  <section id="work">
+    <div class="wrap">
+      <div class="eyebrow">Work with me</div>
+      <h2>Producing · songwriting · <em>vocals</em></h2>
+      <p class="body">Beyond my own music, I help other artists bring their songs to life — as producer, co-writer, topliner and singer. Also available for teaching &amp; speaking.</p>
+      <p class="eyebrow" style="margin-top:32px;">Selected credits</p>
+      <div class="disco-grid">
+        <div class="disco">
+          <img class="cover" src="images/asher-grass-cover.jpg" alt="Asher Danziger — Grass Grows Through It" />
+          <h4>Asher Danziger — Grass Grows Through It</h4>
+          <div class="yr">2025 · backing vocals</div>
+          <a href="https://open.spotify.com/track/4lGALddgbc621gwYIiGdVt" target="_blank" rel="noopener">Listen</a>
+        </div>
+        <div class="disco">
+          <img class="cover" src="images/benjamin-moonlight-cover.jpg" alt="Benjamin Fro — Moonlight" />
+          <h4>Benjamin Fro — Moonlight</h4>
+          <div class="yr">2024 · backing vocals</div>
+          <a href="https://open.spotify.com/album/0er3TINjvJTyj0iwcgebhS" target="_blank" rel="noopener">Listen</a>
+        </div>
+        <div class="disco">
+          <img class="cover" src="images/julian-feels-like-home-cover.jpg" alt="Julian Bohn — Feels Like Home" />
+          <h4>Julian Bohn — Feels Like Home</h4>
+          <div class="yr">2023 · co-production · songwriting · vocals</div>
+          <a href="https://open.spotify.com/album/0fhlxq9YfjQ4n7egNys0QN" target="_blank" rel="noopener">Listen</a>
+        </div>
+      </div>
+      <div class="actions" style="margin-top:32px; justify-content:flex-start;">
+        <a class="btn btn-ghost" href="#connect">Let's work together</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section id="join" class="join">
+    <div class="wrap">
+      <div class="eyebrow">Stay close</div>
+      <h2>Join FRÉ's <em>world</em></h2>
+      <p class="body" style="margin:0 auto;">New songs, shows and behind-the-scenes — straight to you, no algorithm in between.</p>
+      <form class="form" onsubmit="return false;">
+        <input type="email" placeholder="your@email.com" />
+        <button class="btn btn-gold" type="submit">Join</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="connect">
+    <div class="wrap">
+      <div class="socials">
+        <a href="https://instagram.com/fretheband" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@this_is_fre" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://patreon.com/fremusic" target="_blank" rel="noopener">Patreon</a>
+        <a href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Streaming</a>
+      </div>
+      <div class="loves">FRÉ loves you</div>
+      <div class="work">Management: Christian · <a href="#speaking">Speaking</a> · <a href="#work">Work with me</a> · <a href="epk.html">EPK / Press kit</a></div>
+      <div style="margin-top:14px; font-size:13px;">© 2026 FRÉ</div>
+    </div>
+  </footer>
+
+  <div class="butterfly-cursor" aria-hidden="true"><img src="images/butterfly-white.png" alt="" /></div>
+
+  <script>
+  (function(){
+    const glyphs = ['✦', '✧', '⋆', '·', '✺'];
+    function spark(x, y, opts){
+      opts = opts || {};
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.textContent = glyphs[(Math.random() * glyphs.length) | 0];
+      s.style.left = x + 'px';
+      s.style.top = y + 'px';
+      // random gradient angle => each fleck catches the light differently (reflective silver)
+      s.style.backgroundImage = 'linear-gradient(' + ((Math.random() * 360) | 0) + 'deg, #ffffff, #d4e3f8, #6f9be0, #f3f6fc, #a9bbdd)';
+      const dist = opts.dist != null ? opts.dist : (10 + Math.random() * 16);
+      const ang = opts.ang != null ? opts.ang : Math.random() * Math.PI * 2;
+      s.style.setProperty('--dx', Math.cos(ang) * dist + 'px');
+      s.style.setProperty('--dy', (Math.sin(ang) * dist - (opts.rise || 10)) + 'px');
+      const base = opts.small ? 4 : 6;
+      s.style.fontSize = (base + Math.random() * 7) + 'px';
+      s.style.animation = 'sparkle-fade ' + (650 + Math.random() * 550) + 'ms ease-out forwards';
+      document.body.appendChild(s);
+      setTimeout(function(){ s.remove(); }, 1250);
+    }
+
+    // 🦋 butterfly cursor that "flies" after the mouse, leaving a stardust trail
+    const bf = document.querySelector('.butterfly-cursor');
+    let mx = innerWidth / 2, my = innerHeight / 2;
+    let bx = mx, by = my, px = bx, py = by;
+    let ang = 0; // current heading (deg); butterfly art points "up" by default
+    window.addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; });
+    function loop(){
+      bx += (mx - bx) * 0.13;
+      by += (my - by) * 0.13;
+      const vx = bx - px, vy = by - py; px = bx; py = by;
+      const speed = Math.hypot(vx, vy);
+      if (speed > 0.6) {
+        // point the butterfly's head toward the direction it's flying
+        const target = Math.atan2(vy, vx) * 180 / Math.PI + 90;
+        let diff = ((target - ang + 540) % 360) - 180; // shortest turn
+        ang += diff * 0.18; // ease into the turn
+      } else {
+        // mouse still → gracefully stabilize back to upright
+        ang = ((ang + 180) % 360 + 360) % 360 - 180; // normalize to [-180,180]
+        ang += (0 - ang) * 0.06;
+      }
+      const bob = Math.sin(Date.now() / 420) * 2.2;
+      if (bf) bf.style.transform = 'translate(' + bx + 'px,' + (by + bob) + 'px) translate(-50%,-50%) rotate(' + ang + 'deg)';
+      // stardust where the butterfly flies
+      if (speed > 0.8 && Math.random() < 0.7) spark(bx + (Math.random() * 22 - 11), by + (Math.random() * 22 - 11), { dist: 7, rise: 5, small: true });
+      requestAnimationFrame(loop);
+    }
+    if (bf) requestAnimationFrame(loop);
+
+    // click burst
+    window.addEventListener('click', function(e){
+      for (let i = 0; i < 18; i++) spark(e.clientX, e.clientY, { ang: (i / 18) * Math.PI * 2, dist: 30 + Math.random() * 40, rise: 0 });
+    });
+    // sparkle over titles + logo
+    document.querySelectorAll('h2, .logo, .disco h4').forEach(function(el){
+      el.addEventListener('mouseenter', function(){
+        const r = el.getBoundingClientRect();
+        for (let i = 0; i < 14; i++) spark(r.left + Math.random() * r.width, r.top + Math.random() * r.height, { dist: 14, rise: 20, small: true });
+      });
+    });
+    // scroll reveal
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('section').forEach(function(s){ s.classList.add('reveal'); io.observe(s); });
+  })();
+  </script>
+
+</body>
+</html>
