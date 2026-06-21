@@ -518,6 +518,24 @@
       entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('section').forEach(function(s){ s.classList.add('reveal'); io.observe(s); });
+
+    // make each album cover clickable (same destination as its first link)
+    document.querySelectorAll('.disco').forEach(function(tile){
+      var cover = tile.querySelector('.cover');
+      var link = tile.querySelector('a');
+      if (cover && link){
+        cover.style.cursor = 'pointer';
+        cover.addEventListener('click', function(){
+          window.open(link.href, link.target === '_blank' ? '_blank' : '_self', 'noopener');
+        });
+      }
+    });
+    // and the "Out now" spotlight artwork
+    (function(){
+      var art = document.querySelector('.release .art');
+      var cta = document.querySelector('.release .btn-primary');
+      if (art && cta){ art.style.cursor = 'pointer'; art.addEventListener('click', function(){ window.open(cta.href, '_blank', 'noopener'); }); }
+    })();
   })();
   </script>
 
