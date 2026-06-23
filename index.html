@@ -29,7 +29,7 @@
       --serif-body: "EB Garamond", Georgia, serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: auto; } /* Lenis handles smoothing */
     body {
       background: var(--plum);
       color: var(--cream);
@@ -122,6 +122,20 @@
     .disco a { display: inline-block; margin-top: 8px; color: var(--gold); text-decoration: none; font-family: var(--serif); font-style: italic; font-size: 14px; letter-spacing: 0.05em; }
     .disco a:hover { color: var(--magenta); }
 
+    /* DISCOGRAPHY — horizontal scroll */
+    .disco-h { position: relative; border-top: 1px solid var(--line); }
+    .disco-h .disco-sticky { display: flex; flex-direction: column; justify-content: center; padding: 78px 0; }
+    .disco-h-head { margin-bottom: 26px; }
+    .disco-h-head .scroll-hint { color: var(--gold); font-style: italic; white-space: nowrap; }
+    .disco-track { display: flex; gap: 30px; padding: 4px 28px 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .disco-track .disco { flex: none; width: 240px; scroll-snap-align: start; }
+    .disco-track .cover { width: 240px; height: 240px; aspect-ratio: auto; }
+    /* when JS enables scroll-jacking on desktop */
+    .disco-h.hjack .disco-sticky { position: sticky; top: 0; height: 100vh; padding: 0; overflow: hidden; }
+    .disco-h.hjack .disco-track { overflow: visible; scroll-snap-type: none; padding: 0 max(28px, calc((100vw - 1120px)/2)); will-change: transform; }
+    .disco-h.hjack .disco-track .disco { width: 300px; }
+    .disco-h.hjack .disco-track .cover { width: 300px; height: 300px; }
+
     /* QUOTES */
     .quotes { display: grid; gap: 20px; grid-template-columns: 1fr 1fr; margin-top: 12px; }
     .quote { background: var(--plum-soft); border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
@@ -165,9 +179,10 @@
       100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.2) rotate(140deg); }
     }
 
-    /* scroll reveal */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s ease; }
-    .reveal.in { opacity: 1; transform: none; }
+    /* scroll reveal — cinematic, staggered */
+    .reveal { opacity: 0; transform: translateY(42px); filter: blur(7px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1), filter .9s ease; }
+    .reveal.in { opacity: 1; transform: none; filter: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; filter: none; transition: none; } }
 
     /* delightful hovers */
     .disco .cover { transition: transform .28s ease, box-shadow .28s ease; }
@@ -245,13 +260,15 @@
     </div>
   </section>
 
-  <!-- DISCOGRAPHY -->
-  <section id="discography">
-    <div class="wrap">
-      <div class="eyebrow">Discography</div>
-      <h2>The <em>body</em> of work</h2>
-      <p class="body" style="margin-bottom:34px;">Nine years of songwriting — from <em>Nature's Songs</em> (2017) to now.</p>
-      <div class="disco-grid">
+  <!-- DISCOGRAPHY (horizontal) -->
+  <section id="discography" class="disco-h">
+    <div class="disco-sticky">
+      <div class="wrap disco-h-head">
+        <div class="eyebrow">Discography</div>
+        <h2>The <em>body</em> of work</h2>
+        <p class="body">Nine years of songwriting — from <em>Nature's Songs</em> (2017) to now. <span class="scroll-hint">— keep scrolling →</span></p>
+      </div>
+      <div class="disco-track">
         <div class="disco">
           <img class="cover" src="images/wdtz-artwork.jpg" alt="Wie de Toekomst Ziet" />
           <h4>Wie de Toekomst Ziet</h4>
@@ -450,6 +467,7 @@
 
   <div class="butterfly-cursor" aria-hidden="true"><img src="images/butterfly-white.png" alt="" /></div>
 
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
   <script>
   (function(){
     const glyphs = ['✦', '✧', '⋆', '·', '✺'];
@@ -498,6 +516,7 @@
       if (bf) bf.style.transform = 'translate(' + bx + 'px,' + (by + bob) + 'px) translate(-50%,-50%) rotate(' + ang + 'deg)';
       // stardust where the butterfly flies
       if (speed > 0.8 && Math.random() < 0.7) spark(bx + (Math.random() * 22 - 11), by + (Math.random() * 22 - 11), { dist: 7, rise: 5, small: true });
+      moveDisco();
       requestAnimationFrame(loop);
     }
     if (bf) requestAnimationFrame(loop);
@@ -513,11 +532,16 @@
         for (let i = 0; i < 14; i++) spark(r.left + Math.random() * r.width, r.top + Math.random() * r.height, { dist: 14, rise: 20, small: true });
       });
     });
-    // scroll reveal
+    // scroll reveal — staggered, per element
     const io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('section').forEach(function(s){ s.classList.add('reveal'); io.observe(s); });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('section, footer').forEach(function(sec){
+      var sel = '.eyebrow, h2, p.lead, p.body, .release, .quotes, .radios, .show, .disco-grid, .words-cover, .portrait, .actions, form, .disco-h-head';
+      var list = Array.prototype.slice.call(sec.querySelectorAll(sel));
+      list = list.filter(function(el){ return !list.some(function(o){ return o !== el && o.contains(el); }); });
+      list.forEach(function(el, i){ el.classList.add('reveal'); el.style.transitionDelay = ((i % 6) * 0.08) + 's'; io.observe(el); });
+    });
 
     // make each album cover clickable (triggers its own link → respects target/_blank)
     document.querySelectorAll('.disco').forEach(function(tile){
@@ -534,6 +558,50 @@
       var cta = document.querySelector('.release .btn-primary');
       if (art && cta){ art.style.cursor = 'pointer'; art.addEventListener('click', function(e){ e.preventDefault(); cta.click(); }); }
     })();
+
+    // 🌀 buttery smooth scroll (Lenis)
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var lenis = null;
+    if (!reduceMotion && window.Lenis) {
+      lenis = new Lenis({ duration: 1.15, easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
+      window.__lenis = lenis;
+      (function rafL(time){ lenis.raf(time); requestAnimationFrame(rafL); })();
+    }
+    // anchor links → smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var href = a.getAttribute('href');
+        if (href.length > 1){ var t = document.querySelector(href); if (t){ e.preventDefault(); if (lenis){ lenis.scrollTo(t, { offset: -12 }); } else { t.scrollIntoView({ behavior: 'smooth' }); } } }
+      });
+    });
+
+    // ↔️ horizontal discography (scroll-jack on desktop, swipe on mobile)
+    var discoH = document.querySelector('.disco-h');
+    var discoTrack = discoH && discoH.querySelector('.disco-track');
+    function sizeDisco(){
+      if (!discoH || !discoTrack) return;
+      var extra = discoTrack.scrollWidth - window.innerWidth + 60;
+      if (extra < 0) extra = 0;
+      discoH._extra = extra;
+      discoH.style.height = (window.innerHeight + extra) + 'px';
+    }
+    function discoMode(){
+      if (!discoH || !discoTrack) return;
+      var small = window.matchMedia('(max-width: 820px)').matches;
+      if (!reduceMotion && !small){ discoH.classList.add('hjack'); sizeDisco(); }
+      else { discoH.classList.remove('hjack'); discoH.style.height = ''; discoTrack.style.transform = ''; }
+    }
+    function moveDisco(){
+      if (!discoH || !discoTrack || !discoH.classList.contains('hjack')) return;
+      var extra = discoH._extra || 0;
+      if (!extra) return;
+      var top = discoH.getBoundingClientRect().top;
+      var prog = Math.min(1, Math.max(0, (-top) / extra));
+      discoTrack.style.transform = 'translateX(' + (-prog * extra) + 'px)';
+    }
+    discoMode();
+    window.addEventListener('load', discoMode);
+    window.addEventListener('resize', discoMode);
   })();
   </script>
 
