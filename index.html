@@ -202,6 +202,16 @@
       50%      { transform: scaleX(0.40) scaleY(1.07); }
     }
     @media (hover: none) { .butterfly-cursor { display: none; } }
+    /* WORDS / lyrics accordion */
+    .lyrics-wrap{margin-top:14px}
+    .side-label{color:var(--gold);font-family:var(--serif);font-style:italic;letter-spacing:.12em;text-transform:uppercase;font-size:13px;margin:26px 0 6px}
+    details.song{border-bottom:1px solid var(--line)}
+    details.song>summary{cursor:pointer;list-style:none;padding:16px 2px;font-family:var(--serif);font-size:22px;color:var(--cream);display:flex;align-items:center;justify-content:space-between;transition:color .2s}
+    details.song>summary::-webkit-details-marker{display:none}
+    details.song>summary:hover{color:var(--gold)}
+    details.song>summary::after{content:'+';color:var(--magenta);font-family:var(--serif);font-size:26px;margin-left:16px;line-height:1}
+    details.song[open]>summary::after{content:'–'}
+    details.song .lyrics{color:var(--muted);font-family:var(--serif-body);font-size:18px;line-height:1.55;padding:2px 2px 26px;white-space:pre-line}
   </style>
 </head>
 <body>
@@ -359,8 +369,540 @@
     <div class="wrap">
       <div class="eyebrow">Words</div>
       <h2>Lyrics &amp; <em>poetry</em></h2>
-      <p class="body">The songs behind the songs — full lyrics from <em>Gemini</em> and new poetry, in Dutch and English.</p>
-      <img class="words-cover" src="images/gemini-cover.jpeg" alt="Gemini album cover" />
+      <p class="body">The songs behind the songs — full lyrics from <em>Gemini</em>, in Dutch and English. Tap a title to read.</p>
+      <div class="lyrics-wrap">
+        <div class="side-label">Side A</div>
+        <details class="song"><summary>Vonken</summary><div class="lyrics">ik sta op een duikplank
+boven een leeg zwembad
+noem me laat puberaal
+onbeschaafd en muzikaal
+vliegen, fantaseren, reflecteren
+ik wil een stabiel huis
+ik wil zoenen met een zachte man
+wil nog lang geen kind
+maar pluk er niet de vluchten van
+ik wil leren eren waar de grenzen zijn
+niet in bochten wringen om minder hier te zijn
+ik wil liedjes schrijven
+ik wil chaos want alles is verbonden met de cosmos
+ik wil leven met seizoenen van de wereld en van m’n lijf
+ik wil naar de wolken kijken
+naakt naar de sterren reiken
+hoef niet rijk te zijn
+als maar iemand mij kan leren
+om nog iets meer te proberen
+om nog iets meer van mezelf te zijn
+want wat je zegt ben je zelf toch?
+Geloof je jezelf nog
+Want jij weet net als ik
+Dat de tijd doortikt
+Moet het allemaal kapot?
+Want wat je zegt ben je zelf toch?
+Geloof je jezelf nog
+Want jij weet net als ik
+Dat de tijd doortikt
+Zijn we zo weer sterrenstof
+ik gun mezelf een simpel leven
+maar ben er snel op uitgekeken
+ik ben bang en ben op zoek naar iets of iemand om de schuld te geven
+Zou beter moeten weten
+Maar goed gaat vervelen
+Ik weet niet of ik m’n best kan zijn
+zonder regels te verbreken
+want wat je zegt ben je zelf toch?
+Geloof je jezelf nog
+Want jij weet net als ik
+Dat de tijd doortikt
+Moet het allemaal kapot?
+Want wat je zegt ben je zelf toch?
+Geloof je jezelf nog
+Want jij weet net als ik
+De vonken slaan op hol in je hoofd
+je bent verkocht
+Ben je verkocht?
+Ben je verkocht?
+Ben je verkocht?
+Ben je verkocht?
+want wat je zegt ben je zelf toch?
+Geloof je jezelf nog
+Want jij weet net als ik
+Dat de tijd doortikt
+Moet het allemaal kapot?
+Want wat je zegt ben je zelf toch?
+Geloof je jezelf nog
+Want jij weet net als ik
+De vonken slaan op hol in je hoofd
+je bent verkocht
+Ben je verkocht?
+Ben je verkocht?
+Ben je verkocht?
+Ben je verkocht?</div></details>
+        <details class="song"><summary>Vluchten</summary><div class="lyrics">weet niet wat ik zeggen kan
+10 duizend mensen dood
+wat zeg je dan
+wat zeg je dan
+behalve dit is moord
+maar niets dekt de lading
+niets lijkt goed genoeg
+kan alleen maar falen
+alles is politiek
+niets meer relatief
+we nemen het voor lief
+niets in perspectief
+alles is negatief
+iedereen in negatief
+kleur wordt zwart en zwart wordt wit
+er lijkt geen grijs gebied
+alles is politiek
+niets meer relatief
+we nemen het voor lief
+niets in perspectief
+alles is negatief
+iedereen in negatief
+kleur wordt zwart en zwart wordt wit
+en ik wil vluchten
+maar verdoven werkt maar even
+en ik wil vluchten
+want zo kan ik niet leven
+gebogen door gebreken
+tot ik, kleur zie in de regen
+alles moet anders
+kan alles anders?
+ik kan niet meer anders
+dan m’n ogen sluiten,
+sluiten voor de beelden
+op m’n netvlies gebrand
+wie zijn we in dit land?
+wie gaat ons vergeven?
+is de zin van het leven
+verdrinken in de tranen
+van te jong verloren levens
+ik hoorde iemand spreken
+van schoten in de muren
+als omgekeerde schalen, wat als
+zelfs de metaforen
+ons niet meer raken
+alles is politiek
+niets meer relatief
+we nemen het voor lief
+niets in perspectief
+alles is negatief
+iedereen in negatief
+Ik geloof m’n ogen niet
+En ik wil vluchten
+maar verdoven werkt maar even
+en ik wil vluchten
+want zo kan ik niet leven
+gebogen door gebreken
+tot ik..
+En ik wil vluchten
+maar verdoven werkt maar even
+en ik wil vluchten
+want zo kan ik niet leven
+gebogen door gebreken
+tot ik, kleur zie in de regen</div></details>
+        <details class="song"><summary>Zonder Iets Te Doen</summary><div class="lyrics">ik wil verdrinken in je huid
+maar jij bent bang sinds het begin
+ik dacht dat als ik alles draag
+dat ik dan wel win
+maar twee paarden gingen steigeren
+twee paar hakken in het zand
+daar stond ik dan verbijsterd
+zinkend en verlamd
+ik wil geen stress meer in m’n maag
+het leven hoeft niet langer luid
+mag ik gewoon luisteren
+naar het tikken van de tijd
+bijt weer op m’n lip
+om niet te zeggen wat ik voel
+voor de tranen eerder zijn
+En ik zeg wat ik bedoel
+Kan ik mijn
+mening vergeten
+mag ik huilen om de pijn
+waar ik niets aan kan doen
+mag ik dwalen
+het niet weten
+me verliezen in de leegte</div></details>
+        <details class="song"><summary>Tot De Nacht</summary><div class="lyrics">weggestopt, vastgelopen, straal bezopen
+in m’n kop, bespottelijke, vergane dromen
+vallen traagzaam, tot ik stop
+doodop, wakker liggen, wakker dichten
+zwart als inkt, voelt de leegte, tot de ochtend
+eindelijk de nacht doorprikt
+ik dwaal door de stad</div></details>
+        <details class="song"><summary>Over Morgen (feat. Anna Sylvia)</summary><div class="lyrics">Ik heb een duikpak in mijn kast
+En een rubberboot
+Met twee peddels en een noodsein
+Voor als alles overstroomt
+Je mag denken dat ik gek ben
+Maar ik zie het liever zo
+Als de dijken breken
+Drijf ik liever mee omhoog
+in de grachten stijgt het water
+Van de randstad tot Delfzijl
+Dan meten ze er vroeg of laat
+Een Nieuw Amsterdams Peil
+Dat alle kamers vult
+En alle kelders raakt
+Van het kastje naar de muur gestuurd
+alsof we niet vergaan
+Ik wil vrij zijn
+Van de zorgen
+Over morgen is te laat
+Ik wil dansen
+boven water
+voor het aan m’n lippen staat.
+En ik zeg het maar hardop
+Want wat kan het me ook schelen
+Wat de mensen zullen denken
+Voor het geval we overleven
+ik steek m’n kop niet in het zand
+want het is hier zo weer zee
+daarom vecht ik voor een toekomst
+voor ons alle twee
+ben niet bang voor hypocriet
+Want alles dat kan niemand
+in de hoop het tij te keren
+Doe ik liever iets dan niets want
+ik heb nog veel te leren
+zoveel dat ik niet weet
+Maar m’n best doen is het minste
+wat ik kan doen voor de planeet
+Ik wil vrij zijn
+Van de zorgen
+Overmorgen Is te laat
+Ik wil dansen
+Boven water
+Voor het aan m’n lippen staat
+En ik geloof niet meer in sprookjes
+Met een eind lang en gelukkig
+Wie vertelt er dat het echt is
+Dat de wereld best wel stuk is
+Wie staat er op en gooit het roer om
+Aan de top, het allerhoogst
+Maar daar bovenin die toren
+Ja daar hou je het wel droog
+Ik wil vrij zijn
+Van de zorgen
+Over morgen is te laat
+Ik wil dansen
+boven water
+voor het aan m’n lippen staat.
+Ik wil vrij zijn
+Van de zorgen
+Over morgen is te laat
+Ik wil dansen
+boven water
+voor het aan m’n lippen staat.
+Ik wil vrij zijn
+Van de zorgen
+Over morgen is te laat
+Ik wil dansen
+boven water
+voor het aan m’n lippen staat.</div></details>
+        <div class="side-label">Side B</div>
+        <details class="song"><summary>We’ll Get There</summary><div class="lyrics">Keep my poker face and my patience
+Till the cards get stacked in my favor
+I don’t give a fuck, gonna try my luck after all
+Showin’ up wearing something outrageous
+Just to see the look on your faces
+I don’t need the clout
+I know all about
+What I want
+Counting down the hours, till the world is all mine now
+Just a little more time now, baby, just you wait
+Reaching for the power, till the stars align now
+Just a little more time now, baby, just you wait
+And we’ll get there
+And we’ll get there
+Yeah, we’ll get there
+Sooner than you think
+My friends might reckon I’m crazy
+But I still got a hand full of aces
+I don’t give a fuck, I can try my luck
+After all
+Not a minute or a second I’m wasting
+Don’t need no friends in high places
+Know what I’m about
+Time is running out, gotta go
+Counting down the hours, till the world is all mine now
+Just a little more time now, baby, just you wait
+Reaching for the power, till the stars align now
+Just a little more time now, baby, just you wait
+And we’ll get there
+And we’ll get there
+Yeah, we’ll get there
+Sooner than you think</div></details>
+        <details class="song"><summary>Storm (feat. Benjamin Fro)</summary><div class="lyrics">the storm is coming
+the tide is rolling in
+we do nothing
+cause where do we begin
+the town is flooding
+the ice is getting thin
+can’t keep running
+not fast enough and the waves catching up with us
+Stand up everybody put your hands up
+raise your demands
+it’s about damn time do what you’re here to do
+even if they don’t wanna understand us, can’t stomach or stand us, we gotta tell the truth
+we can’t just take this, screwing over the next generations
+fucking over the whole damn planet and they’re planning to abandon on a motherfucking spaceship
+it’s about damn time we make changes
+we ain’t asking for no favours
+people singing in the street or a deluge
+you tell me which is more dangerous
+this ain’t no conspiracy, this is clear to me and i don’t need a weird ass theory to explain this
+if those pulling the strings would rather be the kings of the desert than lift a finger to save us
+the storm is coming
+the tide is rolling in
+we do nothing
+cause where do we begin
+the town is flooding
+the ice is getting thin
+can’t keep running
+not fast enough and the waves catching up with us
+the storm is coming
+the tide is rolling in
+we do nothing
+cause where do we begin
+the town is flooding
+the ice getting thin
+can’t keep running, running, running
+We people
+we got the power
+We people
+we got the power
+We people
+we got the power
+We people
+we got the power
+Stand up everybody put your hands up
+Raise your demands
+it’s about damn time do what you’re here to do
+when the folks in blue that only do what they are told to do by those in suits
+they will even use violence to cope with you when you only showed up and spoke the truth
+Now we got our reasons to fight for our freedom
+Cause they don’t give a dam and we might just need it
+Cause though we’re unarmed we can still be an army
+We would rather choose to fight
+Then be defeated
+the storm is coming
+the tide is rolling in
+we do nothing
+cause where do we begin
+the town is flooding
+the ice getting thin
+can’t keep running
+not fast enough and the wave’s catching up with us
+the storm is coming
+the tide is rolling in
+we do nothing
+cause where do we begin
+the town is flooding
+the ice getting thin
+can’t keep running, running, running
+We people,
+we got the power
+We people,
+we got the power
+We people,
+we got the power
+We people,
+we got the power
+We people,
+we got the power
+We people,
+we got the power
+We people,
+we got the power
+We people,
+we got the power</div></details>
+        <details class="song"><summary>Wild Heart</summary><div class="lyrics">the start of you and me
+made me feel things i can’t forget
+the flames i felt inside my cheeks
+for weeks and then the heat of regret
+next time round i’ll refrain
+from making choices on a second guess
+next time i won’t make decisions
+wasted on a second glass
+now i crash and crawl
+through the mud and pain
+seems like neither of us
+can bare another minute of the same
+I’m yearning, oh god its burning,
+learning how to let you go, let you go.
+and i feel senseless
+when i argue with you
+don’t mean to mess with what we have
+but i want something new
+and i feel senseless
+pushing this through
+you are worth it
+but i desire something new
+you make me wanna put my wild heart
+back into her cage
+wanna drown myself in sorrows
+for at least the next few days
+but i’m tired of typing
+tired of tears
+and tired of time
+pray to a god I don’t yet believe in
+And still i wake up grieving
+the more i try to fill the void
+the more expansive it becomes
+hold myself to the grindstone
+Until there’s nothing left but dust
+lust, light, like i am on fire
+but this time burned like ashes to the ground
+but sometime soon you’ll see me rising, rising, rising
+till I’m sound
+and i feel senseless
+when i argue with you
+don’t mean to mess with what we have
+but i want something new
+and i feel senseless
+pushing this through
+you are perfect
+but i desire something new
+you make me wanna put my wild heart
+back into her cage
+wanna drown myself in sorrows
+for at least the next few days
+yet i’m tired of typing
+tired of tears
+and tired of time
+pray to a god I don’t yet believe in
+And still i wake up grieving
+you make me wanna put my wild heart
+back into her cage
+wanna drown myself in sorrows
+for at least the next few days
+yet i’m tired of typing
+tired of tears
+and tired of time
+pray to a god I don’t yet believe in
+but still I wake up dreaming</div></details>
+        <details class="song"><summary>Honey</summary><div class="lyrics">Tried to get you out of my system
+But I want you in my bed
+But you haven’t figured out how to,
+How to teleport to me yet
+You take me in and shake your head, oh
+With you, life becomes a daydream
+Feel so weightless when we lift off
+Lift off, lift off, yeah
+Now I need you to listen
+To something that I said
+When we were on the floor kissing
+After we had only just met
+Your eyes shine like a sunny day
+Too intrigued to walk away
+Will there be an expiration date?
+Is it late for mistakes?
+And I know we’re a fantasy
+And I’m not sure it’s good for me
+But baby, I’m a honey bee
+And bees like me like their honey sweet (so sweet)
+Bees like me like their honey sweet (so sweet)
+You said the floor is lava
+Lift me up like I know ya
+Bees like me like their honey sweet (so sweet)
+Oh, you caught me second-guessing
+About the way that I left
+How would it be if I wasn’t fearful
+Of the voices in my head?
+In your arms, I feel safe and sound
+Sorry, I can’t say it out loud
+Don’t wanna focus on the labels now
+Just what no hows
+And I know we’re a fantasy
+And I’m not sure it’s good for me
+But baby, I’m a honey bee
+And bees like me like their honey sweet (so sweet)
+Bees like me like their honey sweet (so sweet)
+You said you don’t want no drama (drama)
+Well, that agrees with my karma (karma)
+But babe, your lips are like nectar sweet (so sweet)
+And bees like me like their honey sweet (so sweet)
+Bees like me like their honey sweet (so sweet)
+Your touch is addictive
+Mess my hair up, I’ve missed it
+Babe, your lips are like honey sweet (so sweet)
+And I think you’re in love with me
+‘Cause butterflies keep buggin’ me
+But bees are better buzzing, free
+And bees like me like their honey sweet (so sweet)
+Bees like me like their honey sweet (so sweet)
+Your touch is addictive
+Mess my hair up, I’ve missed it
+Bees like me like their honey sweet (so sweet)</div></details>
+        <details class="song"><summary>Wake Me Now</summary><div class="lyrics">I’m in a headlock I want to
+Seem like I’m alright when I’m caught in your view
+And every time I think I feel it
+I’ll be holding tight to every minute
+Live in my head now don’t know what to do
+Context is a burden when it comes to you
+And every time I think I feel it
+I’ll be holding tight to every minute
+Leave me now and hide the fact that what we had was never there and
+Leave me now cause I’ll never be what you ask of me
+You’re holding me back
+You’re holding me back
+And every time I think I feel it
+I’ll be holding tight to every minute
+Leave me now and hide the fact that what we had was never there and
+Leave me now cause I’ll never be what you ask of me
+You’re holding me back
+You’re holding me back
+And every time I think I feel it
+I’ll be holding tight to every minute</div></details>
+        <details class="song"><summary>Still Shining</summary><div class="lyrics">Once she was a small-town dreamer
+Not a single soul could reach her
+Every night, she would look for the brightest star
+In the sky, found a light to ignite her spark
+Asking for the stars to teach her
+‘Cause she goes up, and she gets down
+But she’s gotta keep on trying,
+Even though it’s terrifying right now
+She finds her way out
+And there’s smoke on the horizon
+But she’s not afraid of fire
+I don’t know where it is I’m going now
+Don’t know what’s up and what’s going down
+I know what comes around goes around
+Can I keep it up? Can we hold it down?
+Are we running out of time now?
+Can we put it in rewind now?
+No time to fuck around and find out
+Roll the die, and you might be surprised
+How many snake eyes wanna follow your movements
+Many fake friends ain’t around when you’re losing
+Staring too long only makes me look stupid
+Winner takes all, and you know I ain’t losing
+In the middle of the night now
+I know that I can see the light now
+Somebody told me if I look up to the sky
+That I’m gonna see you shine
+I can see the silver line now
+Because i get up, and i get down
+But i gotta keep on trying,
+Even though it’s terrifying right now
+I can’t give up now
+And there’s smoke on the horizon
+But I’m not afraid of fire
+You’re still shining
+You’re still shining
+You’re still shining
+I can see the light you are
+You’re still shining
+You’re still shining
+You’re still shining
+Shining like the brightest star
+You’re still shining
+You’re still shining
+You’re still shining
+Shining like the brightest star</div></details>
+      </div>
     </div>
   </section>
 
