@@ -122,20 +122,6 @@
     .disco a { display: inline-block; margin-top: 8px; color: var(--gold); text-decoration: none; font-family: var(--serif); font-style: italic; font-size: 14px; letter-spacing: 0.05em; }
     .disco a:hover { color: var(--magenta); }
 
-    /* DISCOGRAPHY — horizontal scroll */
-    .disco-h { position: relative; border-top: 1px solid var(--line); }
-    .disco-h .disco-sticky { display: flex; flex-direction: column; justify-content: center; padding: 78px 0; }
-    .disco-h-head { margin-bottom: 26px; }
-    .disco-h-head .scroll-hint { color: var(--gold); font-style: italic; white-space: nowrap; }
-    .disco-track { display: flex; gap: 30px; padding: 4px 28px 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-    .disco-track .disco { flex: none; width: 240px; scroll-snap-align: start; }
-    .disco-track .cover { width: 240px; height: 240px; aspect-ratio: auto; }
-    /* when JS enables scroll-jacking on desktop */
-    .disco-h.hjack .disco-sticky { position: sticky; top: 0; height: 100vh; padding: 0; overflow: hidden; }
-    .disco-h.hjack .disco-track { overflow: visible; scroll-snap-type: none; padding: 0 max(28px, calc((100vw - 1120px)/2)); will-change: transform; }
-    .disco-h.hjack .disco-track .disco { width: 300px; }
-    .disco-h.hjack .disco-track .cover { width: 300px; height: 300px; }
-
     /* QUOTES */
     .quotes { display: grid; gap: 20px; grid-template-columns: 1fr 1fr; margin-top: 12px; }
     .quote { background: var(--plum-soft); border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
@@ -185,8 +171,8 @@
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; filter: none; transition: none; } }
 
     /* delightful hovers */
-    .disco .cover { transition: transform .28s ease, box-shadow .28s ease; }
-    .disco:hover .cover { transform: translateY(-7px) scale(1.02); box-shadow: 0 18px 44px rgba(192,53,107,.40); }
+    .disco .cover { transition: transform .45s cubic-bezier(.22,.61,.36,1), box-shadow .45s ease; }
+    .disco:hover .cover { transform: translateY(-10px) scale(1.06); box-shadow: 0 24px 52px rgba(192,53,107,.48); }
     .release .art { transition: transform .35s ease; }
     .release:hover .art { transform: scale(1.04) rotate(-1.5deg); }
     h2, .disco h4 { transition: color .25s ease; }
@@ -260,15 +246,13 @@
     </div>
   </section>
 
-  <!-- DISCOGRAPHY (horizontal) -->
-  <section id="discography" class="disco-h">
-    <div class="disco-sticky">
-      <div class="wrap disco-h-head">
-        <div class="eyebrow">Discography</div>
-        <h2>The <em>body</em> of work</h2>
-        <p class="body">Nine years of songwriting — from <em>Nature's Songs</em> (2017) to now. <span class="scroll-hint">— keep scrolling →</span></p>
-      </div>
-      <div class="disco-track">
+  <!-- DISCOGRAPHY -->
+  <section id="discography">
+    <div class="wrap">
+      <div class="eyebrow">Discography</div>
+      <h2>The <em>body</em> of work</h2>
+      <p class="body" style="margin-bottom:34px;">Nine years of songwriting — from <em>Nature's Songs</em> (2017) to now.</p>
+      <div class="disco-grid">
         <div class="disco">
           <img class="cover" src="images/wdtz-artwork.jpg" alt="Wie de Toekomst Ziet" />
           <h4>Wie de Toekomst Ziet</h4>
@@ -516,7 +500,6 @@
       if (bf) bf.style.transform = 'translate(' + bx + 'px,' + (by + bob) + 'px) translate(-50%,-50%) rotate(' + ang + 'deg)';
       // stardust where the butterfly flies
       if (speed > 0.8 && Math.random() < 0.7) spark(bx + (Math.random() * 22 - 11), by + (Math.random() * 22 - 11), { dist: 7, rise: 5, small: true });
-      moveDisco();
       requestAnimationFrame(loop);
     }
     if (bf) requestAnimationFrame(loop);
@@ -537,7 +520,7 @@
       entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
     }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('section, footer').forEach(function(sec){
-      var sel = '.eyebrow, h2, p.lead, p.body, .release, .quotes, .radios, .show, .disco-grid, .words-cover, .portrait, .actions, form, .disco-h-head';
+      var sel = '.eyebrow, h2, p.lead, p.body, .release, .quotes, .radios, .show, .disco-grid, .words-cover, .portrait, .actions, form';
       var list = Array.prototype.slice.call(sec.querySelectorAll(sel));
       list = list.filter(function(el){ return !list.some(function(o){ return o !== el && o.contains(el); }); });
       list.forEach(function(el, i){ el.classList.add('reveal'); el.style.transitionDelay = ((i % 6) * 0.08) + 's'; io.observe(el); });
@@ -575,33 +558,6 @@
       });
     });
 
-    // ↔️ horizontal discography (scroll-jack on desktop, swipe on mobile)
-    var discoH = document.querySelector('.disco-h');
-    var discoTrack = discoH && discoH.querySelector('.disco-track');
-    function sizeDisco(){
-      if (!discoH || !discoTrack) return;
-      var extra = discoTrack.scrollWidth - window.innerWidth + 60;
-      if (extra < 0) extra = 0;
-      discoH._extra = extra;
-      discoH.style.height = (window.innerHeight + extra) + 'px';
-    }
-    function discoMode(){
-      if (!discoH || !discoTrack) return;
-      var small = window.matchMedia('(max-width: 820px)').matches;
-      if (!reduceMotion && !small){ discoH.classList.add('hjack'); sizeDisco(); }
-      else { discoH.classList.remove('hjack'); discoH.style.height = ''; discoTrack.style.transform = ''; }
-    }
-    function moveDisco(){
-      if (!discoH || !discoTrack || !discoH.classList.contains('hjack')) return;
-      var extra = discoH._extra || 0;
-      if (!extra) return;
-      var top = discoH.getBoundingClientRect().top;
-      var prog = Math.min(1, Math.max(0, (-top) / extra));
-      discoTrack.style.transform = 'translateX(' + (-prog * extra) + 'px)';
-    }
-    discoMode();
-    window.addEventListener('load', discoMode);
-    window.addEventListener('resize', discoMode);
   })();
   </script>
 
