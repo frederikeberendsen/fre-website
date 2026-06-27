@@ -1,0 +1,9 @@
+PORTFOLIO / DOWNLOADS — MASTER THESIS (staging notes)
+
+Title: "No Music on a Dead Planet" — master thesis, Frederike Berendsen
+Honor: GENOMINEERD voor de AHK Eindwerkprijs (vermelden!)
+Info-link: https://www.ahk.nl/eindwerkprijs/archief/ahk-eindwerkprijs/no-music-on-a-dead-planet/
+(Bij bouwen: deze pagina fetchen voor nette omschrijving + jaar.)
+
+NODIG: de thesis-PDF zelf om als download te hosten (in repo onder downloads/).
+STATUS: PDF nog aanleveren. Plaatsing: als download op de site (about of portfolio).
