@@ -162,9 +162,9 @@
 
     /* QUOTES */
     .quotes { display: grid; gap: 20px; grid-template-columns: 1fr 1fr; margin-top: 12px; }
-    .quotes.three { grid-template-columns: repeat(3, 1fr); }
+    /* long quotes read badly in narrow columns — stack them as full-width rows */
+    .quotes.three { grid-template-columns: 1fr; }
     .quotes.one { grid-template-columns: 1fr; max-width: 660px; }
-    @media (max-width: 900px) { .quotes.three { grid-template-columns: 1fr 1fr; } }
     .quote { background: var(--plum-soft); border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
     .quote p { font-family: var(--serif); font-style: italic; font-size: 19px; }
     .quote span { display: block; margin-top: 14px; color: var(--gold); font-size: 13px; font-style: normal; letter-spacing: 0.05em; font-family: var(--serif); }
