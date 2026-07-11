@@ -6,6 +6,7 @@
   <meta name="robots" content="noindex, nofollow" />
   <title>FRÉ — Songs for a living future</title>
   <meta name="description" content="FRÉ writes songs about courage and connection, for a generation fighting for equality and a living future. Listen, watch live, and come into the world of FRÉ." />
+  <link rel="stylesheet" href="butterfly.css" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
@@ -164,20 +165,6 @@
     @media (max-width: 600px) { .quotes { grid-template-columns: 1fr; } nav { gap: 16px; } }
 
     /* ✨ SPARKLES */
-    .sparkle {
-      position: fixed; pointer-events: none; z-index: 9999; line-height: 1;
-      transform: translate(-50%,-50%); will-change: transform, opacity;
-      background-image: linear-gradient(135deg, #ffffff, #cfe0f7, #6f9be0, #f2f6fc, #a9bbdd);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent; color: transparent;
-      filter: drop-shadow(0 0 3px rgba(226,233,248,.85)) drop-shadow(0 0 1px rgba(255,255,255,.95));
-    }
-    @keyframes sparkle-fade {
-      0%   { opacity: 0; transform: translate(-50%,-50%) scale(0) rotate(0deg); }
-      25%  { opacity: 1; transform: translate(-50%,-50%) scale(1.15) rotate(40deg); }
-      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.2) rotate(140deg); }
-    }
-
     /* scroll reveal — cinematic, staggered */
     .reveal { opacity: 0; transform: translateY(42px); filter: blur(7px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1), filter .9s ease; }
     .reveal.in { opacity: 1; transform: none; filter: none; }
@@ -190,30 +177,7 @@
     .release:hover .art { transform: scale(1.04) rotate(-1.5deg); }
     h2, .disco h4 { transition: color .25s ease; }
     h2:hover { color: var(--gold); }
-    @media (hover: none) { .sparkle { display: none; } }
 
-    /* 🦋 butterfly cursor */
-    @media (hover: hover) and (pointer: fine) {
-      body { cursor: none; }
-      a, button { cursor: none; }
-      input { cursor: text; }
-    }
-    .butterfly-cursor {
-      position: fixed; top: 0; left: 0; width: 132px; height: 132px;
-      pointer-events: none; z-index: 10000; will-change: transform;
-      transform: translate(-50%, -50%);
-    }
-    .butterfly-cursor img {
-      width: 100%; height: 100%; display: block;
-      filter: drop-shadow(0 0 5px rgba(50,25,45,.55)) drop-shadow(0 0 12px rgba(230,214,160,.25));
-      animation: flap 1750ms ease-in-out infinite;
-      transform-origin: 50% 50%;
-    }
-    @keyframes flap {
-      0%, 100% { transform: scaleX(1) scaleY(1); }
-      50%      { transform: scaleX(0.40) scaleY(1.07); }
-    }
-    @media (hover: none) { .butterfly-cursor { display: none; } }
     /* WORDS / lyrics accordion */
     .lyrics-wrap{margin-top:14px}
     .side-label{color:var(--gold);font-family:var(--serif);font-style:italic;letter-spacing:.12em;text-transform:uppercase;font-size:13px;margin:26px 0 6px}
@@ -1559,69 +1523,9 @@ Shining like the brightest star</div></details>
   <div class="butterfly-cursor" aria-hidden="true"><img src="images/butterfly-white.png" alt="" /></div>
 
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="butterfly.js"></script>
   <script>
   (function(){
-    const glyphs = ['✦', '✧', '⋆', '·', '✺'];
-    function spark(x, y, opts){
-      opts = opts || {};
-      const s = document.createElement('div');
-      s.className = 'sparkle';
-      s.textContent = glyphs[(Math.random() * glyphs.length) | 0];
-      s.style.left = x + 'px';
-      s.style.top = y + 'px';
-      // random gradient angle => each fleck catches the light differently (reflective silver)
-      s.style.backgroundImage = 'linear-gradient(' + ((Math.random() * 360) | 0) + 'deg, #ffffff, #d4e3f8, #6f9be0, #f3f6fc, #a9bbdd)';
-      const dist = opts.dist != null ? opts.dist : (10 + Math.random() * 16);
-      const ang = opts.ang != null ? opts.ang : Math.random() * Math.PI * 2;
-      s.style.setProperty('--dx', Math.cos(ang) * dist + 'px');
-      s.style.setProperty('--dy', (Math.sin(ang) * dist - (opts.rise || 10)) + 'px');
-      const base = opts.small ? 4 : 6;
-      s.style.fontSize = (base + Math.random() * 7) + 'px';
-      s.style.animation = 'sparkle-fade ' + (650 + Math.random() * 550) + 'ms ease-out forwards';
-      document.body.appendChild(s);
-      setTimeout(function(){ s.remove(); }, 1250);
-    }
-
-    // 🦋 butterfly cursor that "flies" after the mouse, leaving a stardust trail
-    const bf = document.querySelector('.butterfly-cursor');
-    let mx = innerWidth / 2, my = innerHeight / 2;
-    let bx = mx, by = my, px = bx, py = by;
-    let ang = 0; // current heading (deg); butterfly art points "up" by default
-    window.addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; });
-    function loop(){
-      bx += (mx - bx) * 0.13;
-      by += (my - by) * 0.13;
-      const vx = bx - px, vy = by - py; px = bx; py = by;
-      const speed = Math.hypot(vx, vy);
-      if (speed > 0.6) {
-        // point the butterfly's head toward the direction it's flying
-        const target = Math.atan2(vy, vx) * 180 / Math.PI + 90;
-        let diff = ((target - ang + 540) % 360) - 180; // shortest turn
-        ang += diff * 0.18; // ease into the turn
-      } else {
-        // mouse still → gracefully stabilize back to upright
-        ang = ((ang + 180) % 360 + 360) % 360 - 180; // normalize to [-180,180]
-        ang += (0 - ang) * 0.06;
-      }
-      const bob = Math.sin(Date.now() / 420) * 2.2;
-      if (bf) bf.style.transform = 'translate(' + bx + 'px,' + (by + bob) + 'px) translate(-50%,-50%) rotate(' + ang + 'deg)';
-      // stardust where the butterfly flies
-      if (speed > 0.8 && Math.random() < 0.7) spark(bx + (Math.random() * 22 - 11), by + (Math.random() * 22 - 11), { dist: 7, rise: 5, small: true });
-      requestAnimationFrame(loop);
-    }
-    if (bf) requestAnimationFrame(loop);
-
-    // click burst
-    window.addEventListener('click', function(e){
-      for (let i = 0; i < 18; i++) spark(e.clientX, e.clientY, { ang: (i / 18) * Math.PI * 2, dist: 30 + Math.random() * 40, rise: 0 });
-    });
-    // sparkle over titles + logo
-    document.querySelectorAll('h2, .logo, .disco h4').forEach(function(el){
-      el.addEventListener('mouseenter', function(){
-        const r = el.getBoundingClientRect();
-        for (let i = 0; i < 14; i++) spark(r.left + Math.random() * r.width, r.top + Math.random() * r.height, { dist: 14, rise: 20, small: true });
-      });
-    });
     // past shows — anything before today moves into the collapsible archive
     (function(){
       var pastList = document.getElementById('past-list');

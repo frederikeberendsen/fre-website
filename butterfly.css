@@ -1,0 +1,40 @@
+/* 🦋 Butterfly cursor + stardust — shared by every page. Paired with butterfly.js. */
+
+.sparkle {
+  position: fixed; pointer-events: none; z-index: 9999; line-height: 1;
+  transform: translate(-50%,-50%); will-change: transform, opacity;
+  background-image: linear-gradient(135deg, #ffffff, #cfe0f7, #6f9be0, #f2f6fc, #a9bbdd);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  filter: drop-shadow(0 0 3px rgba(226,233,248,.85)) drop-shadow(0 0 1px rgba(255,255,255,.95));
+}
+@keyframes sparkle-fade {
+  0%   { opacity: 0; transform: translate(-50%,-50%) scale(0) rotate(0deg); }
+  25%  { opacity: 1; transform: translate(-50%,-50%) scale(1.15) rotate(40deg); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.2) rotate(140deg); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
+  a, button { cursor: none; }
+  input, textarea { cursor: text; }
+}
+.butterfly-cursor {
+  position: fixed; top: 0; left: 0; width: 132px; height: 132px;
+  pointer-events: none; z-index: 10000; will-change: transform;
+  transform: translate(-50%, -50%);
+}
+.butterfly-cursor img {
+  width: 100%; height: 100%; display: block;
+  filter: drop-shadow(0 0 5px rgba(50,25,45,.55)) drop-shadow(0 0 12px rgba(230,214,160,.25));
+  animation: flap 1750ms ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+@keyframes flap {
+  0%, 100% { transform: scaleX(1) scaleY(1); }
+  50%      { transform: scaleX(0.40) scaleY(1.07); }
+}
+@media (hover: none) {
+  .butterfly-cursor { display: none; }
+  .sparkle { display: none; }
+}
