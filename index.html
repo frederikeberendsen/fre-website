@@ -136,6 +136,14 @@
     .show { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
     .show .date { color: var(--gold); font-family: var(--serif); font-size: 20px; min-width: 90px; }
     .show .name { flex: 1; min-width: 200px; }
+    #past-wrap { margin-top: 26px; }
+    #past-toggle { cursor: pointer; background: none; font-family: var(--serif); font-size: 15px; letter-spacing: 0.08em; }
+    #past-toggle::after { content: " ↓"; }
+    #past-toggle[aria-expanded="true"]::after { content: " ↑"; }
+    #past-list { margin-top: 18px; }
+    #past-list .show { opacity: 0.62; }
+    #past-list .show:hover { opacity: 1; }
+    #past-list .show .date { color: var(--muted); }
 
     /* JOIN */
     .join { text-align: center; background: var(--plum-soft); }
@@ -347,28 +355,33 @@
       <div class="eyebrow">Live</div>
       <h2>See FRÉ <em>live</em></h2>
       <!-- DATES:START (bewerkt via FRÉ Studio — niet met de hand aanpassen tussen deze markers) -->
-      <div class="show">
+      <div class="show" data-date="2026-06-28">
         <div class="date">28 Jun</div>
         <div class="name">Defqon.1 — end show feature <span style="color:var(--muted)">· Biddinghuizen, NL</span></div>
         <a class="btn btn-ghost" href="https://open.spotify.com/artist/7cFNGgU48VYaTwv7lDQVaf" target="_blank" rel="noopener">Info</a>
       </div>
-      <div class="show">
+      <div class="show" data-date="2026-08-06">
         <div class="date">06 Aug</div>
         <div class="name">Forest Festival — Cinetree <span style="color:var(--muted)">· Amsterdamse Bostheater, NL</span></div>
-        <a class="btn btn-ghost" href="#join">Info</a>
+        <a class="btn btn-ghost" href="https://bostheater.nl/ons-programma/cinetree/" target="_blank" rel="noopener">Info</a>
       </div>
-      <div class="show">
+      <div class="show" data-date="2026-09-04">
         <div class="date">04 Sep</div>
         <div class="name">Mic In The Face feat. FRÉ <span style="color:var(--muted)">· Odonien, Cologne (DE)</span></div>
         <a class="btn btn-ghost" href="https://jobeyer.com/mitfinop" target="_blank" rel="noopener">Info</a>
       </div>
-      <div class="show">
+      <div class="show" data-date="2027-04-10">
         <div class="date">10 Apr 2027</div>
         <div class="name">Zo Gezegd, Zo Gedanst <span style="color:var(--muted)">· Theaterkerk Bemmel, NL · met dansers</span></div>
         <a class="btn btn-ghost" href="#join">Info</a>
       </div>
       <!-- DATES:END -->
-      <p class="body" style="margin-top:22px;">More dates coming soon — join the list below to hear first.</p>
+      <p class="body" id="no-upcoming" hidden style="margin-top:22px;">No shows on the calendar right now. Join the list below to hear about the next one first.</p>
+      <p class="body" id="more-dates" style="margin-top:22px;">More dates coming soon — join the list below to hear first.</p>
+      <div id="past-wrap" hidden>
+        <button type="button" id="past-toggle" class="btn btn-ghost" aria-expanded="false" aria-controls="past-list">Past shows</button>
+        <div id="past-list" hidden></div>
+      </div>
     </div>
   </section>
 
@@ -1088,6 +1101,42 @@ Shining like the brightest star</div></details>
         for (let i = 0; i < 14; i++) spark(r.left + Math.random() * r.width, r.top + Math.random() * r.height, { dist: 14, rise: 20, small: true });
       });
     });
+    // past shows — anything before today moves into the collapsible archive
+    (function(){
+      var pastList = document.getElementById('past-list');
+      var pastWrap = document.getElementById('past-wrap');
+      var toggle = document.getElementById('past-toggle');
+      if (!pastList || !pastWrap || !toggle) return;
+
+      var today = new Date(); today.setHours(0, 0, 0, 0);
+      var shows = Array.prototype.slice.call(document.querySelectorAll('#live .show[data-date]'));
+      var past = shows.filter(function(el){
+        var d = new Date(el.getAttribute('data-date') + 'T00:00:00');
+        return !isNaN(d) && d < today;
+      });
+
+      past.sort(function(a, b){
+        return b.getAttribute('data-date').localeCompare(a.getAttribute('data-date'));
+      }).forEach(function(el){ pastList.appendChild(el); });
+
+      if (past.length){
+        pastWrap.hidden = false;
+        toggle.textContent = 'Past shows (' + past.length + ')';
+      }
+      if (past.length === shows.length){
+        var more = document.getElementById('more-dates');
+        var none = document.getElementById('no-upcoming');
+        if (more) more.hidden = true;
+        if (none) none.hidden = false;
+      }
+
+      toggle.addEventListener('click', function(){
+        var open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        pastList.hidden = open;
+      });
+    })();
+
     // scroll reveal — staggered, per element
     const io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
@@ -1096,6 +1145,7 @@ Shining like the brightest star</div></details>
       var sel = '.eyebrow, h2, p.lead, p.body, .release, .quotes, .radios, .show, .disco-grid, .words-cover, .portrait, .actions, form';
       var list = Array.prototype.slice.call(sec.querySelectorAll(sel));
       list = list.filter(function(el){ return !list.some(function(o){ return o !== el && o.contains(el); }); });
+      list = list.filter(function(el){ return !el.closest('#past-list'); });
       list.forEach(function(el, i){ el.classList.add('reveal'); el.style.transitionDelay = ((i % 6) * 0.08) + 's'; io.observe(el); });
     });
 
