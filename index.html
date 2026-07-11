@@ -43,16 +43,29 @@
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
 
     /* NAV */
+    /* NAV — out of the way at the top, slides in once the hero is behind you */
     nav {
-      display: flex; align-items: center; justify-content: center; gap: 26px;
-      padding: 26px 20px; font-family: var(--serif); font-style: italic;
-      letter-spacing: 0.14em; font-size: 15px; flex-wrap: wrap;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      display: flex; align-items: center; justify-content: center;
+      gap: 22px; padding: 14px 20px; flex-wrap: wrap;
+      font-family: var(--serif); font-style: italic;
+      letter-spacing: 0.14em; font-size: 14px;
+      background: rgba(27, 15, 23, 0.86);
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      transform: translateY(-100%); opacity: 0; pointer-events: none;
+      transition: transform .45s cubic-bezier(.22,.61,.36,1), opacity .45s ease;
     }
+    nav.visible { transform: none; opacity: 1; pointer-events: auto; }
     nav a { color: var(--cream); text-decoration: none; opacity: .85; }
     nav a:hover { opacity: 1; color: var(--gold); }
     nav .brand {
-      font-style: normal; font-weight: 700; font-size: 30px;
-      color: var(--magenta); letter-spacing: 0.04em; padding: 0 8px;
+      font-style: normal; font-weight: 700; font-size: 24px;
+      color: var(--magenta); letter-spacing: 0.04em; padding: 0 6px;
+    }
+    @media (max-width: 600px) {
+      nav { gap: 14px; font-size: 12.5px; padding: 11px 14px; }
+      nav .brand { font-size: 19px; }
     }
 
     /* HERO */
@@ -212,9 +225,10 @@
     <div class="tagline">Songs for a living future</div>
     <div class="actions">
       <a class="btn btn-primary" href="#listen">Listen</a>
+      <a class="btn btn-ghost" href="#live">Live</a>
+      <a class="btn btn-ghost" href="#work">Work with me</a>
       <a class="btn btn-gold" href="#join">Join my world</a>
       <a class="btn btn-backstage" href="https://www.patreon.com/c/frewrites" target="_blank" rel="noopener">Backstage Area</a>
-      <a class="btn btn-ghost" href="#live">Live</a>
     </div>
   </header>
 
@@ -1530,6 +1544,16 @@ Shining like the brightest star</div></details>
   <script src="butterfly.js"></script>
   <script>
   (function(){
+    // nav stays out of the hero, then slides in once the hero is scrolled past
+    (function(){
+      var nav = document.querySelector('nav');
+      var hero = document.querySelector('.hero');
+      if (!nav || !hero) return;
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ nav.classList.toggle('visible', !en.isIntersecting); });
+      }, { rootMargin: '-70px 0px 0px 0px' }).observe(hero);
+    })();
+
     // past shows — anything before today moves into the collapsible archive
     (function(){
       var pastList = document.getElementById('past-list');
