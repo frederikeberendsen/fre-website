@@ -96,16 +96,38 @@
       font-size: clamp(15px, 2.2vw, 19px); margin-top: 14px; max-width: 560px;
     }
     .actions { margin-top: 38px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    /* Buttons — one shape, five faces.
+       Every button is the same size with the same 1px edge; only the colour
+       changes. Filled = do it now. Outlined = go and look. */
     .btn {
-      display: inline-block; padding: 13px 30px; border-radius: 2px;
+      display: inline-flex; align-items: center; justify-content: center;
+      box-sizing: border-box; min-height: 48px; padding: 13px 22px;
+      border: 1px solid transparent; border-radius: 2px;
       text-decoration: none; font-family: var(--serif); font-size: 15px;
-      letter-spacing: 0.08em; transition: transform .15s ease, background .2s ease;
+      letter-spacing: 0.08em; text-align: center;
+      transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--magenta); color: #fff; }
-    .btn-gold { background: var(--gold); color: #2a2210; }
-    .btn-ghost { border: 1px solid var(--muted); color: var(--cream); }
-    .btn-backstage { border: 1px solid var(--magenta); color: var(--cream); background: rgba(192, 53, 107, 0.32); }
+    .hero .actions .btn { min-width: 172px; }
+
+    /* magenta, filled — the main thing: hear the music */
+    .btn-primary { background: var(--magenta); border-color: var(--magenta); color: #fff; }
+    .btn-primary:hover { background: #d34279; border-color: #d34279; }
+
+    /* gold, filled — the other thing worth doing: get on the list */
+    .btn-gold { background: var(--gold); border-color: var(--gold); color: #2a2210; }
+    .btn-gold:hover { background: #f0e3b8; border-color: #f0e3b8; }
+
+    /* cream outline — plain places on this page */
+    .btn-ghost { border-color: var(--muted); color: var(--cream); }
+    .btn-ghost:hover { border-color: var(--cream); background: rgba(243, 233, 220, 0.10); }
+
+    /* gold outline — the paid work */
+    .btn-work { border-color: var(--gold); color: var(--gold); }
+    .btn-work:hover { background: rgba(230, 214, 160, 0.14); color: var(--gold); }
+
+    /* magenta outline, tinted — the only door that leaves the site */
+    .btn-backstage { border-color: var(--magenta); color: var(--cream); background: rgba(192, 53, 107, 0.30); }
     .btn-backstage:hover { background: rgba(192, 53, 107, 0.52); }
 
     section { padding: 78px 0; border-top: 1px solid var(--line); }
@@ -229,7 +251,7 @@
     <div class="actions">
       <a class="btn btn-primary" href="#listen">Listen</a>
       <a class="btn btn-ghost" href="#live">Live</a>
-      <a class="btn btn-ghost" href="#work">Work with me</a>
+      <a class="btn btn-work" href="#work">Work with me</a>
       <a class="btn btn-gold" href="#join">Join my world</a>
       <a class="btn btn-backstage" href="https://www.patreon.com/c/frewrites" target="_blank" rel="noopener">Backstage Area</a>
     </div>
