@@ -1650,11 +1650,7 @@ Shining like the brightest star</div></details>
         })
         .forEach(function(el){ pastList.appendChild(el); });
 
-      var archived = pastList.children.length;
-      if (archived){
-        pastWrap.hidden = false;
-        toggle.textContent = 'Past shows (' + archived + ')';
-      }
+      if (pastList.children.length) pastWrap.hidden = false;
       if (expired.length === shows.length){
         var more = document.getElementById('more-dates');
         var none = document.getElementById('no-upcoming');
