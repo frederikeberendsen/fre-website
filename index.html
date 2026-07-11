@@ -97,8 +97,8 @@
     }
     .actions { margin-top: 38px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     /* Buttons — one shape, five faces.
-       Every button is the same size with the same 1px edge; only the colour
-       changes. Filled = do it now. Outlined = go and look. */
+       Every button is the same size with the same 1px edge. Listen is the one
+       filled button; everything else shares the magenta-outline face. */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       box-sizing: border-box; min-height: 48px; padding: 13px 22px;
@@ -121,10 +121,6 @@
     /* cream outline — plain places on this page */
     .btn-ghost { border-color: var(--muted); color: var(--cream); }
     .btn-ghost:hover { border-color: var(--cream); background: rgba(243, 233, 220, 0.10); }
-
-    /* gold outline — the paid work */
-    .btn-work { border-color: var(--gold); color: var(--gold); }
-    .btn-work:hover { background: rgba(230, 214, 160, 0.14); color: var(--gold); }
 
     /* magenta outline, tinted — the only door that leaves the site */
     .btn-backstage { border-color: var(--magenta); color: var(--cream); background: rgba(192, 53, 107, 0.30); }
@@ -250,9 +246,9 @@
     <div class="tagline">Songs for a living future</div>
     <div class="actions">
       <a class="btn btn-primary" href="#listen">Listen</a>
-      <a class="btn btn-ghost" href="#live">Live</a>
-      <a class="btn btn-work" href="#work">Work with me</a>
-      <a class="btn btn-gold" href="#join">Join my world</a>
+      <a class="btn btn-backstage" href="#live">Live</a>
+      <a class="btn btn-backstage" href="#work">Work with me</a>
+      <a class="btn btn-backstage" href="#join">Join my world</a>
       <a class="btn btn-backstage" href="https://www.patreon.com/c/frewrites" target="_blank" rel="noopener">Backstage Area</a>
     </div>
   </header>
