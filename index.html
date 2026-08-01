@@ -16,9 +16,7 @@
   <meta property="og:description" content="Songs about courage and connection, for a generation fighting for a living future." />
   <meta property="og:image" content="images/green-armsup-wide.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts.css">
   <style>
     :root {
       --plum: #1b0f17;        /* deep aubergine background */
@@ -1559,12 +1557,15 @@ Shining like the brightest star</div></details>
       <div class="eyebrow">Stay close</div>
       <h2>Join FRÉ's <em>world</em></h2>
       <p class="body" style="margin:0 auto;">Letters from my world: new songs, shows, and the stories behind them.</p>
-      <form class="form" name="join" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="join" />
-        <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
-        <input type="email" name="email" placeholder="your@email.com" required />
+      <form id="join-form" class="form" action="https://assets.mailerlite.com/jsonp/2550060/forms/194629298701731628/subscribe" method="post">
+        <input type="email" name="fields[email]" placeholder="your@email.com" autocomplete="email" required />
         <button class="btn btn-gold" type="submit">Join</button>
+        <input type="hidden" name="ml-submit" value="1" />
+        <input type="hidden" name="anticsrf" value="true" />
+        <div aria-hidden="true" style="position:absolute;left:-9999px;" tabindex="-1"><input type="text" name="fields[hp]" tabindex="-1" autocomplete="off" /></div>
       </form>
+      <p id="join-msg" class="body" style="margin:14px auto 0; min-height:1px;" aria-live="polite"></p>
+      <p class="body" style="margin:14px auto 0; font-size:14px; color:var(--muted);">By joining you agree to receive occasional email from FRÉ. Unsubscribe anytime. See the <a href="privacy.html" style="color:var(--muted); text-decoration:underline;">privacy statement</a>.</p>
       <p class="body" style="margin:20px auto 0;">Want more, more often? Come behind the scenes with me on <a href="https://www.patreon.com/c/frewrites" target="_blank" rel="noopener" style="color:var(--gold);">Patreon</a>.</p>
     </div>
   </section>
@@ -1646,6 +1647,29 @@ Shining like the brightest star</div></details>
         var open = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', String(!open));
         pastList.hidden = open;
+      });
+    })();
+
+    // Join form → MailerLite (keeps FRÉ's own design; double opt-in on the MailerLite side)
+    (function(){
+      var form = document.getElementById('join-form');
+      var msg = document.getElementById('join-msg');
+      if (!form) return;
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var hp = form.querySelector('input[name="fields[hp]"]');
+        if (hp && hp.value) return; // bot filled the honeypot
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) { btn.disabled = true; btn.textContent = 'Joining…'; }
+        fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+          .then(function(){
+            form.style.display = 'none';
+            if (msg) { msg.style.color = 'var(--gold)'; msg.textContent = 'Almost there — check your inbox to confirm your email.'; }
+          })
+          .catch(function(){
+            if (btn) { btn.disabled = false; btn.textContent = 'Join'; }
+            if (msg) { msg.style.color = 'var(--magenta)'; msg.textContent = 'Something went wrong. Please try again.'; }
+          });
       });
     })();
 
