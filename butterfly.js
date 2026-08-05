@@ -78,4 +78,27 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
+
+  // click-to-load YouTube: no request reaches Google until the visitor presses play
+  function wireVideos(){
+    document.querySelectorAll('.ytfacade').forEach(function(el){
+      if (el.dataset.wired) return;
+      el.dataset.wired = '1';
+      el.addEventListener('click', function(){
+        var id = el.getAttribute('data-embed');
+        if (!id) return;
+        var ifr = document.createElement('iframe');
+        ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1';
+        ifr.title = el.getAttribute('data-title') || 'Video';
+        ifr.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        ifr.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        ifr.setAttribute('allowfullscreen', '');
+        el.innerHTML = '';
+        el.classList.remove('ytfacade');
+        el.appendChild(ifr);
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireVideos);
+  else wireVideos();
 })();

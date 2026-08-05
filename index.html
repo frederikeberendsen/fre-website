@@ -177,6 +177,12 @@
     /* SHOWS */
     .video { position: relative; aspect-ratio: 16 / 9; margin-top: 34px; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; background: #000; }
     .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    /* click-to-load video: nothing is sent to YouTube until the visitor presses play */
+    .ytfacade { cursor: pointer; }
+    .ytfacade img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ytfacade .ytplay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 74px; height: 74px; border: 0; border-radius: 50%; background: rgba(192,53,107,.92); cursor: pointer; transition: background .2s ease, transform .2s ease; }
+    .ytfacade .ytplay::before { content: ""; display: block; width: 0; height: 0; margin-left: 28px; border-style: solid; border-width: 12px 0 12px 20px; border-color: transparent transparent transparent #fff; }
+    .ytfacade:hover .ytplay { background: rgba(192,53,107,1); transform: translate(-50%, -50%) scale(1.06); }
     .show { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
     .show .date { color: var(--gold); font-family: var(--serif); font-size: 20px; min-width: 90px; }
     .show .name { flex: 1; min-width: 200px; }
@@ -272,8 +278,9 @@
           </div>
         </div>
       </div>
-      <div class="video">
-        <iframe src="https://www.youtube-nocookie.com/embed/heApracr0-w" title="FRÉ — Wie de Toekomst Ziet (official video)" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="video ytfacade" data-embed="heApracr0-w" data-title="FRÉ — Wie de Toekomst Ziet (official video)">
+        <img src="images/video/heApracr0-w.jpg" alt="FRÉ — Wie de Toekomst Ziet" loading="lazy" />
+        <button type="button" class="ytplay" aria-label="Play video: Wie de Toekomst Ziet"></button>
       </div>
     </div>
   </section>
