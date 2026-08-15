@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://frewrites.com/welcome.html" />
+  <title>FRÉ — You're in</title>
+  <meta name="description" content="Welcome to FRÉ's world. Your subscription is confirmed." />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="fonts.css">
+  <style>
+    :root{
+      --plum:#1b0f17; --plum-soft:#271620; --cream:#f3e9dc; --muted:#c9b3b8;
+      --magenta:#c0356b; --gold:#e6d6a0; --line:#3a2530; --max:680px;
+      --serif:"Playfair Display",Georgia,serif; --serif-body:"EB Garamond",Georgia,serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--plum);color:var(--cream);font-family:var(--serif-body);font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100dvh;display:flex;flex-direction:column}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;width:100%}
+    a{color:var(--gold)}
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0;font-family:var(--serif);font-style:italic;letter-spacing:.1em;font-size:15px}
+    nav .brand{font-style:normal;font-weight:700;font-size:30px;color:var(--magenta);letter-spacing:.04em;text-decoration:none}
+    nav a.back{color:var(--cream);text-decoration:none;opacity:.85}
+    nav a.back:hover{opacity:1;color:var(--gold)}
+
+    main{flex:1;display:flex;align-items:center;padding:24px 0 60px}
+    .hero{text-align:center}
+    .eyebrow{font-family:var(--serif);font-style:italic;letter-spacing:.16em;color:var(--gold);font-size:14px;text-transform:uppercase}
+    h1{font-family:var(--serif);font-weight:700;font-size:clamp(40px,8vw,68px);line-height:1.04;margin:16px 0 0}
+    h1 em{color:var(--magenta);font-style:italic}
+    .lead{font-size:clamp(20px,3.4vw,24px);margin:22px auto 0;max-width:34ch}
+    .body{color:var(--cream);margin:18px auto 0;max-width:44ch}
+
+    .next{margin:40px auto 0;max-width:40ch;text-align:left;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0}
+    .next a{display:flex;align-items:baseline;gap:12px;text-decoration:none;color:var(--cream);padding:16px 6px;border-bottom:1px solid var(--line)}
+    .next a:last-child{border-bottom:0}
+    .next a:hover{color:var(--gold)}
+    .next .k{font-family:var(--serif);font-style:italic;color:var(--magenta);font-size:15px;min-width:22px}
+    .next .t{flex:1}
+    .next .arw{opacity:.6}
+
+    .close{margin:38px auto 0;max-width:40ch;color:var(--muted);font-style:italic}
+    .cta{margin:34px 0 0}
+    .btn{display:inline-block;font-family:var(--serif);font-style:italic;font-size:18px;letter-spacing:.02em;text-decoration:none;padding:14px 30px;border-radius:999px;background:var(--magenta);color:#fff;transition:transform .15s ease,background .15s ease}
+    .btn:hover{transform:translateY(-2px);background:#d1477d}
+
+    footer{padding:26px 0 40px;text-align:center;color:var(--muted);font-size:13px}
+    footer a{color:var(--gold);text-decoration:none}
+  </style>
+  <link rel="stylesheet" href="butterfly.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="index.html">FRÉ</a>
+      <a class="back" href="index.html">← frewrites.com</a>
+    </nav>
+  </div>
+
+  <main>
+    <div class="wrap hero">
+      <div class="eyebrow">You made it in</div>
+      <h1>You're in <em>my world</em></h1>
+      <p class="lead">Thank you for confirming. The door is open.</p>
+      <p class="body">From here on you are the first to hear new songs, the stories underneath them, and where I will be singing next. Letters from me to you, heart to heart. No noise, no spam, just the real stuff.</p>
+
+      <div class="next">
+        <a href="index.html#listen"><span class="k">01</span><span class="t">Listen to a song while you're here</span><span class="arw">→</span></a>
+        <a href="index.html#live"><span class="k">02</span><span class="t">See where I'll be live next</span><span class="arw">→</span></a>
+        <a href="index.html#connect"><span class="k">03</span><span class="t">Come say hi, I read everything</span><span class="arw">→</span></a>
+      </div>
+
+      <p class="close">Wherever you wander on this site, the butterfly follows. So does the music.</p>
+
+      <div class="cta"><a class="btn" href="index.html">Step into my world →</a></div>
+    </div>
+  </main>
+
+  <div class="wrap">
+    <footer>
+      <a href="index.html">frewrites.com</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a>
+    </footer>
+  </div>
+
+  <script src="butterfly.js"></script>
+  <script>
+    // a small burst of stardust to greet them
+    window.addEventListener('load', function(){
+      if (typeof window.spark !== 'function') return;
+      var cx = innerWidth/2, cy = innerHeight*0.34;
+      for (var i=0;i<26;i++){
+        (function(d){ setTimeout(function(){
+          window.spark(cx + (Math.random()*120-60), cy + (Math.random()*80-40), { dist:26+Math.random()*40, rise:6 });
+        }, d); })(i*40);
+      }
+    });
+  </script>
+</body>
+</html>
