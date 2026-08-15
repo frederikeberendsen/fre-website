@@ -26,24 +26,29 @@
     nav a.back{color:var(--cream);text-decoration:none;opacity:.85}
     nav a.back:hover{opacity:1;color:var(--gold)}
 
-    main{flex:1;display:flex;align-items:center;padding:24px 0 60px}
+    main{flex:1;display:flex;align-items:center;padding:24px 0 60px;position:relative}
+    main::before{content:"";position:absolute;top:2%;left:50%;transform:translateX(-50%);width:min(720px,92vw);height:440px;background:radial-gradient(58% 58% at 50% 40%, rgba(192,53,107,.30), rgba(230,214,160,.12) 52%, transparent 74%);pointer-events:none;z-index:0}
+    main .wrap{position:relative;z-index:1}
     .hero{text-align:center}
-    .eyebrow{font-family:var(--serif);font-style:italic;letter-spacing:.16em;color:var(--gold);font-size:14px;text-transform:uppercase}
-    h1{font-family:var(--serif);font-weight:700;font-size:clamp(40px,8vw,68px);line-height:1.04;margin:16px 0 0}
-    h1 em{color:var(--magenta);font-style:italic}
-    .lead{font-size:clamp(20px,3.4vw,24px);margin:22px auto 0;max-width:34ch}
+    h1{font-family:var(--serif);font-weight:700;font-size:clamp(46px,9vw,78px);line-height:1.02;margin:8px 0 0;
+        background:linear-gradient(100deg,#ef6499,#c0356b 42%,#e6d6a0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+    .lead{font-size:clamp(21px,3.6vw,25px);color:var(--cream);margin:20px auto 0;max-width:34ch}
+    .lead em{color:var(--magenta);font-style:italic}
     .body{color:var(--cream);margin:18px auto 0;max-width:44ch}
+    .accent{color:var(--gold);font-style:italic}
 
-    .while{max-width:40ch;margin:38px auto 0;text-align:left;font-family:var(--serif);font-style:italic;color:var(--gold);font-size:15px;letter-spacing:.08em}
-    .next{margin:8px auto 0;max-width:40ch;text-align:left;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0}
-    .next a{display:flex;align-items:baseline;gap:12px;text-decoration:none;color:var(--cream);padding:16px 6px;border-bottom:1px solid var(--line)}
+    .while{max-width:38ch;margin:40px auto 0;text-align:left;font-family:var(--serif);font-style:italic;color:var(--gold);font-size:15px;letter-spacing:.08em}
+    .next{margin:10px auto 0;max-width:38ch;text-align:left;background:var(--plum-soft);border:1px solid var(--line);border-radius:16px;padding:6px 20px;box-shadow:0 14px 34px rgba(0,0,0,.30)}
+    .next a{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--cream);padding:16px 4px;border-bottom:1px solid var(--line);transition:color .15s ease}
     .next a:last-child{border-bottom:0}
     .next a:hover{color:var(--gold)}
-    .next .k{font-family:var(--serif);font-style:italic;color:var(--magenta);font-size:15px;min-width:22px}
+    .next a:hover .arw{transform:translateX(4px)}
+    .next .k{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:16px;min-width:26px}
     .next .t{flex:1}
-    .next .arw{opacity:.6}
+    .next .arw{color:var(--magenta);transition:transform .15s ease}
 
-    .close{margin:38px auto 0;max-width:40ch;color:var(--muted);font-style:italic}
+    .close{margin:36px auto 0;max-width:40ch;color:var(--muted);font-style:italic}
+    .sig{display:inline-block;font-family:var(--serif);font-style:italic;color:var(--magenta);font-size:26px;margin-top:4px}
     .cta{margin:34px 0 0}
     .btn{display:inline-block;font-family:var(--serif);font-style:italic;font-size:18px;letter-spacing:.02em;text-decoration:none;padding:14px 30px;border-radius:999px;background:var(--magenta);color:#fff;transition:transform .15s ease,background .15s ease}
     .btn:hover{transform:translateY(-2px);background:#d1477d}
@@ -64,8 +69,8 @@
   <main>
     <div class="wrap hero">
       <h1>Welcome.</h1>
-      <p class="lead">You're now a part of my world. Thank you for coming.</p>
-      <p class="body">Make yourself comfortable. Mi casa su casa. This is where I share new songs first, the stories behind them, and where I'll be playing next.</p>
+      <p class="lead">You're now a part of <em>my world</em>. Thank you for coming.</p>
+      <p class="body">Make yourself comfortable. <span class="accent">Mi casa su casa.</span> This is where I share new songs first, the stories behind them, and where I'll be playing next.</p>
 
       <p class="while">While you're here:</p>
       <div class="next">
@@ -74,7 +79,7 @@
         <a href="https://www.patreon.com/c/frewrites" target="_blank" rel="noopener"><span class="k">03</span><span class="t">Come closer on Patreon</span><span class="arw">→</span></a>
       </div>
 
-      <p class="close">Love,<br>FRÉ</p>
+      <p class="close">Love,<br><span class="sig">FRÉ</span></p>
 
       <div class="cta"><a class="btn" href="index.html">Look around →</a></div>
     </div>
