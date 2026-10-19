@@ -1,4 +1,4 @@
-// 🦋 Butterfly cursor + stardust — shared by every page. Paired with butterfly.css.
+// 🦋 Butterfly cursor + stardust, shared by every page. Paired with butterfly.css.
 // Exposes window.spark(x, y, opts) so pages can throw their own stardust.
 (function(){
   var glyphs = ['✦', '✧', '⋆', '·', '✺'];

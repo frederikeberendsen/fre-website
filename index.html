@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="canonical" href="https://frewrites.com/" />
-  <title>FRÉ — Songs for a living future</title>
+  <title>FRÉ · Songs for a living future</title>
   <meta name="description" content="FRÉ writes songs about courage and connection, for a generation fighting for equality and a living future. Listen, watch live, and come into the world of FRÉ." />
   <link rel="stylesheet" href="butterfly.css" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://frewrites.com/" />
-  <meta property="og:title" content="FRÉ — Songs for a living future" />
+  <meta property="og:title" content="FRÉ · Songs for a living future" />
   <meta property="og:description" content="Songs about courage and connection, for a generation fighting for a living future." />
   <meta property="og:image" content="images/green-armsup-wide.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -43,7 +43,7 @@
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
 
     /* NAV */
-    /* NAV — out of the way at the top, slides in once the hero is behind you */
+    /* NAV, out of the way at the top, slides in once the hero is behind you */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 900;
       display: flex; align-items: center; justify-content: center;
@@ -71,7 +71,7 @@
     /* HERO */
     .hero {
       /* full screen, so the next section never peeks over the fold.
-         dvh (not svh) — it tracks the viewport as browser bars hide and show */
+         dvh (not svh): it tracks the viewport as browser bars hide and show */
       min-height: 100vh; min-height: 100dvh;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center; text-align: center;
@@ -96,7 +96,7 @@
       font-size: clamp(15px, 2.2vw, 19px); margin-top: 14px; max-width: 560px;
     }
     .actions { margin-top: 38px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    /* Buttons — one shape, five faces.
+    /* Buttons, one shape, five faces.
        Every button is the same size with the same 1px edge. Listen is the one
        filled button; everything else shares the magenta-outline face. */
     .btn {
@@ -110,19 +110,19 @@
     .btn:hover { transform: translateY(-2px); }
     .hero .actions .btn { min-width: 172px; }
 
-    /* magenta, filled — the main thing: hear the music */
+    /* magenta, filled, the main thing: hear the music */
     .btn-primary { background: var(--magenta); border-color: var(--magenta); color: #fff; }
     .btn-primary:hover { background: #d34279; border-color: #d34279; }
 
-    /* gold, filled — the other thing worth doing: get on the list */
+    /* gold, filled, the other thing worth doing: get on the list */
     .btn-gold { background: var(--gold); border-color: var(--gold); color: #2a2210; }
     .btn-gold:hover { background: #f0e3b8; border-color: #f0e3b8; }
 
-    /* cream outline — plain places on this page */
+    /* cream outline, plain places on this page */
     .btn-ghost { border-color: var(--muted); color: var(--cream); }
     .btn-ghost:hover { border-color: var(--cream); background: rgba(243, 233, 220, 0.10); }
 
-    /* magenta outline, tinted — the only door that leaves the site */
+    /* magenta outline, tinted, the only door that leaves the site */
     .btn-backstage { border-color: var(--magenta); color: var(--cream); background: rgba(192, 53, 107, 0.30); }
     .btn-backstage:hover { background: rgba(192, 53, 107, 0.52); }
 
@@ -162,7 +162,7 @@
 
     /* QUOTES */
     .quotes { display: grid; gap: 20px; grid-template-columns: 1fr 1fr; margin-top: 12px; }
-    /* long quotes read badly in narrow columns — stack them as full-width rows */
+    /* long quotes read badly in narrow columns, stack them as full-width rows */
     .quotes.three { grid-template-columns: 1fr; }
     .quotes.one { grid-template-columns: 1fr; max-width: 660px; }
     .quote { background: var(--plum-soft); border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
@@ -212,7 +212,7 @@
     @media (max-width: 600px) { .quotes { grid-template-columns: 1fr; } nav { gap: 16px; } }
 
     /* ✨ SPARKLES */
-    /* scroll reveal — cinematic, staggered */
+    /* scroll reveal, cinematic, staggered */
     .reveal { opacity: 0; transform: translateY(42px); filter: blur(7px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1), filter .9s ease; }
     .reveal.in { opacity: 1; transform: none; filter: none; }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; filter: none; transition: none; } }
@@ -269,17 +269,17 @@
       <div class="eyebrow">Out now</div>
       <h2>Wie de Toekomst Ziet</h2>
       <div class="release">
-        <img class="art" src="images/wdtz-artwork.jpg" alt="Wie de Toekomst Ziet — artwork" />
+        <img class="art" src="images/wdtz-artwork.jpg" alt="Wie de Toekomst Ziet · artwork" />
         <div class="meta">
           <h3>Wie de Toekomst Ziet</h3>
-          <p class="body">The closing song of <em>Our Future On Earth</em> — a hymn for everyone who dares to imagine a livable future.</p>
+          <p class="body">The closing song of <em>Our Future On Earth</em>, a hymn for everyone who dares to imagine a livable future.</p>
           <div class="actions" style="margin-top:18px; justify-content:flex-start;">
             <a class="btn btn-primary" href="https://orcd.co/wiedetoekomstziet" target="_blank" rel="noopener">Listen on all streaming services</a>
           </div>
         </div>
       </div>
-      <div class="video ytfacade" data-embed="heApracr0-w" data-title="FRÉ — Wie de Toekomst Ziet (official video)">
-        <img src="images/video/heApracr0-w.jpg" alt="FRÉ — Wie de Toekomst Ziet" loading="lazy" />
+      <div class="video ytfacade" data-embed="heApracr0-w" data-title="FRÉ · Wie de Toekomst Ziet (official video)">
+        <img src="images/video/heApracr0-w.jpg" alt="FRÉ · Wie de Toekomst Ziet" loading="lazy" />
         <button type="button" class="ytplay" aria-label="Play video: Wie de Toekomst Ziet"></button>
       </div>
     </div>
@@ -310,8 +310,8 @@
           <a href="https://open.spotify.com/album/21prpvfrkDcpTR7jtB0xBG" target="_blank" rel="noopener">Listen</a>
         </div>
         <div class="disco">
-          <img class="cover" src="images/aeham-fre-live-cover.jpg" alt="Aeham Ahmad &amp; FRÉ — Live" />
-          <h4>Aeham Ahmad &amp; FRÉ — Live</h4>
+          <img class="cover" src="images/aeham-fre-live-cover.jpg" alt="Aeham Ahmad &amp; FRÉ · Live" />
+          <h4>Aeham Ahmad &amp; FRÉ · Live</h4>
           <div class="yr">2022 · live album</div>
           <a href="https://freband.bandcamp.com/album/aeham-ahmad-fr-live" target="_blank" rel="noopener">Listen</a>
         </div>
@@ -349,10 +349,10 @@
       <div class="eyebrow">About</div>
       <img class="portrait" src="images/red-slip-warm.jpeg" alt="FRÉ" />
       <h2>Songs as acts of <em>transformation</em></h2>
-      <p class="lead">FRÉ writes songs about courage and connection — for a generation fighting for equality and a living future.</p>
+      <p class="lead">FRÉ writes songs about courage and connection, for a generation fighting for equality and a living future.</p>
       <p class="body">FRÉ grew up on a small farm in the east of the Netherlands, and music has always been how she makes sense of the world. Her songs live at the edge of pop, and have been played on the BBC, NPO Radio 1, 3FM and Radio 5, with live performances across the Netherlands, Germany, Belgium, the UK, the USA and Finland.</p>
       <p class="body">For ten years she has written songs for a living future, from her debut album <em>Nature's Songs</em> through <em>We Rise When We Lift Each Other Up</em> to <em>Gemini</em>. She recorded an album with Syrian pianist Aeham Ahmad, and wrote commissioned songs for the Earth Charter, Our Future On Earth and Peacewalk. She works to minimize the footprint of everything she makes, from biodegradable album design to vinyl pressed from recycled PET.</p>
-      <p class="body">She co-founded and leads Music Declares Emergency NL, and speaks internationally on music, art and the climate crisis — at ADE Green, Eurosonic Noorderslag, MusicXMedia in Finland, the European Jazz Conference, and conservatoires including the Royal Conservatoire in The Hague.</p>
+      <p class="body">She co-founded and leads Music Declares Emergency NL, and speaks internationally on music, art and the climate crisis at ADE Green, Eurosonic Noorderslag, MusicXMedia in Finland, the European Jazz Conference, and conservatoires including the Royal Conservatoire in The Hague.</p>
       <p class="body">More than anything, she hopes her songs help people see one another again: the human behind the opinion, the common ground beneath the noise.</p>
       <p class="lead" style="margin-top:28px;">FRÉ believes that music travels heart to heart, and that <em>what moves the heart can change the world</em>.</p>
       <div class="quotes">
@@ -374,7 +374,7 @@
     <div class="wrap">
       <div class="eyebrow">Live</div>
       <h2>See FRÉ <em>live</em></h2>
-      <!-- DATES:START (bewerkt via FRÉ Studio — niet met de hand aanpassen tussen deze markers) -->
+      <!-- DATES:START (bewerkt via FRÉ Studio, niet met de hand aanpassen tussen deze markers) -->
       <div class="show" data-date="2026-06-28">
         <div class="date">28 Jun</div>
         <div class="name">Defqon.1 — end show feature <span style="color:var(--muted)">· Biddinghuizen, NL</span></div>
@@ -1489,7 +1489,7 @@ Shining like the brightest star</div></details>
     <div class="wrap">
       <div class="eyebrow">Work with me</div>
       <h2>Work with <em>me</em></h2>
-      <p class="lead">Beyond my own music, I work with people in a few ways — in the studio, on stage, in the lesson room, and on the mat.</p>
+      <p class="lead">Beyond my own music, I work with people in a few ways: in the studio, on stage, in the lesson room, and on the mat.</p>
       <div class="actions" style="margin-top:18px; justify-content:flex-start;">
         <a class="btn btn-gold" href="for-organizations.html">Commissioned songs I've written →</a>
       </div>
@@ -1497,7 +1497,7 @@ Shining like the brightest star</div></details>
       <!-- Speaking -->
       <div class="eyebrow" style="margin-top:44px;">Speaking</div>
       <img class="portrait" src="images/speaking-ejc.jpg" alt="FRÉ speaking" />
-      <p class="body"><strong style="color:var(--cream);">A speech &amp; a song.</strong> FRÉ speaks — and sings — about hope, music and the climate crisis. The signature is the combination: a personal talk that lands, followed by a live song that makes it unforgettable. Few speakers can sing it. Few musicians can speak it. FRÉ does both. For Earth Charter's 25th anniversary she wrote a five-minute speech and then played a song; it landed deeply. She speaks, hosts and performs at festivals, conservatoires, conferences and organisations.</p>
+      <p class="body"><strong style="color:var(--cream);">A speech &amp; a song.</strong> FRÉ speaks, and sings, about hope, music and the climate crisis. The signature is the combination: a personal talk that lands, followed by a live song that makes it unforgettable. Few speakers can sing it. Few musicians can speak it. FRÉ does both. For Earth Charter's 25th anniversary she wrote a five-minute speech and then played a song; it landed deeply. She speaks, hosts and performs at festivals, conservatoires, conferences and organisations.</p>
       <div class="quotes">
         <div class="quote">
           <p>"FRÉ presents a gripping personal narrative that connects her work as a musician with her drive to combat climate change, deeply inspiring the student community. FRÉ is a fantastic facilitator: aware and caring to the group, and open and capable of navigating challenging topics."</p>
@@ -1515,10 +1515,10 @@ Shining like the brightest star</div></details>
 
       <!-- In the studio -->
       <div class="eyebrow" style="margin-top:48px;">In the studio</div>
-      <p class="body"><strong style="color:var(--cream);">Producing.</strong> I produce story-first. I care about the emotional and conceptual heart of a project — building trust, shaping sound, and guiding artists toward their most honest self-expression. I shape the arc of a record, curate the collaborators, and hold space for the most vulnerable performances. What a song needs can be a subtle sonic shift or a whole new vision; my job is to know which.</p>
-      <p class="body"><strong style="color:var(--cream);">Songwriting.</strong> I'm an intuitive, collaborative co-writer. The best songs start with honest conversation, deep listening and a touch of magic — rooted in storytelling and emotional truth, aiming for work that is bold, fresh and deeply human. I've co-written with Benjamin Fro, Devon Yesberger, Clockartz, Anna Sylvia, Julian Bohn and Alita Moses, across folk, R&amp;B, dance and experimental pop. In the studio, on a writing retreat or over Zoom, I bring both playfulness and precision to the room.</p>
-      <p class="body"><strong style="color:var(--cream);">Vocals.</strong> A topliner's voice that moves between strength and fragility, at home across genres. I deliver professional takes, harmonies and lyrics from my home studio — from dance, EDM and trance (<em>Still Here</em> with Clockartz) to modern jazz and folk (Julian Bohn's <em>Feels Like Home</em>, and Cologne's <em>Mic in the Face Is Not on Purpose</em>).</p>
-      <p class="body"><strong style="color:var(--cream);">Backing vocals.</strong> There's a particular joy in being part of someone else's band. I sing backings for Benjamin Fro, and I'd love to do more of it. I learn fast, I hold a harmony, and after ten years of running my own tours I know how to keep one fun for everyone involved — and how to bring the carbon footprint down at the same time, if you want. If you're building a tour or a live band, let's talk.</p>
+      <p class="body"><strong style="color:var(--cream);">Producing.</strong> I produce story-first. I care about the emotional and conceptual heart of a project: building trust, shaping sound, and guiding artists toward their most honest self-expression. I shape the arc of a record, curate the collaborators, and hold space for the most vulnerable performances. What a song needs can be a subtle sonic shift or a whole new vision; my job is to know which.</p>
+      <p class="body"><strong style="color:var(--cream);">Songwriting.</strong> I'm an intuitive, collaborative co-writer. The best songs start with honest conversation, deep listening and a touch of magic, rooted in storytelling and emotional truth, aiming for work that is bold, fresh and deeply human. I've co-written with Benjamin Fro, Devon Yesberger, Clockartz, Anna Sylvia, Julian Bohn and Alita Moses, across folk, R&amp;B, dance and experimental pop. In the studio, on a writing retreat or over Zoom, I bring both playfulness and precision to the room.</p>
+      <p class="body"><strong style="color:var(--cream);">Vocals.</strong> A topliner's voice that moves between strength and fragility, at home across genres. I deliver professional takes, harmonies and lyrics from my home studio. From dance, EDM and trance (<em>Still Here</em> with Clockartz) to modern jazz and folk (Julian Bohn's <em>Feels Like Home</em>, and Cologne's <em>Mic in the Face Is Not on Purpose</em>).</p>
+      <p class="body"><strong style="color:var(--cream);">Backing vocals.</strong> There's a particular joy in being part of someone else's band. I sing backings for Benjamin Fro, and I'd love to do more of it. I learn fast, I hold a harmony, and after ten years of running my own tours I know how to keep one fun for everyone involved, and how to bring the carbon footprint down at the same time, if you want. If you're building a tour or a live band, let's talk.</p>
       <div class="quotes three">
         <div class="quote">
           <p>"One of the things I admire most about FRÉ is the openness and warmth she brings to every collaboration. As a <span class="nb">(co-)producer</span>, she uses her natural gift for storytelling to help you shine and bring your musical vision to fruition — with sensitivity, vast musical knowledge, and sharp instincts."</p>
@@ -1536,20 +1536,20 @@ Shining like the brightest star</div></details>
       <p class="eyebrow" style="margin-top:24px;">Selected credits</p>
       <div class="disco-grid">
         <div class="disco">
-          <img class="cover" src="images/asher-grass-cover.jpg" alt="Asher Danziger — Grass Grows Through It" />
-          <h4>Asher Danziger — Grass Grows Through It</h4>
+          <img class="cover" src="images/asher-grass-cover.jpg" alt="Asher Danziger · Grass Grows Through It" />
+          <h4>Asher Danziger · Grass Grows Through It</h4>
           <div class="yr">2025 · backing vocals</div>
           <a href="https://open.spotify.com/track/4lGALddgbc621gwYIiGdVt" target="_blank" rel="noopener">Listen</a>
         </div>
         <div class="disco">
-          <img class="cover" src="images/benjamin-moonlight-cover.jpg" alt="Benjamin Fro — Moonlight" />
-          <h4>Benjamin Fro — Moonlight</h4>
+          <img class="cover" src="images/benjamin-moonlight-cover.jpg" alt="Benjamin Fro · Moonlight" />
+          <h4>Benjamin Fro · Moonlight</h4>
           <div class="yr">2024 · backing vocals</div>
           <a href="https://open.spotify.com/album/0er3TINjvJTyj0iwcgebhS" target="_blank" rel="noopener">Listen</a>
         </div>
         <div class="disco">
-          <img class="cover" src="images/julian-feels-like-home-cover.jpg" alt="Julian Bohn — Feels Like Home" />
-          <h4>Julian Bohn — Feels Like Home</h4>
+          <img class="cover" src="images/julian-feels-like-home-cover.jpg" alt="Julian Bohn · Feels Like Home" />
+          <h4>Julian Bohn · Feels Like Home</h4>
           <div class="yr">2023 · co-production · songwriting · vocals</div>
           <a href="https://open.spotify.com/album/0fhlxq9YfjQ4n7egNys0QN" target="_blank" rel="noopener">Listen</a>
         </div>
@@ -1560,7 +1560,7 @@ Shining like the brightest star</div></details>
 
       <!-- Teaching -->
       <div class="eyebrow" style="margin-top:48px;">Teaching</div>
-      <p class="body"><strong style="color:var(--cream);">Mindful Singing.</strong> I teach singing and songwriting from the inside out — helping artists find their voice, technically, emotionally and artistically. Whether you're a beginner or a professional, I bring a warm, grounded and clear-eyed approach: technique, expressive delivery, emotional connection and musical identity. With conservatoire training behind me and a working artist's life in front of me, the lessons are about your own voice and the story only you can tell. One-on-one sessions (online and in person), workshops, and ongoing mentorship for developing artists.</p>
+      <p class="body"><strong style="color:var(--cream);">Mindful Singing.</strong> I teach singing and songwriting from the inside out, helping artists find their voice, technically, emotionally and artistically. Whether you're a beginner or a professional, I bring a warm, grounded and clear-eyed approach: technique, expressive delivery, emotional connection and musical identity. With conservatoire training behind me and a working artist's life in front of me, the lessons are about your own voice and the story only you can tell. One-on-one sessions (online and in person), workshops, and ongoing mentorship for developing artists.</p>
       <div class="quotes one">
         <div class="quote">
           <p>"Fré creates a safe and welcoming atmosphere that encourages you to challenge yourself and grow quickly. Her positive energy and constructive feedback make every lesson both educational and fun."</p>
@@ -1573,7 +1573,7 @@ Shining like the brightest star</div></details>
 
       <!-- Pilates -->
       <div class="eyebrow" style="margin-top:48px;">Pilates</div>
-      <p class="body"><strong style="color:var(--cream);">Pilates.</strong> I'm a certified mat and reformer Pilates instructor, teaching weekly classes at Cityfit Doetinchem as well as private sessions. I love combining movement with music, and I'm happy to bring Pilates into your workshop or retreat — for example a Pilates and songwriting or singing retreat, or a multi-day training.</p>
+      <p class="body"><strong style="color:var(--cream);">Pilates.</strong> I'm a certified mat and reformer Pilates instructor, teaching weekly classes at Cityfit Doetinchem as well as private sessions. I love combining movement with music, and I'm happy to bring Pilates into your workshop or retreat. For example a Pilates and songwriting or singing retreat, or a multi-day training.</p>
       <div class="actions" style="margin-top:16px; justify-content:flex-start;">
         <a class="btn btn-primary" href="mailto:fremusicofficial@gmail.com?subject=Pilates%20with%20FR%C3%89">Move with me</a>
       </div>
@@ -1633,7 +1633,7 @@ Shining like the brightest star</div></details>
       }, { rootMargin: '-70px 0px 0px 0px' }).observe(hero);
     })();
 
-    // past shows — anything before today moves into the collapsible archive
+    // past shows, anything before today moves into the collapsible archive
     (function(){
       var pastList = document.getElementById('past-list');
       var pastWrap = document.getElementById('past-wrap');
@@ -1694,7 +1694,7 @@ Shining like the brightest star</div></details>
         fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
           .then(function(){
             form.style.display = 'none';
-            if (msg) { msg.style.color = 'var(--gold)'; msg.textContent = 'Almost there — check your inbox to confirm your email.'; }
+            if (msg) { msg.style.color = 'var(--gold)'; msg.textContent = 'Almost there! Check your inbox to confirm your email.'; }
           })
           .catch(function(){
             if (btn) { btn.disabled = false; btn.textContent = 'Join'; }
@@ -1703,7 +1703,7 @@ Shining like the brightest star</div></details>
       });
     })();
 
-    // scroll reveal — staggered, per element
+    // scroll reveal, staggered, per element
     const io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
     }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
