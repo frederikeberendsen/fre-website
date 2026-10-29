@@ -25,6 +25,24 @@
   window.spark = spark;
 
   function start(){
+    // the cursor only shows on mouse devices (see butterfly.css), so phones skip its animation loop
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) flyCursor();
+
+    // click burst
+    window.addEventListener('click', function(e){
+      for (var i = 0; i < 18; i++) spark(e.clientX, e.clientY, { ang: (i / 18) * Math.PI * 2, dist: 30 + Math.random() * 40, rise: 0 });
+    });
+
+    // sparkle over titles + logo
+    document.querySelectorAll('h2, .logo, .disco h4').forEach(function(el){
+      el.addEventListener('mouseenter', function(){
+        var r = el.getBoundingClientRect();
+        for (var i = 0; i < 14; i++) spark(r.left + Math.random() * r.width, r.top + Math.random() * r.height, { dist: 14, rise: 20, small: true });
+      });
+    });
+  }
+
+  function flyCursor(){
     var bf = document.querySelector('.butterfly-cursor');
     if (!bf){
       bf = document.createElement('div');
@@ -61,19 +79,6 @@
       requestAnimationFrame(loop);
     }
     requestAnimationFrame(loop);
-
-    // click burst
-    window.addEventListener('click', function(e){
-      for (var i = 0; i < 18; i++) spark(e.clientX, e.clientY, { ang: (i / 18) * Math.PI * 2, dist: 30 + Math.random() * 40, rise: 0 });
-    });
-
-    // sparkle over titles + logo
-    document.querySelectorAll('h2, .logo, .disco h4').forEach(function(el){
-      el.addEventListener('mouseenter', function(){
-        var r = el.getBoundingClientRect();
-        for (var i = 0; i < 14; i++) spark(r.left + Math.random() * r.width, r.top + Math.random() * r.height, { dist: 14, rise: 20, small: true });
-      });
-    });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
