@@ -22,6 +22,12 @@
     header.epk{padding:40px 28px 10px;text-align:center}
     .logo{font-family:var(--serif);font-weight:700;color:var(--magenta);font-size:clamp(48px,11vw,90px);line-height:1;letter-spacing:.03em}
     .kicker{font-family:var(--serif);font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-size:13px;margin-top:10px}
+    .setups{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:4px}
+    @media(max-width:700px){.setups{grid-template-columns:1fr}}
+    .setups>div{background:var(--plum-soft);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
+    .setups .num{display:block;font-family:var(--serif);font-weight:700;color:var(--magenta);font-size:30px;line-height:1;margin-bottom:8px}
+    .setups b{display:block;font-family:var(--serif);font-size:19px;margin-bottom:6px}
+    .setups span.muted{display:block;font-size:16px;line-height:1.5}
     .updated-top{color:var(--muted);font-family:var(--serif);font-style:italic;font-size:14px;margin-top:8px}
     .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--plum-soft)}
     .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -130,8 +136,16 @@
     <!-- LIVE & TEAM -->
     <section>
       <div class="eyebrow" data-k="liveLabel"></div>
+      <h2 data-k="setupsLabel"></h2>
+      <div class="setups">
+        <div><span class="num">1</span><b data-k="s1"></b><span class="muted" data-k="s1d"></span></div>
+        <div><span class="num">2</span><b data-k="s2"></b><span class="muted" data-k="s2d"></span></div>
+        <div><span class="num">3</span><b data-k="s3"></b><span class="muted" data-k="s3d"></span></div>
+      </div>
+      <h2 style="margin-top:34px" data-k="teamLabel"></h2>
       <div class="rows">
         <div><b data-k="instLabel"></b> <span data-k="inst"></span></div>
+        <div><b data-k="drumsLabel"></b> Jo Beyer</div>
         <div><b data-k="danceLabel"></b> Nanda van de Vorle &amp; Marc Beaugendre</div>
         <div><b data-k="prodLabel"></b> Julian Bohn, Wannes Notenbaert, Sam Shudder</div>
         <div><b data-k="styLabel"></b> Philine van den Hul</div>
@@ -193,7 +207,13 @@
         q1:"\"Afgelopen donderdag liet ik mij verrassen door FRÉ… Het was gewoon écht heel goed!\"",
         q2:"\"Je hebt echt een aanstekelijk enthousiasmerende EP uitgebracht, met belangrijke verhalen erin.\"",
         q3:"\"Dit is zo'n liedje wat je wilt blijven onthouden, heel bijzonder en boeiend.\"",
-        liveLabel:"Live-setup & team",
+        liveLabel:"Live",
+        setupsLabel:"Drie live-setups",
+        s1:"FRÉ solo", s1d:"Zang, gitaar, synths en live-productie. Compact en flexibel, voor elk podium.",
+        s2:"FRÉ solo + dansers", s2d:"De solo-show met dansers Nanda van de Vorle &amp; Marc Beaugendre.",
+        s3:"FRÉ + Jo Beyer (live drums)", s3d:"Met live drums door Jo Beyer, optioneel aangevuld met dansers.",
+        teamLabel:"Team",
+        drumsLabel:"Drums:",
         instLabel:"Zang, instrumenten, live-productie, dans:", inst:"Frederike Berendsen",
         danceLabel:"Dans & choreografie:", prodLabel:"Productie:", styLabel:"Styling / fotografie:",
         photosLabel:"Persfoto's", photosNote:"Klik om te openen / downloaden. Foto's: Philine van den Hul · live: Fai Lam Photography.", photosAll:"→ Alle persfoto's downloaden (Google Drive)",
@@ -214,7 +234,13 @@
         q1:"\"Pleasantly surprised by FRÉ at her release concert — it was just REALLY good!\"",
         q2:"\"An infectious, energizing EP, with important stories in it.\"",
         q3:"\"One of those songs you want to remember — very special and captivating.\"",
-        liveLabel:"Live setup & team",
+        liveLabel:"Live",
+        setupsLabel:"Three live setups",
+        s1:"FRÉ solo", s1d:"Voice, guitar, synths and live production. Compact and flexible, for any stage.",
+        s2:"FRÉ solo + dancers", s2d:"The solo show with dancers Nanda van de Vorle &amp; Marc Beaugendre.",
+        s3:"FRÉ + Jo Beyer (live drums)", s3d:"With live drums by Jo Beyer, optionally with dancers as well.",
+        teamLabel:"Team",
+        drumsLabel:"Drums:",
         instLabel:"Voice, instruments, live production, dance:", inst:"Frederike Berendsen",
         danceLabel:"Dance & choreography:", prodLabel:"Production:", styLabel:"Styling / photography:",
         photosLabel:"Press photos", photosNote:"Click to open / download. Photos: Philine van den Hul · live: Fai Lam Photography.", photosAll:"→ Download all press photos (Google Drive)",
@@ -235,7 +261,13 @@
         q1:"\"Letzten Donnerstag ließ ich mich von FRÉ überraschen — es war einfach richtig gut!\"",
         q2:"\"Eine ansteckend begeisternde EP, mit wichtigen Geschichten.\"",
         q3:"\"Das ist so ein Lied, das man sich merken möchte — sehr besonders und fesselnd.\"",
-        liveLabel:"Live-Setup & Team",
+        liveLabel:"Live",
+        setupsLabel:"Drei Live-Setups",
+        s1:"FRÉ solo", s1d:"Gesang, Gitarre, Synths und Live-Produktion. Kompakt und flexibel, für jede Bühne.",
+        s2:"FRÉ solo + Tänzer", s2d:"Die Solo-Show mit den Tänzern Nanda van de Vorle &amp; Marc Beaugendre.",
+        s3:"FRÉ + Jo Beyer (Live-Drums)", s3d:"Mit Live-Drums von Jo Beyer, optional auch mit Tänzern.",
+        teamLabel:"Team",
+        drumsLabel:"Drums:",
         instLabel:"Gesang, Instrumente, Live-Produktion, Tanz:", inst:"Frederike Berendsen",
         danceLabel:"Tanz & Choreografie:", prodLabel:"Produktion:", styLabel:"Styling / Fotografie:",
         photosLabel:"Pressefotos", photosNote:"Zum Öffnen / Herunterladen klicken. Fotos: Philine van den Hul · live: Fai Lam Photography.", photosAll:"→ Alle Pressefotos herunterladen (Google Drive)",
@@ -264,7 +296,7 @@
     (function(){
       var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold:0.12, rootMargin:'0px 0px -6% 0px' });
       document.querySelectorAll('section').forEach(function(sec){
-        var items = Array.prototype.slice.call(sec.querySelectorAll('.eyebrow, h2, p, .quote, .rows > div, .grid a, .dl a'));
+        var items = Array.prototype.slice.call(sec.querySelectorAll('.eyebrow, h2, p, .quote, .rows > div, .setups > div, .grid a, .dl a'));
         items = items.filter(function(el){ return !items.some(function(o){ return o!==el && o.contains(el); }); });
         items.forEach(function(el,i){ el.classList.add('reveal'); el.style.transitionDelay = ((i%6)*0.06)+'s'; io.observe(el); });
       });
