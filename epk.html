@@ -22,6 +22,14 @@
     header.epk{padding:40px 28px 10px;text-align:center}
     .logo{font-family:var(--serif);font-weight:700;color:var(--magenta);font-size:clamp(48px,11vw,90px);line-height:1;letter-spacing:.03em}
     .kicker{font-family:var(--serif);font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-size:13px;margin-top:10px}
+    .updated-top{color:var(--muted);font-family:var(--serif);font-style:italic;font-size:14px;margin-top:8px}
+    .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--plum-soft)}
+    .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .vcap{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:15px;margin:10px 0 0}
+    .videos{display:grid;grid-template-columns:1fr 1fr;gap:26px 18px;margin-top:28px}
+    @media(max-width:600px){.videos{grid-template-columns:1fr}}
+    .listen{margin-top:8px;border-radius:12px;overflow:hidden}
+    .listen iframe{display:block;width:100%;height:352px;border:0}
     .lang-switch{display:flex;gap:8px;justify-content:center;margin:22px 0 0}
     .lang-switch button{font-family:var(--serif);font-style:italic;letter-spacing:.08em;font-size:14px;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:2px;padding:7px 16px;cursor:pointer;transition:all .2s}
     .lang-switch button.on{background:var(--gold);color:#2a2210;border-color:var(--gold)}
@@ -71,6 +79,7 @@
   <header class="epk">
     <div class="logo">FRÉ</div>
     <div class="kicker" data-k="kicker"></div>
+    <div class="updated-top" data-k="updated"></div>
     <div class="lang-switch">
       <button data-l="nl">NL</button>
       <button data-l="en">EN</button>
@@ -97,6 +106,25 @@
         <div class="quote"><p data-k="q2"></p><span>— Hijlco Span · Radio 5</span></div>
         <div class="quote"><p data-k="q3"></p><span>— Frits Spits · Radio 1</span></div>
       </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section>
+      <div class="eyebrow" data-k="videoLabel"></div>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/heApracr0-w?rel=0" title="FRÉ - Wie de Toekomst Ziet" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+      <p class="vcap" data-k="vMain"></p>
+      <div class="videos">
+        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/DSqFpCkhK_Y?rel=0" title="FRÉ - GRAND (live)" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vGrand"></p></div>
+        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/zCJ-32j26ho?rel=0" title="FRÉ Live @ Tolhuistuin" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vTolhuis"></p></div>
+        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/NpwbjDOPL8g?rel=0" title="FRÉ over Music Declares Emergency" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vSpeech"></p></div>
+        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/K04pS7x5uLg?rel=0" title="Stepping Into The Arena - A Portrait" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vPortrait"></p></div>
+      </div>
+    </section>
+
+    <!-- LISTEN -->
+    <section>
+      <div class="eyebrow" data-k="listenLabel"></div>
+      <div class="listen"><iframe src="https://open.spotify.com/embed/artist/7cFNGgU48VYaTwv7lDQVaf?utm_source=generator&theme=0" title="FRÉ" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture"></iframe></div>
     </section>
 
     <!-- LIVE & TEAM -->
@@ -144,14 +172,13 @@
       <div class="eyebrow" data-k="contactLabel"></div>
       <div class="rows">
         <div><b data-k="mgmtLabel"></b> Christian Fictoor · iGNITE! Music · <a href="mailto:chris@ignitemusic.agency">chris@ignitemusic.agency</a></div>
-        <div><b data-k="bookLabel"></b> Lisanne Sinnema · iGNITE! Music · <a href="mailto:lisanne@ignitemusic.agency">lisanne@ignitemusic.agency</a></div>
       </div>
     </section>
 
     <a class="back" href="index.html" data-k="back"></a>
   </div>
 
-  <footer>FRÉ · <span data-k="updated"></span> · <a href="privacy.html" style="color:inherit;">Privacy</a> · <a href="colofon.html" style="color:inherit;">Legal notice</a></footer>
+  <footer>FRÉ ·<a href="privacy.html" style="color:inherit;">Privacy</a> · <a href="colofon.html" style="color:inherit;">Legal notice</a></footer>
 
   <script src="lenis.min.js"></script>
   <script>
@@ -172,8 +199,10 @@
         photosLabel:"Persfoto's", photosNote:"Klik om te openen / downloaden. Foto's: Philine van den Hul · live: Fai Lam Photography.", photosAll:"→ Alle persfoto's downloaden (Google Drive)",
         downloadsLabel:"Downloads",
         riderSolo:"Tech & Hospitality Rider (solo)", riderDancers:"Tech & Hospitality Rider (met dansers)", conduct:"Code of Conduct",
-        contactLabel:"Contact & boeking", mgmtLabel:"Management:", bookLabel:"Booking:",
-        back:"← terug naar FRÉ", updated:"EPK · laatst bijgewerkt juni 2026"
+        videoLabel:"Video", vMain:"Wie de Toekomst Ziet (slotlied Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"Live in de Tolhuistuin, Amsterdam", vSpeech:"Speech over Music Declares Emergency, Top van Onderop (2024)", vPortrait:"Stepping Into the Arena: een portret (2020)",
+        listenLabel:"Luister",
+        contactLabel:"Contact & boeking", mgmtLabel:"Management & booking:",
+        back:"← terug naar FRÉ", updated:"Laatst bijgewerkt: 31 oktober 2026"
       },
       en:{
         kicker:"Press Kit", bioLabel:"Bio",
@@ -191,8 +220,10 @@
         photosLabel:"Press photos", photosNote:"Click to open / download. Photos: Philine van den Hul · live: Fai Lam Photography.", photosAll:"→ Download all press photos (Google Drive)",
         downloadsLabel:"Downloads",
         riderSolo:"Tech & Hospitality Rider (solo)", riderDancers:"Tech & Hospitality Rider (with dancers)", conduct:"Code of Conduct",
-        contactLabel:"Contact & booking", mgmtLabel:"Management:", bookLabel:"Booking:",
-        back:"← back to FRÉ", updated:"EPK · last updated June 2026"
+        videoLabel:"Video", vMain:"Wie de Toekomst Ziet (closing song, Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"Live at Tolhuistuin, Amsterdam", vSpeech:"Speech on Music Declares Emergency, Top van Onderop (2024, Dutch)", vPortrait:"Stepping Into the Arena: a portrait (2020)",
+        listenLabel:"Listen",
+        contactLabel:"Contact & booking", mgmtLabel:"Management & booking:",
+        back:"← back to FRÉ", updated:"Last updated: 31 October 2026"
       },
       de:{
         kicker:"Pressemappe", bioLabel:"Bio",
@@ -210,8 +241,10 @@
         photosLabel:"Pressefotos", photosNote:"Zum Öffnen / Herunterladen klicken. Fotos: Philine van den Hul · live: Fai Lam Photography.", photosAll:"→ Alle Pressefotos herunterladen (Google Drive)",
         downloadsLabel:"Downloads",
         riderSolo:"Tech & Hospitality Rider (solo)", riderDancers:"Tech & Hospitality Rider (mit Tänzern)", conduct:"Code of Conduct",
-        contactLabel:"Kontakt & Booking", mgmtLabel:"Management:", bookLabel:"Booking:",
-        back:"← zurück zu FRÉ", updated:"EPK · zuletzt aktualisiert Juni 2026"
+        videoLabel:"Video", vMain:"Wie de Toekomst Ziet (Schlusslied, Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"Live in der Tolhuistuin, Amsterdam", vSpeech:"Rede über Music Declares Emergency, Top van Onderop (2024, Niederländisch)", vPortrait:"Stepping Into the Arena: ein Porträt (2020)",
+        listenLabel:"Hören",
+        contactLabel:"Kontakt & Booking", mgmtLabel:"Management & Booking:",
+        back:"← zurück zu FRÉ", updated:"Zuletzt aktualisiert: 31. Oktober 2026"
       }
     };
     function setLang(l){
@@ -219,10 +252,13 @@
       document.querySelectorAll('[data-k]').forEach(function(el){ el.innerHTML = I[l][el.dataset.k] || ''; });
       document.querySelectorAll('.lang-switch button').forEach(function(b){ b.classList.toggle('on', b.dataset.l===l); });
       try{ localStorage.setItem('epklang', l); }catch(e){}
+      try{ if(/^\/epk/.test(location.pathname)) history.replaceState(null, '', '/epk-' + l); }catch(e){}
     }
     document.querySelectorAll('.lang-switch button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.l); }); });
+    // /epk-nl, /epk-en, /epk-de pick the language; plain /epk falls back to the last choice, then NL
+    var fromPath = (location.pathname.match(/epk-(nl|en|de)/) || [])[1];
     var saved = 'nl'; try{ saved = localStorage.getItem('epklang') || 'nl'; }catch(e){}
-    setLang(saved);
+    setLang(fromPath || saved);
 
     // motion: cinematic staggered reveals + buttery smooth scroll
     (function(){
