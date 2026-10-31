@@ -54,10 +54,6 @@
     .bio-box{background:var(--plum-soft);border:1px solid var(--line);border-radius:6px;padding:22px 26px;margin-top:18px}
     .bio-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:12px}
     .bio-head h2{margin:0}
-    .wc{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:14px}
-    .copy{margin-left:auto;font-family:var(--serif);font-size:14px;letter-spacing:.06em;color:var(--plum);background:var(--gold);border:1px solid var(--gold);border-radius:2px;padding:7px 16px;cursor:pointer}
-    .copy:hover{background:var(--cream);border-color:var(--cream)}
-    .copy.done{background:var(--magenta);border-color:var(--magenta);color:var(--cream)}
     .bio-text p{max-width:none}
     .bio-text p:last-child{margin-bottom:0}
     .updated-top{color:var(--muted);font-family:var(--serif);font-style:italic;font-size:14px;margin-top:8px}
@@ -133,11 +129,11 @@
     <section>
       <div class="eyebrow" data-k="bioLabel"></div>
       <div class="bio-box">
-        <div class="bio-head"><h2 data-k="shortBioLabel"></h2><span class="wc" data-wc="shortBio"></span><button class="copy" data-copy="shortBio" data-k="copy"></button></div>
+        <div class="bio-head"><h2 data-k="shortBioLabel"></h2></div>
         <div class="bio-text" id="shortBio" data-k="shortBio"></div>
       </div>
       <div class="bio-box">
-        <div class="bio-head"><h2 data-k="longBioLabel"></h2><span class="wc" data-wc="longBio"></span><button class="copy" data-copy="longBio" data-k="copy"></button></div>
+        <div class="bio-head"><h2 data-k="longBioLabel"></h2></div>
         <div class="bio-text" id="longBio" data-k="longBio"></div>
       </div>
     </section>
@@ -279,11 +275,11 @@
     const I = {
       nl:{
         kicker:"Press Kit", bioLabel:"Bio",
-        copy:"Kopieer", copied:"Gekopieerd ✓", words:"woorden",
+       
         shortBioLabel:"Korte bio",
         shortBio:"FRÉ is een opkomende kracht in de internationale popscene, op het snijvlak van pop en indie, geïnspireerd door Billie Eilish, Joni Mitchell en Bon Iver, met een eigen, onconventioneel geluid. Ze zet zich in voor gelijke rechten en een leefbare planeet.",
         longBioLabel:"Biografie",
-        longBio:"FRÉ (Frederike Berendsen) richtte in 2021 de Nederlandse tak van Music Declares Emergency op. In 2025 werd zij benoemd tot HERO binnen de Global Cultural Narratives Circle. Ze bracht het album <em>Gemini</em> uit op duurzaam vinyl, met releaseconcert in Paradiso. Momenteel werkt zij aan haar volgende album <em>Where We Meet</em> in New York City met internationaal gerenommeerde muzikanten. Op het podium toont zij zich volledig als artiest die niet bang is om te schitteren.",
+        longBio:"<p>FRÉ is een nieuwe kracht in de internationale popscene. Haar muziek bevindt zich op het snijvlak van pop en indie, met invloeden van artiesten als Billie Eilish, Joni Mitchell en Bon Iver, maar haar geluid is allesbehalve conventioneel. Ze is een artiest die zich niet in een hokje laat stoppen, muzikaal en persoonlijk. Haar muziek en teksten geven stem aan een generatie die vecht voor gelijke rechten, gelijke kansen en een leefbare planeet. In 2021 richtte FRÉ de Nederlandse tak op van Music Declares Emergency, een internationale duurzaamheidsbeweging waarbij onder anderen Massive Attack, Bon Iver en Billie Eilish zijn aangesloten.</p><p>Ze spreekt op grote conferenties en festivals en zet zich onophoudelijk in voor een duurzamere en eerlijkere toekomst. In 2025 werd ze benoemd tot HERO binnen de Global Cultural Narratives Circle, onderdeel van een wereldwijd netwerk van klimaatmobilisatoren die vanaf de frontlinie werken aan beleidsverandering. Na haar album <em>Gemini</em> op duurzaam (knalroze) vinyl, met een onvergetelijk releaseconcert in Paradiso, werkt FRÉ nu aan haar volgende album <em>Where We Meet</em>, met internationaal gerenommeerde muzikanten in New York City. Diezelfde energie van ontmoeten, luisteren en je volledig laten zien is wat haar definieert op het podium. In haar live performance zie je echt wie ze is: een artiest die niet bang is om te schitteren.</p>",
         quotesLabel:"Pers",
         q1:"\"Afgelopen donderdag liet ik mij verrassen door FRÉ… Het was gewoon écht heel goed!\"",
         q2:"\"Je hebt echt een aanstekelijk enthousiasmerende EP uitgebracht, met belangrijke verhalen erin.\"",
@@ -310,11 +306,11 @@
       },
       en:{
         kicker:"Press Kit", bioLabel:"Bio",
-        copy:"Copy", copied:"Copied ✓", words:"words",
+       
         shortBioLabel:"Short bio",
         shortBio:"FRÉ is a new force in international pop, at the edge of pop and indie, drawing on Billie Eilish, Joni Mitchell and Bon Iver with an unconventional sound of her own. She stands for equal rights and a livable planet.",
         longBioLabel:"Biography",
-        longBio:"FRÉ (Frederike Berendsen) founded the Dutch branch of Music Declares Emergency in 2021. In 2025 she was named a HERO within the Global Cultural Narratives Circle. She released her album <em>Gemini</em> on sustainable vinyl, with a release concert at Paradiso. She is currently recording her next album <em>Where We Meet</em> in New York City with renowned international musicians. On stage she shows herself fully as an artist who isn't afraid to shine.",
+        longBio:"<p>FRÉ is a new force in the international pop scene. Her music sits at the intersection of pop and indie, influenced by artists like Billie Eilish, Joni Mitchell and Bon Iver, but her sound is anything but conventional. She is an artist who refuses to be confined to a box, both musically and personally. Her music and lyrics speak to the voice of a generation fighting for equal rights, equal opportunities and a livable planet. In 2021, FRÉ founded the Dutch branch of Music Declares Emergency, an international sustainability movement that includes artists like Massive Attack, Bon Iver and Billie Eilish.</p><p>She speaks at major conferences and festivals, constantly pushing for a more sustainable and equitable future. In 2025 she was named a HERO within the Global Cultural Narratives Circle, joining a global network of verified climate mobilizers driving policy change from the frontlines. After releasing her album <em>Gemini</em> on sustainable (pink) vinyl, with an unforgettable release concert at Paradiso, FRÉ is now working on her next album <em>Where We Meet</em> with internationally renowned musicians in New York City. That same spirit of meeting, listening and showing up fully is what defines her on stage. It&#8217;s in her live performance that you&#8217;ll truly see who she is: an artist unafraid to shine.</p>",
         quotesLabel:"Press",
         q1:"\"Pleasantly surprised by FRÉ at her release concert — it was just REALLY good!\"",
         q2:"\"An infectious, energizing EP, with important stories in it.\"",
@@ -341,11 +337,11 @@
       },
       de:{
         kicker:"Pressemappe", bioLabel:"Bio",
-        copy:"Kopieren", copied:"Kopiert ✓", words:"Wörter",
+       
         shortBioLabel:"Kurzbio",
         shortBio:"FRÉ ist eine neue Kraft im internationalen Pop, an der Schnittstelle von Pop und Indie, inspiriert von Billie Eilish, Joni Mitchell und Bon Iver, mit einem eigenen, unkonventionellen Klang. Sie setzt sich für gleiche Rechte und einen lebenswerten Planeten ein.",
         longBioLabel:"Biografie",
-        longBio:"FRÉ (Frederike Berendsen) gründete 2021 den niederländischen Zweig von Music Declares Emergency. 2025 wurde sie als HERO im Global Cultural Narratives Circle ausgezeichnet. Ihr Album <em>Gemini</em> erschien auf nachhaltigem Vinyl, mit einem Releasekonzert im Paradiso. Derzeit nimmt sie ihr nächstes Album <em>Where We Meet</em> in New York City mit international renommierten Musikern auf. Auf der Bühne zeigt sie sich ganz als Künstlerin, die keine Angst hat zu strahlen.",
+        longBio:"<p>FRÉ ist eine neue Kraft in der internationalen Popszene. Ihre Musik bewegt sich an der Schnittstelle von Pop und Indie, beeinflusst von Künstlerinnen und Künstlern wie Billie Eilish, Joni Mitchell und Bon Iver, doch ihr Sound ist alles andere als konventionell. Sie ist eine Künstlerin, die sich in keine Schublade stecken lässt, weder musikalisch noch persönlich. Ihre Musik und Texte geben einer Generation eine Stimme, die für gleiche Rechte, gleiche Chancen und einen lebenswerten Planeten kämpft. 2021 gründete FRÉ den niederländischen Zweig von Music Declares Emergency, einer internationalen Nachhaltigkeitsbewegung, der unter anderem Massive Attack, Bon Iver und Billie Eilish angehören.</p><p>Sie spricht auf großen Konferenzen und Festivals und setzt sich unermüdlich für eine nachhaltigere und gerechtere Zukunft ein. 2025 wurde sie als HERO in den Global Cultural Narratives Circle aufgenommen, ein weltweites Netzwerk von Klima-Mobilisierenden, die von der Frontlinie aus politischen Wandel vorantreiben. Nach ihrem Album <em>Gemini</em> auf nachhaltigem (pinkem) Vinyl, mit einem unvergesslichen Releasekonzert im Paradiso, arbeitet FRÉ nun an ihrem nächsten Album <em>Where We Meet</em>, mit international renommierten Musikerinnen und Musikern in New York City. Derselbe Geist von Begegnung, Zuhören und ganz da sein prägt sie auf der Bühne. In ihrer Live-Performance siehst du wirklich, wer sie ist: eine Künstlerin, die keine Angst hat zu strahlen.</p>",
         quotesLabel:"Presse",
         q1:"\"Letzten Donnerstag ließ ich mich von FRÉ überraschen — es war einfach richtig gut!\"",
         q2:"\"Eine ansteckend begeisternde EP, mit wichtigen Geschichten.\"",
@@ -375,31 +371,10 @@
       document.documentElement.lang = l;
       document.querySelectorAll('[data-k]').forEach(function(el){ el.innerHTML = I[l][el.dataset.k] || ''; });
       document.querySelectorAll('.lang-switch button').forEach(function(b){ b.classList.toggle('on', b.dataset.l===l); });
-      document.querySelectorAll('[data-wc]').forEach(function(el){
-        var n = document.getElementById(el.dataset.wc).innerText.trim().split(/\s+/).length;
-        el.textContent = n + ' ' + I[l].words;
-      });
       try{ localStorage.setItem('epklang', l); }catch(e){}
       try{ if(/^\/epk/.test(location.pathname)) history.replaceState(null, '', '/epk-' + l); }catch(e){}
     }
     document.querySelectorAll('.lang-switch button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.l); }); });
-    // copy buttons: plain text, paragraphs separated by a blank line
-    document.querySelectorAll('.copy').forEach(function(b){
-      b.addEventListener('click', function(){
-        var el = document.getElementById(b.dataset.copy);
-        var ps = el.querySelectorAll('p');
-        var text = ps.length ? Array.prototype.map.call(ps, function(p){ return p.innerText.trim(); }).join('\n\n') : el.innerText.trim();
-        var lang = document.documentElement.lang;
-        function ok(){ b.textContent = I[lang].copied; b.classList.add('done'); setTimeout(function(){ b.textContent = I[lang].copy; b.classList.remove('done'); }, 1800); }
-        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(ok, fallback); } else { fallback(); }
-        function fallback(){
-          var t = document.createElement('textarea'); t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
-          document.body.appendChild(t); t.select();
-          try{ document.execCommand('copy'); ok(); }catch(e){}
-          document.body.removeChild(t);
-        }
-      });
-    });
     // /epk-nl, /epk-en, /epk-de pick the language; plain /epk falls back to the last choice, then NL
     var fromPath = (location.pathname.match(/epk-(nl|en|de)/) || [])[1];
     var saved = 'nl'; try{ saved = localStorage.getItem('epklang') || 'nl'; }catch(e){}
