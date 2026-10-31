@@ -49,6 +49,15 @@
       .setup:nth-child(even) .ph{order:0}
       .setup .ph{min-height:260px}
     }
+    .bio-box{background:var(--plum-soft);border:1px solid var(--line);border-radius:6px;padding:22px 26px;margin-top:18px}
+    .bio-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:12px}
+    .bio-head h2{margin:0}
+    .wc{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:14px}
+    .copy{margin-left:auto;font-family:var(--serif);font-size:14px;letter-spacing:.06em;color:var(--plum);background:var(--gold);border:1px solid var(--gold);border-radius:2px;padding:7px 16px;cursor:pointer}
+    .copy:hover{background:var(--cream);border-color:var(--cream)}
+    .copy.done{background:var(--magenta);border-color:var(--magenta);color:var(--cream)}
+    .bio-text p{max-width:none}
+    .bio-text p:last-child{margin-bottom:0}
     .updated-top{color:var(--muted);font-family:var(--serif);font-style:italic;font-size:14px;margin-top:8px}
     .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--plum-soft)}
     .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -120,10 +129,14 @@
     <!-- BIO -->
     <section>
       <div class="eyebrow" data-k="bioLabel"></div>
-      <h2 data-k="shortBioLabel"></h2>
-      <p data-k="shortBio"></p>
-      <h2 style="margin-top:30px" data-k="longBioLabel"></h2>
-      <p class="muted" data-k="longBio"></p>
+      <div class="bio-box">
+        <div class="bio-head"><h2 data-k="shortBioLabel"></h2><span class="wc" data-wc="shortBio"></span><button class="copy" data-copy="shortBio" data-k="copy"></button></div>
+        <div class="bio-text" id="shortBio" data-k="shortBio"></div>
+      </div>
+      <div class="bio-box">
+        <div class="bio-head"><h2 data-k="longBioLabel"></h2><span class="wc" data-wc="longBio"></span><button class="copy" data-copy="longBio" data-k="copy"></button></div>
+        <div class="bio-text" id="longBio" data-k="longBio"></div>
+      </div>
     </section>
 
     <!-- PRESS -->
@@ -258,6 +271,7 @@
     const I = {
       nl:{
         kicker:"Press Kit", bioLabel:"Bio",
+        copy:"Kopieer", copied:"Gekopieerd ✓", words:"woorden",
         shortBioLabel:"Korte bio",
         shortBio:"FRÉ is een opkomende kracht in de internationale popscene, op het snijvlak van pop en indie, geïnspireerd door Billie Eilish, Joni Mitchell en Bon Iver, met een eigen, onconventioneel geluid. Ze zet zich in voor gelijke rechten en een leefbare planeet.",
         longBioLabel:"Biografie",
@@ -287,6 +301,7 @@
       },
       en:{
         kicker:"Press Kit", bioLabel:"Bio",
+        copy:"Copy", copied:"Copied ✓", words:"words",
         shortBioLabel:"Short bio",
         shortBio:"FRÉ is a new force in international pop, at the edge of pop and indie, drawing on Billie Eilish, Joni Mitchell and Bon Iver with an unconventional sound of her own. She stands for equal rights and a livable planet.",
         longBioLabel:"Biography",
@@ -316,6 +331,7 @@
       },
       de:{
         kicker:"Pressemappe", bioLabel:"Bio",
+        copy:"Kopieren", copied:"Kopiert ✓", words:"Wörter",
         shortBioLabel:"Kurzbio",
         shortBio:"FRÉ ist eine neue Kraft im internationalen Pop, an der Schnittstelle von Pop und Indie, inspiriert von Billie Eilish, Joni Mitchell und Bon Iver, mit einem eigenen, unkonventionellen Klang. Sie setzt sich für gleiche Rechte und einen lebenswerten Planeten ein.",
         longBioLabel:"Biografie",
@@ -348,10 +364,31 @@
       document.documentElement.lang = l;
       document.querySelectorAll('[data-k]').forEach(function(el){ el.innerHTML = I[l][el.dataset.k] || ''; });
       document.querySelectorAll('.lang-switch button').forEach(function(b){ b.classList.toggle('on', b.dataset.l===l); });
+      document.querySelectorAll('[data-wc]').forEach(function(el){
+        var n = document.getElementById(el.dataset.wc).innerText.trim().split(/\s+/).length;
+        el.textContent = n + ' ' + I[l].words;
+      });
       try{ localStorage.setItem('epklang', l); }catch(e){}
       try{ if(/^\/epk/.test(location.pathname)) history.replaceState(null, '', '/epk-' + l); }catch(e){}
     }
     document.querySelectorAll('.lang-switch button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.l); }); });
+    // copy buttons: plain text, paragraphs separated by a blank line
+    document.querySelectorAll('.copy').forEach(function(b){
+      b.addEventListener('click', function(){
+        var el = document.getElementById(b.dataset.copy);
+        var ps = el.querySelectorAll('p');
+        var text = ps.length ? Array.prototype.map.call(ps, function(p){ return p.innerText.trim(); }).join('\n\n') : el.innerText.trim();
+        var lang = document.documentElement.lang;
+        function ok(){ b.textContent = I[lang].copied; b.classList.add('done'); setTimeout(function(){ b.textContent = I[lang].copy; b.classList.remove('done'); }, 1800); }
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(ok, fallback); } else { fallback(); }
+        function fallback(){
+          var t = document.createElement('textarea'); t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+          document.body.appendChild(t); t.select();
+          try{ document.execCommand('copy'); ok(); }catch(e){}
+          document.body.removeChild(t);
+        }
+      });
+    });
     // /epk-nl, /epk-en, /epk-de pick the language; plain /epk falls back to the last choice, then NL
     var fromPath = (location.pathname.match(/epk-(nl|en|de)/) || [])[1];
     var saved = 'nl'; try{ saved = localStorage.getItem('epklang') || 'nl'; }catch(e){}
