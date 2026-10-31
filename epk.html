@@ -22,12 +22,30 @@
     header.epk{padding:40px 28px 10px;text-align:center}
     .logo{font-family:var(--serif);font-weight:700;color:var(--magenta);font-size:clamp(48px,11vw,90px);line-height:1;letter-spacing:.03em}
     .kicker{font-family:var(--serif);font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-size:13px;margin-top:10px}
-    .setups{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:4px}
-    @media(max-width:700px){.setups{grid-template-columns:1fr}}
-    .setups>div{background:var(--plum-soft);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
-    .setups .num{display:block;font-family:var(--serif);font-weight:700;color:var(--magenta);font-size:30px;line-height:1;margin-bottom:8px}
-    .setups b{display:block;font-family:var(--serif);font-size:19px;margin-bottom:6px}
-    .setups span.muted{display:block;font-size:16px;line-height:1.5}
+    .setup-intro{color:var(--muted)}
+    .formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:6px 0 30px}
+    .chip{font-family:var(--serif);font-size:15px;letter-spacing:.04em;padding:8px 16px;border:1px solid var(--gold);color:var(--gold);border-radius:2px}
+    .chip.base{background:var(--magenta);border-color:var(--magenta);color:var(--cream);font-weight:700}
+    .plus{font-family:var(--serif);font-weight:700;font-size:24px;color:var(--magenta)}
+    .setups{display:grid;gap:22px}
+    .setup{display:grid;grid-template-columns:1.1fr 1fr;background:var(--plum-soft);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+    .setup:nth-child(even){grid-template-columns:1fr 1.1fr}
+    .setup:nth-child(even) .ph{order:2}
+    .setup .ph{display:block;min-height:300px;position:relative}
+    .setup .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+    .setup .ph.two{display:grid;grid-template-columns:.75fr 1fr}
+    .setup .ph.two a{position:relative;display:block}
+    .setup .txt{padding:26px 28px;display:flex;flex-direction:column;justify-content:center}
+    .setup .tag{align-self:flex-start;font-family:var(--serif);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);background:var(--gold);padding:4px 10px;border-radius:2px;margin-bottom:14px}
+    .setup h3{font-family:var(--serif);font-weight:700;font-size:clamp(22px,3vw,28px);line-height:1.15;margin-bottom:8px;display:flex;gap:12px;align-items:baseline}
+    .setup .num{color:var(--magenta);font-size:1.3em}
+    .setup .stage{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:15px;margin-bottom:10px}
+    .setup .txt p{font-size:17px;margin:0}
+    @media(max-width:700px){
+      .setup,.setup:nth-child(even){grid-template-columns:1fr}
+      .setup:nth-child(even) .ph{order:0}
+      .setup .ph{min-height:260px}
+    }
     .updated-top{color:var(--muted);font-family:var(--serif);font-style:italic;font-size:14px;margin-top:8px}
     .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--plum-soft)}
     .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -137,10 +155,39 @@
     <section>
       <div class="eyebrow" data-k="liveLabel"></div>
       <h2 data-k="setupsLabel"></h2>
+      <p class="setup-intro" data-k="setupsIntro"></p>
+      <div class="formula"><span class="chip base">FRÉ solo</span><span class="chip" data-k="chipDance"></span><span class="chip" data-k="chipDrums"></span></div>
       <div class="setups">
-        <div><span class="num">1</span><b data-k="s1"></b><span class="muted" data-k="s1d"></span></div>
-        <div><span class="num">2</span><b data-k="s2"></b><span class="muted" data-k="s2d"></span></div>
-        <div><span class="num">3</span><b data-k="s3"></b><span class="muted" data-k="s3d"></span></div>
+        <article class="setup">
+          <a class="ph" href="images/live-guitar-bw.jpeg" target="_blank"><img src="images/web/live-guitar-bw.webp" alt="FRÉ solo live" loading="lazy"></a>
+          <div class="txt">
+            <span class="tag" data-k="tagBase"></span>
+            <h3><span class="num">1</span><span data-k="s1"></span></h3>
+            <div class="stage" data-k="s1n"></div>
+            <p data-k="s1d"></p>
+          </div>
+        </article>
+        <article class="setup">
+          <a class="ph" href="images/failam-trio-bw.jpg" target="_blank"><img src="images/web/failam-trio-bw.webp" alt="FRÉ with dancers" loading="lazy"></a>
+          <div class="txt">
+            <span class="tag" data-k="chipDance"></span>
+            <h3><span class="num">2</span><span data-k="s2"></span></h3>
+            <div class="stage" data-k="s2n"></div>
+            <p data-k="s2d"></p>
+          </div>
+        </article>
+        <article class="setup">
+          <div class="ph two">
+            <a href="images/live-drums-stage.jpg" target="_blank"><img src="images/web/live-drums-stage.webp" alt="FRÉ with Jo Beyer on drums, live" loading="lazy"></a>
+            <a href="images/jo-beyer-duo-red.jpg" target="_blank"><img src="images/web/jo-beyer-duo-red.webp" alt="FRÉ and Jo Beyer" loading="lazy"></a>
+          </div>
+          <div class="txt">
+            <span class="tag" data-k="chipDrums"></span>
+            <h3><span class="num">3</span><span data-k="s3"></span></h3>
+            <div class="stage" data-k="s3n"></div>
+            <p data-k="s3d"></p>
+          </div>
+        </article>
       </div>
       <h2 style="margin-top:34px" data-k="teamLabel"></h2>
       <div class="rows">
@@ -208,10 +255,12 @@
         q2:"\"Je hebt echt een aanstekelijk enthousiasmerende EP uitgebracht, met belangrijke verhalen erin.\"",
         q3:"\"Dit is zo'n liedje wat je wilt blijven onthouden, heel bijzonder en boeiend.\"",
         liveLabel:"Live",
-        setupsLabel:"Drie live-setups",
-        s1:"FRÉ solo", s1d:"Zang, gitaar, synths en live-productie. Compact en flexibel, voor elk podium.",
-        s2:"FRÉ solo + dansers", s2d:"De solo-show met dansers Nanda van de Vorle &amp; Marc Beaugendre.",
-        s3:"FRÉ + Jo Beyer (live drums)", s3d:"Met live drums door Jo Beyer, optioneel aangevuld met dansers.",
+        setupsLabel:"Stel je show samen",
+        setupsIntro:"FRÉ solo is de basis. Dansers en live drums zijn uitbreidingen, los of samen te boeken.",
+        chipDance:"+ dansers", chipDrums:"+ live drums", tagBase:"Basis",
+        s1:"FRÉ solo", s1n:"1 persoon op het podium", s1d:"Zang, gitaar, synths en live-productie. Compact en flexibel, voor elk podium.",
+        s2:"FRÉ + dansers", s2n:"3 personen op het podium", s2d:"De solo-show met dansers Nanda van de Vorle &amp; Marc Beaugendre.",
+        s3:"FRÉ + Jo Beyer (live drums)", s3n:"2 personen op het podium · 4 met dansers", s3d:"Met live drums door Jo Beyer, optioneel aangevuld met dansers.",
         teamLabel:"Team",
         drumsLabel:"Drums:",
         instLabel:"Zang, instrumenten, live-productie, dans:", inst:"Frederike Berendsen",
@@ -235,10 +284,12 @@
         q2:"\"An infectious, energizing EP, with important stories in it.\"",
         q3:"\"One of those songs you want to remember — very special and captivating.\"",
         liveLabel:"Live",
-        setupsLabel:"Three live setups",
-        s1:"FRÉ solo", s1d:"Voice, guitar, synths and live production. Compact and flexible, for any stage.",
-        s2:"FRÉ solo + dancers", s2d:"The solo show with dancers Nanda van de Vorle &amp; Marc Beaugendre.",
-        s3:"FRÉ + Jo Beyer (live drums)", s3d:"With live drums by Jo Beyer, optionally with dancers as well.",
+        setupsLabel:"Build your show",
+        setupsIntro:"FRÉ solo is the base. Dancers and live drums are add-ons, bookable separately or together.",
+        chipDance:"+ dancers", chipDrums:"+ live drums", tagBase:"Base",
+        s1:"FRÉ solo", s1n:"1 person on stage", s1d:"Voice, guitar, synths and live production. Compact and flexible, for any stage.",
+        s2:"FRÉ + dancers", s2n:"3 people on stage", s2d:"The solo show with dancers Nanda van de Vorle &amp; Marc Beaugendre.",
+        s3:"FRÉ + Jo Beyer (live drums)", s3n:"2 people on stage · 4 with dancers", s3d:"With live drums by Jo Beyer, optionally with dancers as well.",
         teamLabel:"Team",
         drumsLabel:"Drums:",
         instLabel:"Voice, instruments, live production, dance:", inst:"Frederike Berendsen",
@@ -262,10 +313,12 @@
         q2:"\"Eine ansteckend begeisternde EP, mit wichtigen Geschichten.\"",
         q3:"\"Das ist so ein Lied, das man sich merken möchte — sehr besonders und fesselnd.\"",
         liveLabel:"Live",
-        setupsLabel:"Drei Live-Setups",
-        s1:"FRÉ solo", s1d:"Gesang, Gitarre, Synths und Live-Produktion. Kompakt und flexibel, für jede Bühne.",
-        s2:"FRÉ solo + Tänzer", s2d:"Die Solo-Show mit den Tänzern Nanda van de Vorle &amp; Marc Beaugendre.",
-        s3:"FRÉ + Jo Beyer (Live-Drums)", s3d:"Mit Live-Drums von Jo Beyer, optional auch mit Tänzern.",
+        setupsLabel:"Stell deine Show zusammen",
+        setupsIntro:"FRÉ solo ist die Basis. Tänzer und Live-Drums sind Add-ons, einzeln oder zusammen buchbar.",
+        chipDance:"+ Tänzer", chipDrums:"+ Live-Drums", tagBase:"Basis",
+        s1:"FRÉ solo", s1n:"1 Person auf der Bühne", s1d:"Gesang, Gitarre, Synths und Live-Produktion. Kompakt und flexibel, für jede Bühne.",
+        s2:"FRÉ + Tänzer", s2n:"3 Personen auf der Bühne", s2d:"Die Solo-Show mit den Tänzern Nanda van de Vorle &amp; Marc Beaugendre.",
+        s3:"FRÉ + Jo Beyer (Live-Drums)", s3n:"2 Personen auf der Bühne · 4 mit Tänzern", s3d:"Mit Live-Drums von Jo Beyer, optional auch mit Tänzern.",
         teamLabel:"Team",
         drumsLabel:"Drums:",
         instLabel:"Gesang, Instrumente, Live-Produktion, Tanz:", inst:"Frederike Berendsen",
@@ -296,7 +349,7 @@
     (function(){
       var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold:0.12, rootMargin:'0px 0px -6% 0px' });
       document.querySelectorAll('section').forEach(function(sec){
-        var items = Array.prototype.slice.call(sec.querySelectorAll('.eyebrow, h2, p, .quote, .rows > div, .setups > div, .grid a, .dl a'));
+        var items = Array.prototype.slice.call(sec.querySelectorAll('.eyebrow, h2, p, .quote, .rows > div, .setup, .formula, .grid a, .dl a'));
         items = items.filter(function(el){ return !items.some(function(o){ return o!==el && o.contains(el); }); });
         items.forEach(function(el,i){ el.classList.add('reveal'); el.style.transitionDelay = ((i%6)*0.06)+'s'; io.observe(el); });
       });
