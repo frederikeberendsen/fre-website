@@ -41,6 +41,8 @@
     .setup .num{color:var(--magenta);font-size:1.3em}
     .setup .stage{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:15px;margin-bottom:10px}
     .setup .txt p{font-size:17px;margin:0}
+    .setup-video{grid-column:1/-1;padding:0 28px 26px}
+    .setup-video .video{border-radius:4px}
     @media(max-width:700px){
       .setup,.setup:nth-child(even){grid-template-columns:1fr}
       .setup:nth-child(even) .ph{order:0}
@@ -190,6 +192,10 @@
             <div class="stage" data-k="s3n"></div>
             <p data-k="s3d"></p>
           </div>
+          <div class="setup-video">
+            <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/1nRui8upE8o?rel=0" title="FRÉ + Jo Beyer live: Les Grandes Marches" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+            <p class="vcap" data-k="s3v"></p>
+          </div>
         </article>
       </div>
       <h2 style="margin-top:34px" data-k="teamLabel"></h2>
@@ -263,7 +269,7 @@
         chipDance:"+ dansers", chipDrums:"+ live drums", tagBase:"Basis",
         s1:"FRÉ solo", s1n:"1 persoon op het podium", s1d:"Zang, gitaar, synths en live-productie. Compact en flexibel, voor elk podium.",
         s2:"FRÉ + dansers", s2n:"3 personen op het podium", s2d:"De solo-show met dansers Nanda van de Vorle &amp; Marc Beaugendre.",
-        s3:"FRÉ + Jo Beyer (live drums)", s3n:"2 personen op het podium · 4 met dansers", s3d:"Met live drums door Jo Beyer, optioneel aangevuld met dansers.",
+        s3:"FRÉ + Jo Beyer (live drums)", s3n:"2 personen op het podium · 4 met dansers", s3d:"Met live drums door Jo Beyer, optioneel aangevuld met dansers.", s3v:"▶ Zo klinkt het: FRÉ + Jo Beyer live bij Les Grandes Marches",
         teamLabel:"Team",
         drumsLabel:"Drums:",
         instLabel:"Zang, instrumenten, live-productie, dans:", inst:"Frederike Berendsen",
@@ -292,7 +298,7 @@
         chipDance:"+ dancers", chipDrums:"+ live drums", tagBase:"Base",
         s1:"FRÉ solo", s1n:"1 person on stage", s1d:"Voice, guitar, synths and live production. Compact and flexible, for any stage.",
         s2:"FRÉ + dancers", s2n:"3 people on stage", s2d:"The solo show with dancers Nanda van de Vorle &amp; Marc Beaugendre.",
-        s3:"FRÉ + Jo Beyer (live drums)", s3n:"2 people on stage · 4 with dancers", s3d:"With live drums by Jo Beyer, optionally with dancers as well.",
+        s3:"FRÉ + Jo Beyer (live drums)", s3n:"2 people on stage · 4 with dancers", s3d:"With live drums by Jo Beyer, optionally with dancers as well.", s3v:"▶ How it sounds: FRÉ + Jo Beyer live at Les Grandes Marches",
         teamLabel:"Team",
         drumsLabel:"Drums:",
         instLabel:"Voice, instruments, live production, dance:", inst:"Frederike Berendsen",
@@ -321,7 +327,7 @@
         chipDance:"+ Tänzer", chipDrums:"+ Live-Drums", tagBase:"Basis",
         s1:"FRÉ solo", s1n:"1 Person auf der Bühne", s1d:"Gesang, Gitarre, Synths und Live-Produktion. Kompakt und flexibel, für jede Bühne.",
         s2:"FRÉ + Tänzer", s2n:"3 Personen auf der Bühne", s2d:"Die Solo-Show mit den Tänzern Nanda van de Vorle &amp; Marc Beaugendre.",
-        s3:"FRÉ + Jo Beyer (Live-Drums)", s3n:"2 Personen auf der Bühne · 4 mit Tänzern", s3d:"Mit Live-Drums von Jo Beyer, optional auch mit Tänzern.",
+        s3:"FRÉ + Jo Beyer (Live-Drums)", s3n:"2 Personen auf der Bühne · 4 mit Tänzern", s3d:"Mit Live-Drums von Jo Beyer, optional auch mit Tänzern.", s3v:"▶ So klingt es: FRÉ + Jo Beyer live bei Les Grandes Marches",
         teamLabel:"Team",
         drumsLabel:"Drums:",
         instLabel:"Gesang, Instrumente, Live-Produktion, Tanz:", inst:"Frederike Berendsen",
