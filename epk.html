@@ -43,6 +43,8 @@
     .setup .txt p{font-size:17px;margin:0}
     .setup-video{grid-column:1/-1;padding:0 28px 26px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
     @media(max-width:700px){.setup-video{grid-template-columns:1fr}}
+    .setup-video.one{grid-template-columns:1fr}
+    .setup-video{order:3}
     .setup-video .video{border-radius:4px}
     @media(max-width:700px){
       .setup,.setup:nth-child(even){grid-template-columns:1fr}
@@ -62,7 +64,7 @@
     .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--plum-soft)}
     .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
     .vcap{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:15px;margin:10px 0 0}
-    .videos{display:grid;grid-template-columns:1fr 1fr;gap:26px 18px;margin-top:28px}
+    .videos{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 18px;margin-top:28px}
     @media(max-width:600px){.videos{grid-template-columns:1fr}}
     .listen{margin-top:8px;border-radius:12px;overflow:hidden}
     .listen{margin-bottom:12px}
@@ -80,6 +82,7 @@
     .quotes{display:grid;gap:18px;grid-template-columns:1fr 1fr;margin-top:8px}
     .quote{background:var(--plum-soft);border:1px solid var(--line);border-radius:6px;padding:20px}
     .quote p{font-family:var(--serif);font-style:italic;font-size:18px;margin:0}
+    .quote span.qrole{display:inline;margin:0}
     .quote span{display:block;margin-top:10px;color:var(--gold);font-size:13px;font-family:var(--serif)}
     .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px}
     @media(max-width:820px){.grid{grid-template-columns:repeat(3,1fr)}}
@@ -146,6 +149,7 @@
         <div class="quote"><p data-k="q1"></p><span>— Menno Visser · Radio 2 / 3FM</span></div>
         <div class="quote"><p data-k="q2"></p><span>— Hijlco Span · Radio 5</span></div>
         <div class="quote"><p data-k="q3"></p><span>— Frits Spits · Radio 1</span></div>
+        <div class="quote"><p data-k="q4"></p><span>— Maartje Bregman · <span class="qrole" data-k="q4role"></span></span></div>
       </div>
     </section>
 
@@ -156,7 +160,6 @@
       <p class="vcap" data-k="vMain"></p>
       <div class="videos">
         <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/DSqFpCkhK_Y?rel=0" title="FRÉ - GRAND (live)" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vGrand"></p></div>
-        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/zCJ-32j26ho?rel=0" title="FRÉ Live @ Tolhuistuin" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vTolhuis"></p></div>
         <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/NpwbjDOPL8g?rel=0" title="FRÉ over Music Declares Emergency" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vSpeech"></p></div>
         <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/K04pS7x5uLg?rel=0" title="Stepping Into The Arena - A Portrait" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vPortrait"></p></div>
       </div>
@@ -182,17 +185,22 @@
           <div class="txt">
             <span class="tag" data-k="tagBase"></span>
             <h3><span class="num">1</span><span data-k="s1"></span></h3>
-            <div class="stage" data-k="s1n"></div>
             <p data-k="s1d"></p>
           </div>
         </article>
         <article class="setup">
-          <a class="ph" href="images/failam-trio-bw.jpg" target="_blank"><img src="images/web/failam-trio-bw.webp" alt="FRÉ with dancers" loading="lazy"></a>
+          <div class="ph two">
+            <a href="images/failam-trio-bw.jpg" target="_blank"><img src="images/web/failam-trio-bw.webp" alt="FRÉ with dancers" loading="lazy"></a>
+            <a href="images/failam-dance-bw.jpg" target="_blank"><img src="images/web/failam-dance-bw.webp" alt="FRÉ with dancers Nanda van de Vorle and Marc Beaugendre" loading="lazy"></a>
+          </div>
           <div class="txt">
             <span class="tag" data-k="chipDance"></span>
             <h3><span class="num">2</span><span data-k="s2"></span></h3>
-            <div class="stage" data-k="s2n"></div>
             <p data-k="s2d"></p>
+          </div>
+          <div class="setup-video one">
+            <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/zCJ-32j26ho?rel=0" title="FRÉ Live @ Tolhuistuin" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+            <p class="vcap" data-k="vTolhuis"></p></div>
           </div>
         </article>
         <article class="setup">
@@ -203,7 +211,6 @@
           <div class="txt">
             <span class="tag" data-k="chipDrums"></span>
             <h3><span class="num">3</span><span data-k="s3"></span></h3>
-            <div class="stage" data-k="s3n"></div>
             <p data-k="s3d"></p>
           </div>
           <div class="setup-video">
@@ -280,13 +287,14 @@
         q1:"\"Afgelopen donderdag liet ik mij verrassen door FRÉ… Het was gewoon écht heel goed!\"",
         q2:"\"Je hebt echt een aanstekelijk enthousiasmerende EP uitgebracht, met belangrijke verhalen erin.\"",
         q3:"\"Dit is zo'n liedje wat je wilt blijven onthouden, heel bijzonder en boeiend.\"",
+        q4:"\"FRÉ maakt van muziek een verhaal, en haar verhaal klinkt als muziek. (…) Mega waardevolle toevoeging aan elk event!\"", q4role:"spreker &amp; schrijver",
         liveLabel:"Live",
         setupsLabel:"Stel je show samen",
         setupsIntro:"FRÉ solo is de basis. Dansers en live drums zijn uitbreidingen, los of samen te boeken.",
         chipDance:"+ dansers", chipDrums:"+ live drums", tagBase:"Basis",
-        s1:"FRÉ solo", s1n:"1 persoon op het podium", s1d:"Zang, gitaar, synths en live-productie. Compact en flexibel, voor elk podium.",
-        s2:"FRÉ + dansers", s2n:"3 personen op het podium", s2d:"De solo-show met dansers Nanda van de Vorle &amp; Marc Beaugendre.",
-        s3:"FRÉ + Jo Beyer (live drums)", s3n:"2 personen op het podium · 4 met dansers", s3d:"Met live drums door Jo Beyer, optioneel aangevuld met dansers.", s3v:"▶ Live bij Les Grandes Marches", s3v2:"▶ Live in MTC Club, Keulen",
+        s1:"FRÉ solo", s1d:"Zang, gitaar, synths en live-productie. Compact en flexibel, voor elk podium.",
+        s2:"FRÉ + dansers", s2d:"De solo-show met dansers Nanda van de Vorle &amp; Marc Beaugendre.",
+        s3:"FRÉ + Jo Beyer (live drums)", s3d:"Met live drums door Jo Beyer, optioneel aangevuld met dansers.", s3v:"▶ Live bij Les Grandes Marches", s3v2:"▶ Live in MTC Club, Keulen",
         teamLabel:"Team",
         drumsLabel:"Drums:",
         instLabel:"Zang, instrumenten, live-productie, dans:", inst:"Frederike Berendsen",
@@ -294,7 +302,7 @@
         photosLabel:"Persfoto's", photosNote:"Klik om te openen / downloaden. Foto's: Philine van den Hul · live: Fai Lam Photography.", photosAll:"→ Alle persfoto's downloaden (Google Drive)",
         downloadsLabel:"Downloads",
         riderSolo:"Tech & Hospitality Rider (solo)", riderDancers:"Tech & Hospitality Rider (met dansers)", conduct:"Code of Conduct",
-        videoLabel:"Video", vMain:"Wie de Toekomst Ziet (slotlied Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"Live in de Tolhuistuin, Amsterdam", vSpeech:"Speech over Music Declares Emergency, Top van Onderop (2024)", vPortrait:"Stepping Into the Arena: een portret (2020)",
+        videoLabel:"Video", vMain:"Wie de Toekomst Ziet (slotlied Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"▶ Live in de Tolhuistuin, Amsterdam", vSpeech:"Speech over Music Declares Emergency, Top van Onderop (2024)", vPortrait:"Stepping Into the Arena: een portret (2020)",
         listenLabel:"Luister",
         contactLabel:"Contact & boeking", mgmtLabel:"Management & booking:",
         back:"← terug naar FRÉ", updated:"Laatst bijgewerkt: 31 oktober 2026"
@@ -310,13 +318,14 @@
         q1:"\"Pleasantly surprised by FRÉ at her release concert — it was just REALLY good!\"",
         q2:"\"An infectious, energizing EP, with important stories in it.\"",
         q3:"\"One of those songs you want to remember — very special and captivating.\"",
+        q4:"\"FRÉ turns music into a story, and her story sounds like music. (…) A hugely valuable addition to any event!\"", q4role:"speaker &amp; writer",
         liveLabel:"Live",
         setupsLabel:"Build your show",
         setupsIntro:"FRÉ solo is the base. Dancers and live drums are add-ons, bookable separately or together.",
         chipDance:"+ dancers", chipDrums:"+ live drums", tagBase:"Base",
-        s1:"FRÉ solo", s1n:"1 person on stage", s1d:"Voice, guitar, synths and live production. Compact and flexible, for any stage.",
-        s2:"FRÉ + dancers", s2n:"3 people on stage", s2d:"The solo show with dancers Nanda van de Vorle &amp; Marc Beaugendre.",
-        s3:"FRÉ + Jo Beyer (live drums)", s3n:"2 people on stage · 4 with dancers", s3d:"With live drums by Jo Beyer, optionally with dancers as well.", s3v:"▶ Live at Les Grandes Marches", s3v2:"▶ Live at MTC Club, Cologne",
+        s1:"FRÉ solo", s1d:"Voice, guitar, synths and live production. Compact and flexible, for any stage.",
+        s2:"FRÉ + dancers", s2d:"The solo show with dancers Nanda van de Vorle &amp; Marc Beaugendre.",
+        s3:"FRÉ + Jo Beyer (live drums)", s3d:"With live drums by Jo Beyer, optionally with dancers as well.", s3v:"▶ Live at Les Grandes Marches", s3v2:"▶ Live at MTC Club, Cologne",
         teamLabel:"Team",
         drumsLabel:"Drums:",
         instLabel:"Voice, instruments, live production, dance:", inst:"Frederike Berendsen",
@@ -324,7 +333,7 @@
         photosLabel:"Press photos", photosNote:"Click to open / download. Photos: Philine van den Hul · live: Fai Lam Photography.", photosAll:"→ Download all press photos (Google Drive)",
         downloadsLabel:"Downloads",
         riderSolo:"Tech & Hospitality Rider (solo)", riderDancers:"Tech & Hospitality Rider (with dancers)", conduct:"Code of Conduct",
-        videoLabel:"Video", vMain:"Wie de Toekomst Ziet (closing song, Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"Live at Tolhuistuin, Amsterdam", vSpeech:"Speech on Music Declares Emergency, Top van Onderop (2024, Dutch)", vPortrait:"Stepping Into the Arena: a portrait (2020)",
+        videoLabel:"Video", vMain:"Wie de Toekomst Ziet (closing song, Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"▶ Live at Tolhuistuin, Amsterdam", vSpeech:"Speech on Music Declares Emergency, Top van Onderop (2024, Dutch)", vPortrait:"Stepping Into the Arena: a portrait (2020)",
         listenLabel:"Listen",
         contactLabel:"Contact & booking", mgmtLabel:"Management & booking:",
         back:"← back to FRÉ", updated:"Last updated: 31 October 2026"
@@ -340,13 +349,14 @@
         q1:"\"Letzten Donnerstag ließ ich mich von FRÉ überraschen — es war einfach richtig gut!\"",
         q2:"\"Eine ansteckend begeisternde EP, mit wichtigen Geschichten.\"",
         q3:"\"Das ist so ein Lied, das man sich merken möchte — sehr besonders und fesselnd.\"",
+        q4:"\"FRÉ macht aus Musik eine Geschichte, und ihre Geschichte klingt wie Musik. (…) Eine enorm wertvolle Bereicherung für jedes Event!\"", q4role:"Speakerin &amp; Autorin",
         liveLabel:"Live",
         setupsLabel:"Stell deine Show zusammen",
         setupsIntro:"FRÉ solo ist die Basis. Tänzer und Live-Drums sind Add-ons, einzeln oder zusammen buchbar.",
         chipDance:"+ Tänzer", chipDrums:"+ Live-Drums", tagBase:"Basis",
-        s1:"FRÉ solo", s1n:"1 Person auf der Bühne", s1d:"Gesang, Gitarre, Synths und Live-Produktion. Kompakt und flexibel, für jede Bühne.",
-        s2:"FRÉ + Tänzer", s2n:"3 Personen auf der Bühne", s2d:"Die Solo-Show mit den Tänzern Nanda van de Vorle &amp; Marc Beaugendre.",
-        s3:"FRÉ + Jo Beyer (Live-Drums)", s3n:"2 Personen auf der Bühne · 4 mit Tänzern", s3d:"Mit Live-Drums von Jo Beyer, optional auch mit Tänzern.", s3v:"▶ Live bei Les Grandes Marches", s3v2:"▶ Live im MTC Club, Köln",
+        s1:"FRÉ solo", s1d:"Gesang, Gitarre, Synths und Live-Produktion. Kompakt und flexibel, für jede Bühne.",
+        s2:"FRÉ + Tänzer", s2d:"Die Solo-Show mit den Tänzern Nanda van de Vorle &amp; Marc Beaugendre.",
+        s3:"FRÉ + Jo Beyer (Live-Drums)", s3d:"Mit Live-Drums von Jo Beyer, optional auch mit Tänzern.", s3v:"▶ Live bei Les Grandes Marches", s3v2:"▶ Live im MTC Club, Köln",
         teamLabel:"Team",
         drumsLabel:"Drums:",
         instLabel:"Gesang, Instrumente, Live-Produktion, Tanz:", inst:"Frederike Berendsen",
@@ -354,7 +364,7 @@
         photosLabel:"Pressefotos", photosNote:"Zum Öffnen / Herunterladen klicken. Fotos: Philine van den Hul · live: Fai Lam Photography.", photosAll:"→ Alle Pressefotos herunterladen (Google Drive)",
         downloadsLabel:"Downloads",
         riderSolo:"Tech & Hospitality Rider (solo)", riderDancers:"Tech & Hospitality Rider (mit Tänzern)", conduct:"Code of Conduct",
-        videoLabel:"Video", vMain:"Wie de Toekomst Ziet (Schlusslied, Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"Live in der Tolhuistuin, Amsterdam", vSpeech:"Rede über Music Declares Emergency, Top van Onderop (2024, Niederländisch)", vPortrait:"Stepping Into the Arena: ein Porträt (2020)",
+        videoLabel:"Video", vMain:"Wie de Toekomst Ziet (Schlusslied, Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"▶ Live in der Tolhuistuin, Amsterdam", vSpeech:"Rede über Music Declares Emergency, Top van Onderop (2024, Niederländisch)", vPortrait:"Stepping Into the Arena: ein Porträt (2020)",
         listenLabel:"Hören",
         contactLabel:"Kontakt & Booking", mgmtLabel:"Management & Booking:",
         back:"← zurück zu FRÉ", updated:"Zuletzt aktualisiert: 31. Oktober 2026"
