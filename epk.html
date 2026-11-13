@@ -46,7 +46,9 @@
     .setup-video.one{grid-template-columns:1fr}
     .setup-video{order:3}
     .setup-video .video{border-radius:4px}
-    .setup-video img.wide{width:100%;height:440px;object-fit:cover;object-position:center 62%;display:block;border-radius:4px}
+    .setup-photos{grid-column:1/-1;order:3;padding:0 28px 26px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .setup-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:4px}
+    @media(max-width:520px){.setup-photos{gap:8px;padding:0 16px 20px}}
     @media(max-width:700px){
       .setup,.setup:nth-child(even){grid-template-columns:1fr}
       .setup:nth-child(even) .ph{order:0}
@@ -186,8 +188,10 @@
             <h3><span data-k="sMain"></span></h3>
             <p data-k="sMainD"></p>
           </div>
-          <div class="setup-video one">
-            <a href="images/live-drums-stage.jpg" target="_blank"><img class="wide" src="images/web/live-drums-stage.webp" alt="FRÉ live with Jo Beyer on drums" loading="lazy"></a>
+          <div class="setup-photos">
+            <a href="images/live-drums-stage.jpg" target="_blank"><img src="images/web/live-drums-stage.webp" alt="FRÉ live with Jo Beyer on drums" loading="lazy"></a>
+            <a href="images/live-jo-drums.jpg" target="_blank"><img src="images/web/live-jo-drums.webp" alt="Jo Beyer on drums" loading="lazy"></a>
+            <a href="images/live-vocals-blue.jpg" target="_blank"><img src="images/web/live-vocals-blue.webp" alt="FRÉ live" loading="lazy"></a>
           </div>
         </article>
         <article class="setup">
