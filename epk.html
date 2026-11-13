@@ -60,8 +60,9 @@
     .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--plum-soft)}
     .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
     .vcap{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:15px;margin:10px 0 0}
+    .videos.two{grid-template-columns:1fr 1fr}
     .videos{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 18px;margin-top:28px}
-    @media(max-width:600px){.videos{grid-template-columns:1fr}}
+    @media(max-width:600px){.videos,.videos.two{grid-template-columns:1fr}}
     .listen{margin-top:8px;border-radius:12px;overflow:hidden}
     .listen{margin-bottom:12px}
     .listen iframe{display:block;width:100%;height:152px;border:0}
@@ -125,6 +126,25 @@
 
   <div class="wrap">
 
+    <!-- VIDEO -->
+    <section>
+      <div class="eyebrow" data-k="videoLabel"></div>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/heApracr0-w?rel=0" title="FRÉ - Wie de Toekomst Ziet" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+      <p class="vcap" data-k="vMain"></p>
+      <div class="videos two">
+        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/1nRui8upE8o?rel=0" title="FRÉ live with Jo Beyer on drums: Les Grandes Marches" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vLgm"></p></div>
+        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/bdEEglqjyTs?rel=0&start=82" title="FRÉ live at MTC Club Cologne" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vMtc"></p></div>
+      </div>
+    </section>
+
+    <!-- LISTEN -->
+    <section>
+      <div class="eyebrow" data-k="listenLabel"></div>
+      <p class="muted" data-k="listenNote"></p>
+      <div class="listen"><iframe src="https://open.spotify.com/embed/track/00SfmiRMJvMivchHBhaeVb?utm_source=generator&theme=0" title="FRÉ - Still Shining" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+      <div class="listen"><iframe src="https://open.spotify.com/embed/track/0RMGrGd3131pZkzpoDL5Dt?utm_source=generator&theme=0" title="FRÉ - Vluchten" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+    </section>
+
     <!-- BIO -->
     <section>
       <div class="eyebrow" data-k="bioLabel"></div>
@@ -149,39 +169,21 @@
       </div>
     </section>
 
-    <!-- VIDEO -->
-    <section>
-      <div class="eyebrow" data-k="videoLabel"></div>
-      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/heApracr0-w?rel=0" title="FRÉ - Wie de Toekomst Ziet" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
-      <p class="vcap" data-k="vMain"></p>
-      <div class="videos">
-        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/DSqFpCkhK_Y?rel=0" title="FRÉ - GRAND (live)" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vGrand"></p></div>
-        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/NpwbjDOPL8g?rel=0" title="FRÉ over Music Declares Emergency" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vSpeech"></p></div>
-        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/K04pS7x5uLg?rel=0" title="Stepping Into The Arena - A Portrait" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vPortrait"></p></div>
-      </div>
-    </section>
-
-    <!-- LISTEN -->
-    <section>
-      <div class="eyebrow" data-k="listenLabel"></div>
-      <div class="listen"><iframe src="https://open.spotify.com/embed/track/0RMGrGd3131pZkzpoDL5Dt?utm_source=generator&theme=0" title="FRÉ - Vluchten" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture"></iframe></div>
-      <div class="listen"><iframe src="https://open.spotify.com/embed/track/1F10OG3Y5gyUp6naFTgGFo?utm_source=generator&theme=0" title="FRÉ - Wie de Toekomst Ziet" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture"></iframe></div>
-      <div class="listen"><iframe src="https://open.spotify.com/embed/track/00SfmiRMJvMivchHBhaeVb?utm_source=generator&theme=0" title="FRÉ - Still Shining" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture"></iframe></div>
-    </section>
-
     <!-- LIVE & TEAM -->
     <section>
       <div class="eyebrow" data-k="liveLabel"></div>
-      <h2 data-k="setupsLabel"></h2>
-      <p class="setup-intro" data-k="setupsIntro"></p>
-      <div class="formula"><span class="chip base">FRÉ solo</span><span class="chip" data-k="chipDance"></span><span class="chip" data-k="chipDrums"></span></div>
+      <h2 data-k="liveTitle"></h2>
+      <p class="setup-intro" data-k="liveIntro"></p>
       <div class="setups">
         <article class="setup">
-          <a class="ph" href="images/live-guitar-bw.jpeg" target="_blank"><img src="images/web/live-guitar-bw.webp" alt="FRÉ solo live" loading="lazy"></a>
+          <div class="ph two">
+            <a href="images/live-drums-stage.jpg" target="_blank"><img src="images/web/live-drums-stage.webp" alt="FRÉ live with Jo Beyer on drums" loading="lazy"></a>
+            <a href="images/jo-beyer-duo-red.jpg" target="_blank"><img src="images/web/jo-beyer-duo-red.webp" alt="FRÉ and her drummer Jo Beyer" loading="lazy"></a>
+          </div>
           <div class="txt">
-            <span class="tag" data-k="tagBase"></span>
-            <h3><span class="num">1</span><span data-k="s1"></span></h3>
-            <p data-k="s1d"></p>
+            <span class="tag" data-k="tagMain"></span>
+            <h3><span data-k="sMain"></span></h3>
+            <p data-k="sMainD"></p>
           </div>
         </article>
         <article class="setup">
@@ -190,30 +192,13 @@
             <a href="images/failam-dance-bw.jpg" target="_blank"><img src="images/web/failam-dance-bw.webp" alt="FRÉ with dancers Nanda van de Vorle and Marc Beaugendre" loading="lazy"></a>
           </div>
           <div class="txt">
-            <span class="tag" data-k="chipDance"></span>
-            <h3><span class="num">2</span><span data-k="s2"></span></h3>
-            <p data-k="s2d"></p>
+            <span class="tag" data-k="tagExtra"></span>
+            <h3><span data-k="sExtra"></span></h3>
+            <p data-k="sExtraD"></p>
           </div>
           <div class="setup-video one">
             <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/zCJ-32j26ho?rel=0" title="FRÉ Live @ Tolhuistuin" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
             <p class="vcap" data-k="vTolhuis"></p></div>
-          </div>
-        </article>
-        <article class="setup">
-          <div class="ph two">
-            <a href="images/live-drums-stage.jpg" target="_blank"><img src="images/web/live-drums-stage.webp" alt="FRÉ with Jo Beyer on drums, live" loading="lazy"></a>
-            <a href="images/jo-beyer-duo-red.jpg" target="_blank"><img src="images/web/jo-beyer-duo-red.webp" alt="FRÉ and Jo Beyer" loading="lazy"></a>
-          </div>
-          <div class="txt">
-            <span class="tag" data-k="chipDrums"></span>
-            <h3><span class="num">3</span><span data-k="s3"></span></h3>
-            <p data-k="s3d"></p>
-          </div>
-          <div class="setup-video">
-            <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/1nRui8upE8o?rel=0" title="FRÉ + Jo Beyer live: Les Grandes Marches" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
-            <p class="vcap" data-k="s3v"></p></div>
-            <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/bdEEglqjyTs?rel=0&start=82" title="FRÉ + Jo Beyer live: MTC Club Cologne" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
-            <p class="vcap" data-k="s3v2"></p></div>
           </div>
         </article>
       </div>
@@ -250,9 +235,8 @@
     <section>
       <div class="eyebrow" data-k="downloadsLabel"></div>
       <div class="dl">
-        <a href="/downloads/fre-rider-solo.pdf" target="_blank" rel="noopener" data-k="riderSolo"></a>
-        <a href="/downloads/fre-rider-dancers.pdf" target="_blank" rel="noopener" data-k="riderDancers"></a>
         <a href="/downloads/fre-rider-live-drums.pdf" target="_blank" rel="noopener" data-k="riderDrums"></a>
+        <a href="/downloads/fre-rider-dancers.pdf" target="_blank" rel="noopener" data-k="riderDancers"></a>
         <a href="/downloads/codeofconduct.pdf" target="_blank" rel="noopener" data-k="conduct"></a>
       </div>
     </section>
@@ -274,6 +258,7 @@
   <script>
     const I = {
       nl:{
+        vLgm:"▶ Live met Jo Beyer op drums: Les Grandes Marches", vMtc:"▶ Live in MTC Club, Keulen", listenNote:"FRÉ zingt in het Engels én in het Nederlands.", liveTitle:"FRÉ live, met drums", liveIntro:"Live speelt FRÉ met haar drummer Jo Beyer: zang, synths en live-productie, met echte drums erbij. Dansers zijn te boeken als extra optie.", tagMain:"Live-setup", sMain:"FRÉ met Jo Beyer op drums", sMainD:"Een energieke show voor clubs en festivals. FRÉ en Jo werken met eigen in-ear monitoring; alle techniek staat in de rider.", tagExtra:"Extra optie", sExtra:"+ dansers", sExtraD:"Voeg dansers Nanda van de Vorle &amp; Marc Beaugendre toe aan de show.",
         kicker:"Press Kit", bioLabel:"Bio",
        
         shortBioLabel:"Korte bio",
@@ -302,9 +287,10 @@
         videoLabel:"Video", vMain:"Wie de Toekomst Ziet (slotlied Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"▶ Live in de Tolhuistuin, Amsterdam", vSpeech:"Speech over Music Declares Emergency, Top van Onderop (2024)", vPortrait:"Stepping Into the Arena: een portret (2020)",
         listenLabel:"Luister",
         contactLabel:"Contact & boeking", mgmtLabel:"Management & booking:",
-        back:"← terug naar FRÉ", updated:"Laatst bijgewerkt: 31 oktober 2026"
+        back:"← terug naar FRÉ", updated:"Laatst bijgewerkt: 13 november 2026"
       },
       en:{
+        vLgm:"▶ Live with Jo Beyer on drums: Les Grandes Marches", vMtc:"▶ Live at MTC Club, Cologne", listenNote:"FRÉ sings in English and in Dutch.", liveTitle:"FRÉ live, with drums", liveIntro:"Live, FRÉ plays with her drummer Jo Beyer: vocals, synths and live production, with real drums. Dancers can be added as an extra option.", tagMain:"Live setup", sMain:"FRÉ with Jo Beyer on drums", sMainD:"An energetic show for clubs and festivals. FRÉ and Jo run their own in-ear monitoring; all tech details are in the rider.", tagExtra:"Extra option", sExtra:"+ dancers", sExtraD:"Add dancers Nanda van de Vorle &amp; Marc Beaugendre to the show.",
         kicker:"Press Kit", bioLabel:"Bio",
        
         shortBioLabel:"Short bio",
@@ -333,9 +319,10 @@
         videoLabel:"Video", vMain:"Wie de Toekomst Ziet (closing song, Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"▶ Live at Tolhuistuin, Amsterdam", vSpeech:"Speech on Music Declares Emergency, Top van Onderop (2024, Dutch)", vPortrait:"Stepping Into the Arena: a portrait (2020)",
         listenLabel:"Listen",
         contactLabel:"Contact & booking", mgmtLabel:"Management & booking:",
-        back:"← back to FRÉ", updated:"Last updated: 31 October 2026"
+        back:"← back to FRÉ", updated:"Last updated: 13 November 2026"
       },
       de:{
+        vLgm:"▶ Live mit Jo Beyer an den Drums: Les Grandes Marches", vMtc:"▶ Live im MTC Club, Köln", listenNote:"FRÉ singt auf Englisch und auf Niederländisch.", liveTitle:"FRÉ live, mit Drums", liveIntro:"Live spielt FRÉ mit ihrem Drummer Jo Beyer: Gesang, Synths und Live-Produktion, mit echten Drums. Tänzer können als Extra-Option dazugebucht werden.", tagMain:"Live-Setup", sMain:"FRÉ mit Jo Beyer an den Drums", sMainD:"Eine energiegeladene Show für Clubs und Festivals. FRÉ und Jo nutzen ihr eigenes In-Ear-Monitoring; alle technischen Details stehen im Rider.", tagExtra:"Extra-Option", sExtra:"+ Tänzer", sExtraD:"Ergänze die Show um die Tänzer Nanda van de Vorle &amp; Marc Beaugendre.",
         kicker:"Pressemappe", bioLabel:"Bio",
        
         shortBioLabel:"Kurzbio",
@@ -364,7 +351,7 @@
         videoLabel:"Video", vMain:"Wie de Toekomst Ziet (Schlusslied, Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"▶ Live in der Tolhuistuin, Amsterdam", vSpeech:"Rede über Music Declares Emergency, Top van Onderop (2024, Niederländisch)", vPortrait:"Stepping Into the Arena: ein Porträt (2020)",
         listenLabel:"Hören",
         contactLabel:"Kontakt & Booking", mgmtLabel:"Management & Booking:",
-        back:"← zurück zu FRÉ", updated:"Zuletzt aktualisiert: 31. Oktober 2026"
+        back:"← zurück zu FRÉ", updated:"Zuletzt aktualisiert: 13. November 2026"
       }
     };
     function setLang(l){
@@ -372,7 +359,7 @@
       document.querySelectorAll('[data-k]').forEach(function(el){ el.innerHTML = I[l][el.dataset.k] || ''; });
       document.querySelectorAll('.lang-switch button').forEach(function(b){ b.classList.toggle('on', b.dataset.l===l); });
       try{ localStorage.setItem('epklang', l); }catch(e){}
-      try{ if(/^\/epk/.test(location.pathname)) history.replaceState(null, '', '/epk-' + l); }catch(e){}
+      try{ if(/^\/epk(-(nl|en|de))?(\.html)?$/.test(location.pathname)) history.replaceState(null, '', '/epk-' + l); }catch(e){}
     }
     document.querySelectorAll('.lang-switch button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.l); }); });
     // /epk-nl, /epk-en, /epk-de pick the language; plain /epk falls back to the last choice, then NL
@@ -384,7 +371,7 @@
     (function(){
       var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold:0.12, rootMargin:'0px 0px -6% 0px' });
       document.querySelectorAll('section').forEach(function(sec){
-        var items = Array.prototype.slice.call(sec.querySelectorAll('.eyebrow, h2, p, .quote, .rows > div, .setup, .formula, .grid a, .dl a'));
+        var items = Array.prototype.slice.call(sec.querySelectorAll('.eyebrow, h2, p, .quote, .rows > div, .setup, .grid a, .dl a'));
         items = items.filter(function(el){ return !items.some(function(o){ return o!==el && o.contains(el); }); });
         items.forEach(function(el,i){ el.classList.add('reveal'); el.style.transitionDelay = ((i%6)*0.06)+'s'; io.observe(el); });
       });
