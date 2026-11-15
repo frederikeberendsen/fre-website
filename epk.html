@@ -59,6 +59,7 @@
     .bio-head h2{margin:0}
     .bio-text p{max-width:none}
     .bio-text p:last-child{margin-bottom:0}
+    .keywords{font-family:var(--serif);color:var(--cream);font-size:clamp(17px,2.4vw,21px);margin:14px auto 0;max-width:640px;line-height:1.4}
     .updated-top{color:var(--muted);font-family:var(--serif);font-style:italic;font-size:14px;margin-top:8px}
     .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--plum-soft)}
     .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -114,12 +115,12 @@
     .quote{transition:transform .3s ease,border-color .3s ease}
     .quote:hover{transform:translateY(-3px);border-color:var(--gold)}
   </style>
-  <link rel="stylesheet" href="butterfly.css" />
 </head>
 <body>
   <header class="epk">
     <div class="logo">FRÉ</div>
     <div class="kicker" data-k="kicker"></div>
+    <div class="keywords" data-k="keywords"></div>
     <div class="updated-top" data-k="updated"></div>
     <div class="lang-switch">
       <button data-l="nl">NL</button>
@@ -133,11 +134,11 @@
     <!-- VIDEO -->
     <section>
       <div class="eyebrow" data-k="videoLabel"></div>
-      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/heApracr0-w?rel=0" title="FRÉ - Wie de Toekomst Ziet" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
-      <p class="vcap" data-k="vMain"></p>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/bdEEglqjyTs?rel=0&start=82" title="FRÉ live at MTC Club Cologne" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+      <p class="vcap" data-k="vMtc"></p>
       <div class="videos two">
         <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/1nRui8upE8o?rel=0" title="FRÉ live with Jo Beyer on drums: Les Grandes Marches" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vLgm"></p></div>
-        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/bdEEglqjyTs?rel=0&start=82" title="FRÉ live at MTC Club Cologne" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vMtc"></p></div>
+        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/heApracr0-w?rel=0" title="FRÉ - Wie de Toekomst Ziet" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vMain"></p></div>
       </div>
     </section>
 
@@ -147,30 +148,6 @@
       <p class="muted" data-k="listenNote"></p>
       <div class="listen"><iframe src="https://open.spotify.com/embed/track/00SfmiRMJvMivchHBhaeVb?utm_source=generator&theme=0" title="FRÉ - Still Shining" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture"></iframe></div>
       <div class="listen"><iframe src="https://open.spotify.com/embed/track/0RMGrGd3131pZkzpoDL5Dt?utm_source=generator&theme=0" title="FRÉ - Vluchten" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture"></iframe></div>
-    </section>
-
-    <!-- BIO -->
-    <section>
-      <div class="eyebrow" data-k="bioLabel"></div>
-      <div class="bio-box">
-        <div class="bio-head"><h2 data-k="shortBioLabel"></h2></div>
-        <div class="bio-text" id="shortBio" data-k="shortBio"></div>
-      </div>
-      <div class="bio-box">
-        <div class="bio-head"><h2 data-k="longBioLabel"></h2></div>
-        <div class="bio-text" id="longBio" data-k="longBio"></div>
-      </div>
-    </section>
-
-    <!-- PRESS -->
-    <section>
-      <div class="eyebrow" data-k="quotesLabel"></div>
-      <div class="quotes">
-        <div class="quote"><p data-k="q1"></p><span>Menno Visser · Radio 2 / 3FM</span></div>
-        <div class="quote"><p data-k="q2"></p><span>Hijlco Span · Radio 5</span></div>
-        <div class="quote"><p data-k="q3"></p><span>Frits Spits · Radio 1</span></div>
-        <div class="quote"><p data-k="q4"></p><span>Maartje Bregman · <span class="qrole" data-k="q4role"></span></span></div>
-      </div>
     </section>
 
     <!-- LIVE & TEAM -->
@@ -222,6 +199,30 @@
       </div>
     </section>
 
+    <!-- BIO -->
+    <section>
+      <div class="eyebrow" data-k="bioLabel"></div>
+      <div class="bio-box">
+        <div class="bio-head"><h2 data-k="shortBioLabel"></h2></div>
+        <div class="bio-text" id="shortBio" data-k="shortBio"></div>
+      </div>
+      <div class="bio-box">
+        <div class="bio-head"><h2 data-k="longBioLabel"></h2></div>
+        <div class="bio-text" id="longBio" data-k="longBio"></div>
+      </div>
+    </section>
+
+    <!-- PRESS -->
+    <section>
+      <div class="eyebrow" data-k="quotesLabel"></div>
+      <div class="quotes">
+        <div class="quote"><p data-k="q1"></p><span>Menno Visser · Radio 2 / 3FM</span></div>
+        <div class="quote"><p data-k="q2"></p><span>Hijlco Span · Radio 5</span></div>
+        <div class="quote"><p data-k="q3"></p><span>Frits Spits · Radio 1</span></div>
+        <div class="quote"><p data-k="q4"></p><span>Maartje Bregman · <span class="qrole" data-k="q4role"></span></span></div>
+      </div>
+    </section>
+
     <!-- PHOTOS -->
     <section>
       <div class="eyebrow" data-k="photosLabel"></div>
@@ -270,7 +271,7 @@
     const I = {
       nl:{
         vLgm:"▶ Live met Jo Beyer op drums: Les Grandes Marches", vMtc:"▶ Live in MTC Club, Keulen", listenNote:"FRÉ zingt in het Engels én in het Nederlands.", liveTitle:"FRÉ live, met drums", liveIntro:"Live speelt FRÉ met haar drummer Jo Beyer: zang, synths, elektrische gitaar en live-productie. Dansers zijn te boeken als extra optie.", tagMain:"Live-setup", sMain:"FRÉ met Jo Beyer op drums", sMainD:"Een energieke show voor clubs en festivals. FRÉ en Jo werken met eigen in-ear monitoring; alle techniek staat in de rider.", tagExtra:"Extra optie", sExtra:"+ dansers", sExtraD:"Voeg dansers Nanda van de Vorle &amp; Marc Beaugendre toe aan de show.",
-        kicker:"Press Kit", bioLabel:"Bio",
+        keywords:"Electropop · live drums &amp; synths · glitter · dans", kicker:"Press Kit", bioLabel:"Bio",
        
         shortBioLabel:"Korte bio",
         shortBio:"FRÉ zingt over de dingen in de wereld die haar hart breken, en toch loop je naar buiten met een hart dat lichter is, dapperder, en neuriet. Ze is een artiest die niet bang is om op volle kracht te stralen.",
@@ -298,11 +299,11 @@
         videoLabel:"Video", vMain:"Wie de Toekomst Ziet (slotlied Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"▶ Live in de Tolhuistuin, Amsterdam", pOdonien:"Live in Odonien, Keulen", vSpeech:"Speech over Music Declares Emergency, Top van Onderop (2024)", vPortrait:"Stepping Into the Arena: een portret (2020)",
         listenLabel:"Luister",
         contactLabel:"Contact & boeking", mgmtLabel:"Management:", bookLabel:"Booking:",
-        back:"← terug naar FRÉ", updated:"Laatst bijgewerkt: 13 november 2026"
+        back:"← terug naar FRÉ", updated:"Laatst bijgewerkt: 15 november 2026"
       },
       en:{
         vLgm:"▶ Live with Jo Beyer on drums: Les Grandes Marches", vMtc:"▶ Live at MTC Club, Cologne", listenNote:"FRÉ sings in English and in Dutch.", liveTitle:"FRÉ live, with drums", liveIntro:"Live, FRÉ plays with her drummer Jo Beyer: vocals, synths, electric guitar and live production. Dancers can be added as an extra option.", tagMain:"Live setup", sMain:"FRÉ with Jo Beyer on drums", sMainD:"An energetic show for clubs and festivals. FRÉ and Jo run their own in-ear monitoring; all tech details are in the rider.", tagExtra:"Extra option", sExtra:"+ dancers", sExtraD:"Add dancers Nanda van de Vorle &amp; Marc Beaugendre to the show.",
-        kicker:"Press Kit", bioLabel:"Bio",
+        keywords:"Electro-pop · live drums &amp; synths · glitter · dance", kicker:"Press Kit", bioLabel:"Bio",
        
         shortBioLabel:"Short bio",
         shortBio:"FRÉ sings about the things in the world that break her heart, and still you walk out with your heart lighter, braver, and humming. She&#8217;s an artist unafraid to shine at full voltage.",
@@ -330,11 +331,11 @@
         videoLabel:"Video", vMain:"Wie de Toekomst Ziet (closing song, Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"▶ Live at Tolhuistuin, Amsterdam", pOdonien:"Live in Odonien, Cologne", vSpeech:"Speech on Music Declares Emergency, Top van Onderop (2024, Dutch)", vPortrait:"Stepping Into the Arena: a portrait (2020)",
         listenLabel:"Listen",
         contactLabel:"Contact & booking", mgmtLabel:"Management:", bookLabel:"Booking:",
-        back:"← back to FRÉ", updated:"Last updated: 13 November 2026"
+        back:"← back to FRÉ", updated:"Last updated: 15 November 2026"
       },
       de:{
         vLgm:"▶ Live mit Jo Beyer an den Drums: Les Grandes Marches", vMtc:"▶ Live im MTC Club, Köln", listenNote:"FRÉ singt auf Englisch und auf Niederländisch.", liveTitle:"FRÉ live, mit Drums", liveIntro:"Live spielt FRÉ mit ihrem Drummer Jo Beyer: Gesang, Synths, E-Gitarre und Live-Produktion. Tänzer können als Extra-Option dazugebucht werden.", tagMain:"Live-Setup", sMain:"FRÉ mit Jo Beyer an den Drums", sMainD:"Eine energiegeladene Show für Clubs und Festivals. FRÉ und Jo nutzen ihr eigenes In-Ear-Monitoring; alle technischen Details stehen im Rider.", tagExtra:"Extra-Option", sExtra:"+ Tänzer", sExtraD:"Ergänze die Show um die Tänzer Nanda van de Vorle &amp; Marc Beaugendre.",
-        kicker:"Pressemappe", bioLabel:"Bio",
+        keywords:"Electro-Pop · Live-Drums &amp; Synths · Glitzer · Tanz", kicker:"Pressemappe", bioLabel:"Bio",
        
         shortBioLabel:"Kurzbio",
         shortBio:"FRÉ singt über die Dinge in der Welt, die ihr das Herz brechen, und trotzdem gehst du nach Hause mit einem Herzen, das leichter ist, mutiger, und summt. Sie ist eine Künstlerin, die keine Angst hat, mit voller Spannung zu leuchten.",
@@ -362,7 +363,7 @@
         videoLabel:"Video", vMain:"Wie de Toekomst Ziet (Schlusslied, Our Future on Earth)", vGrand:"GRAND (live)", vTolhuis:"▶ Live in der Tolhuistuin, Amsterdam", pOdonien:"Live im Odonien, Köln", vSpeech:"Rede über Music Declares Emergency, Top van Onderop (2024, Niederländisch)", vPortrait:"Stepping Into the Arena: ein Porträt (2020)",
         listenLabel:"Hören",
         contactLabel:"Kontakt & Booking", mgmtLabel:"Management:", bookLabel:"Booking:",
-        back:"← zurück zu FRÉ", updated:"Zuletzt aktualisiert: 13. November 2026"
+        back:"← zurück zu FRÉ", updated:"Zuletzt aktualisiert: 15. November 2026"
       }
     };
     function setLang(l){
@@ -393,6 +394,5 @@
       }
     })();
   </script>
-  <script src="butterfly.js"></script>
 </body>
 </html>
