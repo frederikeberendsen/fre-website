@@ -57,6 +57,8 @@
     .bio-box{background:var(--plum-soft);border:1px solid var(--line);border-radius:6px;padding:22px 26px;margin-top:18px}
     .bio-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:12px}
     .bio-head h2{margin:0}
+    .copy{margin-left:auto;background:none;border:0;padding:2px 0;cursor:pointer;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted);opacity:.55;transition:opacity .2s}
+    .copy:hover,.copy:focus-visible{opacity:1}
     .bio-text p{max-width:none}
     .bio-text p:last-child{margin-bottom:0}
     .keywords{font-family:var(--serif);color:var(--cream);font-size:clamp(17px,2.4vw,21px);margin:14px auto 0;max-width:640px;line-height:1.4}
@@ -134,10 +136,10 @@
     <!-- VIDEO -->
     <section>
       <div class="eyebrow" data-k="videoLabel"></div>
-      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/bdEEglqjyTs?rel=0&start=82" title="FRÉ live at MTC Club Cologne" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
-      <p class="vcap" data-k="vMtc"></p>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/1nRui8upE8o?rel=0" title="FRÉ live with Jo Beyer on drums: Les Grandes Marches" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+      <p class="vcap" data-k="vLgm"></p>
       <div class="videos two">
-        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/1nRui8upE8o?rel=0" title="FRÉ live with Jo Beyer on drums: Les Grandes Marches" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vLgm"></p></div>
+        <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/bdEEglqjyTs?rel=0&start=82" title="FRÉ live at MTC Club Cologne" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vMtc"></p></div>
         <div><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/heApracr0-w?rel=0" title="FRÉ - Wie de Toekomst Ziet" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p class="vcap" data-k="vMain"></p></div>
       </div>
     </section>
@@ -203,11 +205,11 @@
     <section>
       <div class="eyebrow" data-k="bioLabel"></div>
       <div class="bio-box">
-        <div class="bio-head"><h2 data-k="shortBioLabel"></h2></div>
+        <div class="bio-head"><h2 data-k="shortBioLabel"></h2><button class="copy" data-copy="shortBio" data-k="copy"></button></div>
         <div class="bio-text" id="shortBio" data-k="shortBio"></div>
       </div>
       <div class="bio-box">
-        <div class="bio-head"><h2 data-k="longBioLabel"></h2></div>
+        <div class="bio-head"><h2 data-k="longBioLabel"></h2><button class="copy" data-copy="longBio" data-k="copy"></button></div>
         <div class="bio-text" id="longBio" data-k="longBio"></div>
       </div>
     </section>
@@ -271,7 +273,7 @@
     const I = {
       nl:{
         vLgm:"▶ Live met Jo Beyer op drums: Les Grandes Marches", vMtc:"▶ Live in MTC Club, Keulen", listenNote:"FRÉ zingt in het Engels én in het Nederlands.", liveTitle:"FRÉ live, met drums", liveIntro:"Live speelt FRÉ met haar drummer Jo Beyer: zang, synths, elektrische gitaar en live-productie. Dansers zijn te boeken als extra optie.", tagMain:"Live-setup", sMain:"FRÉ met Jo Beyer op drums", sMainD:"Een energieke show voor clubs en festivals. FRÉ en Jo werken met eigen in-ear monitoring; alle techniek staat in de rider.", tagExtra:"Extra optie", sExtra:"+ dansers", sExtraD:"Voeg dansers Nanda van de Vorle &amp; Marc Beaugendre toe aan de show.",
-        keywords:"Electropop · live drums &amp; synths · glitter · dans", kicker:"Press Kit", bioLabel:"Bio",
+        copy:"kopiëren", copied:"gekopieerd", keywords:"Electropop · live drums &amp; synths · glitter · dans", kicker:"Press Kit", bioLabel:"Bio",
        
         shortBioLabel:"Korte bio",
         shortBio:"FRÉ zingt over de dingen in de wereld die haar hart breken, en toch loop je naar buiten met een hart dat lichter is, dapperder, en neuriet. Ze is een artiest die niet bang is om op volle kracht te stralen.",
@@ -303,7 +305,7 @@
       },
       en:{
         vLgm:"▶ Live with Jo Beyer on drums: Les Grandes Marches", vMtc:"▶ Live at MTC Club, Cologne", listenNote:"FRÉ sings in English and in Dutch.", liveTitle:"FRÉ live, with drums", liveIntro:"Live, FRÉ plays with her drummer Jo Beyer: vocals, synths, electric guitar and live production. Dancers can be added as an extra option.", tagMain:"Live setup", sMain:"FRÉ with Jo Beyer on drums", sMainD:"An energetic show for clubs and festivals. FRÉ and Jo run their own in-ear monitoring; all tech details are in the rider.", tagExtra:"Extra option", sExtra:"+ dancers", sExtraD:"Add dancers Nanda van de Vorle &amp; Marc Beaugendre to the show.",
-        keywords:"Electro-pop · live drums &amp; synths · glitter · dance", kicker:"Press Kit", bioLabel:"Bio",
+        copy:"copy", copied:"copied", keywords:"Electro-pop · live drums &amp; synths · glitter · dance", kicker:"Press Kit", bioLabel:"Bio",
        
         shortBioLabel:"Short bio",
         shortBio:"FRÉ sings about the things in the world that break her heart, and still you walk out with your heart lighter, braver, and humming. She&#8217;s an artist unafraid to shine at full voltage.",
@@ -335,7 +337,7 @@
       },
       de:{
         vLgm:"▶ Live mit Jo Beyer an den Drums: Les Grandes Marches", vMtc:"▶ Live im MTC Club, Köln", listenNote:"FRÉ singt auf Englisch und auf Niederländisch.", liveTitle:"FRÉ live, mit Drums", liveIntro:"Live spielt FRÉ mit ihrem Drummer Jo Beyer: Gesang, Synths, E-Gitarre und Live-Produktion. Tänzer können als Extra-Option dazugebucht werden.", tagMain:"Live-Setup", sMain:"FRÉ mit Jo Beyer an den Drums", sMainD:"Eine energiegeladene Show für Clubs und Festivals. FRÉ und Jo nutzen ihr eigenes In-Ear-Monitoring; alle technischen Details stehen im Rider.", tagExtra:"Extra-Option", sExtra:"+ Tänzer", sExtraD:"Ergänze die Show um die Tänzer Nanda van de Vorle &amp; Marc Beaugendre.",
-        keywords:"Electro-Pop · Live-Drums &amp; Synths · Glitzer · Tanz", kicker:"Pressemappe", bioLabel:"Bio",
+        copy:"kopieren", copied:"kopiert", keywords:"Electro-Pop · Live-Drums &amp; Synths · Glitzer · Tanz", kicker:"Pressemappe", bioLabel:"Bio",
        
         shortBioLabel:"Kurzbio",
         shortBio:"FRÉ singt über die Dinge in der Welt, die ihr das Herz brechen, und trotzdem gehst du nach Hause mit einem Herzen, das leichter ist, mutiger, und summt. Sie ist eine Künstlerin, die keine Angst hat, mit voller Spannung zu leuchten.",
@@ -393,6 +395,15 @@
         (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })();
       }
     })();
-  </script>
+  
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.dataset.copy);
+      var t=el.innerText.trim();
+      var done=function(){var l=(document.documentElement.lang||'nl').slice(0,2);var o=b.innerHTML;b.innerHTML=(I[l]||I.nl).copied;setTimeout(function(){b.innerHTML=o;},1600);};
+      if(navigator.clipboard){navigator.clipboard.writeText(t).then(done);}else{var r=document.createRange();r.selectNodeContents(el);var sel=getSelection();sel.removeAllRanges();sel.addRange(r);document.execCommand('copy');sel.removeAllRanges();done();}
+    });
+  });
+</script>
 </body>
 </html>
